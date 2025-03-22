@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Github } from "lucide-react";
 import Link from "next/link";
-import ButtonGithubStar from "@/components/ui/button-star-github";
+import ButtonGithubStar from "@/components/ui/Button-star-github";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,6 +24,7 @@ export default function Home() {
         className="animate-bounceSlow"
         width={363}
         height={361}
+        priority
       />
       
       {/* Título principal */}

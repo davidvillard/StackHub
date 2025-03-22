@@ -1,5 +1,5 @@
 // pages/_app.js
-import Layout from "@/components/layout";
+import Layout from "@/components/Layout";
 import SEO from "@/components/ui/Seo";
 import "@/styles/globals.css";
 

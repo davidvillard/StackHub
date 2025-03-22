@@ -1,16 +1,17 @@
 import { Home, MessageCircleQuestion, Sparkles } from "lucide-react";
 import categories from "@/data/categories";
 import Link from "next/link";
+import TitleSidebar from "./TitleSidebar";
 
 const Sidebar = () => {
   return (
 
     <aside className="w-64 h-screen bg-zinc-900 text-white p-4 flex flex-col">
-      <h1 className="text-xl font-bold mb-6">FREE STACK</h1>
+      <TitleSidebar />
       <nav className="flex flex-col flex-grow gap-4">
         <ul className="space-y-4">
           <li>
-            <Link href="/" className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-700 transition">
+            <Link href="/" className="clash flex items-center gap-3 p-2 rounded-lg hover:bg-gray-700 transition">
               <Home size={20} /> Inicio
             </Link>
           </li>
@@ -22,7 +23,7 @@ const Sidebar = () => {
             {/* Categorías dinámicas */}
             {categories.map((cat) => (
               <li key={cat.id}>
-                <Link href={`/${cat.id}`} className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-700 transition">
+                <Link href={`/${cat.id}`} className="clash flex items-center gap-3 p-2 rounded-lg hover:bg-gray-700 transition">
                     <cat.icon size={23} className="text-white" />
                         {cat.name}
                 </Link>

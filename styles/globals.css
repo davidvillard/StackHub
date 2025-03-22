@@ -62,4 +62,15 @@ html body ::-webkit-scrollbar-thumb:active {
   animation: bounceSlow 2s infinite ease-in-out;
 }
 
+@font-face {
+  font-family: 'Clash';
+  src: url('/custom/fonts/ClashDisplay-Semibold.woff') format('woff2'),
+       url('/custom/fonts/ClashDisplay-Semibold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.clash {
+  font-family: 'Clash', sans-serif;
+}
 
