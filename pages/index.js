@@ -16,30 +16,26 @@ const geistMono = Geist_Mono({
 
 export default function Home() {
   return (
-    <div className="flex flex-col justify-center items-center w-full h-full">
-      {/* Logo con animación de rebote */}
+    <div className="flex flex-col items-center w-full h-full px-4">
       <Image 
         src="/logo_freestack_white_96px.svg" 
         alt="Freestack" 
-        className="animate-bounceSlow"
+        className="animate-bounceSlow max-w-[80%] sm:max-w-[50%] md:max-w-[50%] lg:max-w-[40%] xl:max-w-[30%] 2xl:max-w-[20%] mt-12"
         width={363}
         height={361}
         priority
       />
       
-      {/* Título principal */}
-      <h1 className="text-5xl font-bold text-center mt-24 tracking-tight">
+      <h1 className="text-3xl sm:text-5xl font-bold text-center mt-12 tracking-tight">
         Bienvenido a <span className="text-[#ffea00]">Free Stack</span>
       </h1>
 
-      {/* Descripción */}
-      <p className="text-xl text-center mt-6 text-neutral-300 max-w-xl leading-relaxed">
-      Explora recursos de diseño y desarrollo web de alta calidad. Encuentra inspiración, mejora tus proyectos y crea sin límites.
+      <p className="text-lg sm:text-xl text-center mt-4 text-neutral-300 max-w-lg">
+        Explora recursos de diseño y desarrollo web de alta calidad. Encuentra inspiración, mejora tus proyectos y crea sin límites.
       </p>
 
-      {/* Botón de acción */}
       <Link href="https://github.com/davidvillard">
-        <ButtonGithubStar/>
+        <ButtonGithubStar />
       </Link>
     </div>
   );
