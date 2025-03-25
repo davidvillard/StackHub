@@ -10,7 +10,7 @@ const Sidebar = () => {
       <nav className="flex flex-col flex-grow">
         <ul className="mb-4">
           <li>
-            <Link href="/" className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-700 transition">
+            <Link href="/" className="clash flex items-center gap-3 p-2 rounded-lg hover:bg-yellow-500/50 transition">
               <Home size={20} /> Inicio
             </Link>
           </li>
@@ -21,7 +21,7 @@ const Sidebar = () => {
           <ul className="space-y-4">
             {categories.map((cat) => (
               <li key={cat.id}>
-                <Link href={`/${cat.id}`} className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-700 transition">
+                <Link href={`/${cat.id}`} className="clash flex items-center gap-3 p-2 rounded-lg hover:bg-gray-700 transition">
                   <cat.icon size={23} className="text-white" />
                   {cat.name}
                 </Link>
