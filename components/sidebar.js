@@ -8,7 +8,7 @@ const Sidebar = () => {
     <aside className="w-full md:w-64 bg-zinc-900 text-white p-4 flex flex-col">
       <TitleSidebar />
       <nav className="flex flex-col flex-grow">
-        <ul className="space-y-4">
+        <ul className="mb-4">
           <li>
             <Link href="/" className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-700 transition">
               <Home size={20} /> Inicio
