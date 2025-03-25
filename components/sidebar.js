@@ -5,7 +5,7 @@ import TitleSidebar from "./TitleSidebar";
 
 const Sidebar = () => {
   return (
-    <aside className="w-full md:w-64 bg-zinc-900 text-white p-4 flex flex-col">
+    <aside className="w-full sm:w-64 bg-zinc-900 text-white p-4 flex flex-col">
       <TitleSidebar />
       <nav className="flex flex-col flex-grow">
         <ul className="mb-4">
