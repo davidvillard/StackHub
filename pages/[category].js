@@ -36,8 +36,8 @@ export default function CategoryPage() {
   const nombreCategoria = categoriaActual ? categoriaActual.name : "Categoría no encontrada";
 
   return (
-    <div className="p-6">
-      <h1 className="text-4xl font-bold mb-16">
+    <div className="p-6 ml-0 md:ml-32 mt-8 md:mt-0">
+      <h1 className="text-4xl font-bold mb-16 sm:mb-16">
         <span>
           {nombreCategoria}
         </span>
