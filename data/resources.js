@@ -401,6 +401,14 @@ const resources = {
       url: "https://chatgpt.com/",
       image: "/ia/chatgpt.png",
       tags: ["AI", "Text Generation"]
+    },
+    {
+      id: 4,
+      title: "Modulify",
+      description: "Modelo de IA para la generación de mockups y Sitemaps web con IA.",
+      url: "https://app.modulify.ai/",
+      image: "/ia/modulify.png",
+      tags: ["AI", "Web Generation"]
     }
   ]
   

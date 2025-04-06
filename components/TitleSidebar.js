@@ -10,6 +10,7 @@ export default function TitleSidebar() {
               width={48}
               height={48}
               priority
+              className='animate-bounceSlow2'
             />
     </div>
   );
