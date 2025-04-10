@@ -76,7 +76,7 @@ export default function CategoryPage() {
                     rel="noopener noreferrer"
                     className="text-sky-500 hover:underline"
                   >
-                    <div class="flex items-center justify-center text-white rounded-full transition-all hover:scale-120 hover:rounded-full"><ExternalLink /></div>
+                    <div className="flex items-center justify-center text-white rounded-full transition-all hover:scale-120 hover:rounded-full"><ExternalLink /></div>
                   </Link>
                 </div>
               </div>
