@@ -36,14 +36,14 @@ export default function CategoryPage() {
   const nombreCategoria = categoriaActual ? categoriaActual.name : "Categoría no encontrada";
 
   return (
-    <div className="p-6">
-      <h1 className="text-4xl font-bold mb-16">
+    <div className="p-6 ml-0 md:ml-32 mt-8 md:mt-0">
+      <h1 className="text-4xl font-bold mb-16 sm:mb-16">
         <span>
           {nombreCategoria}
         </span>
       </h1>
       {/* Bloque Grid 3x3 */}
-      <div className="grid grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
         {/* Card */}
         {categoryResources.map((resource) => (
           <Link
@@ -76,7 +76,7 @@ export default function CategoryPage() {
                     rel="noopener noreferrer"
                     className="text-sky-500 hover:underline"
                   >
-                    <div class="flex items-center justify-center text-white rounded-full transition-all hover:scale-120 hover:rounded-full"><ExternalLink /></div>
+                    <div className="flex items-center justify-center text-white rounded-full transition-all hover:scale-120 hover:rounded-full"><ExternalLink /></div>
                   </Link>
                 </div>
               </div>

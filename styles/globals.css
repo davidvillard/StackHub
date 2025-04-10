@@ -23,54 +23,89 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Scrollbar personalizado mejorado */
 html body ::-webkit-scrollbar {
-  width: 10px; /* Un ancho más pequeño pero aún accesible */
+  width: 8px;
+  height: 8px;
 }
 
 html body ::-webkit-scrollbar-track {
-  background: #222; /* Fondo oscuro y elegante para el track */
+  background: #1a1a1a;
   border-radius: 10px;
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5); /* Sombra interna para dar profundidad */
 }
 
 html body ::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.6)); /* Gradiente suave para el thumb */
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.4));
   border-radius: 10px;
-  border: 2px solid #444; /* Borde sutil con un tono más oscuro */
-  transition: background 0.4s ease, transform 0.3s ease; /* Transición suave */
+  border: 1px solid #333;
+  transition: all 0.3s ease;
 }
 
 html body ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(45deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 1)); /* Aumenta el contraste al hacer hover */
-  transform: scale(1.1); /* Se agranda ligeramente */
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.6));
 }
 
-html body ::-webkit-scrollbar-thumb:active {
-  background: linear-gradient(45deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 1)); /* Colores más vivos cuando se hace clic */
-  transform: scale(1.05); /* Efecto sutil de "presionar" */
-}
-
+/* Animaciones */
 @keyframes bounceSlow {
   0%, 100% {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-20px);
+    transform: translateY(-15px);
   }
 }
+
 .animate-bounceSlow {
-  animation: bounceSlow 2s infinite ease-in-out;
+  animation: bounceSlow 2.5s infinite ease-in-out;
 }
 
+@keyframes bounceSlow2 {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-bounceSlow2 {
+  animation: bounceSlow2 2s infinite ease-in-out;
+}
+
+/* Tipografía Clash */
 @font-face {
   font-family: 'Clash';
-  src: url('/custom/fonts/ClashDisplay-Semibold.woff') format('woff2'),
-       url('/custom/fonts/ClashDisplay-Semibold.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
+  src: url('/custom/fonts/ClashDisplay-Variable.woff2') format('woff2'),
+       url('/custom/fonts/ClashDisplay-Variable.woff') format('woff');
+  font-display: swap;
 }
 
 .clash {
   font-family: 'Clash', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.03em;
 }
 
+.clash-title {
+  font-family: 'Clash', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  background: linear-gradient(90deg, #fff, #ddd);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Transiciones para el sidebar */
+.sidebar-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Efectos hover para items */
+.nav-item-hover {
+  transition: all 0.2s ease;
+}
+
+.nav-item-hover:hover {
+  transform: translateX(4px);
+}
