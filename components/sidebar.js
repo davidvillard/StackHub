@@ -1,4 +1,4 @@
-import { Home, MessageCircleQuestion, Sparkles, ChevronLeft, ChevronRight, Menu } from "lucide-react";
+import { Home, MessageCircleQuestion, Sparkles, ChevronLeft, ChevronRight, Menu, X } from "lucide-react";
 import categories from "@/data/categories";
 import Link from "next/link";
 import TitleSidebar from "./TitleSidebar";
@@ -7,20 +7,47 @@ import { useState, useEffect } from "react";
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isTablet, setIsTablet] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [safeAreaBottom, setSafeAreaBottom] = useState(0);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-      if (window.innerWidth >= 768) {
+      const width = window.innerWidth;
+      setIsMobile(width < 640);
+      setIsTablet(width >= 640 && width < 1024);
+      
+      // Cierra automáticamente en móvil cuando cambia el tamaño
+      if (width < 640) {
+        setIsOpen(false);
+      } else if (width >= 1024) {
+        // En desktop mantén el estado guardado
+        const savedState = localStorage.getItem('sidebarCollapsed');
+        setIsCollapsed(savedState === 'true');
         setIsOpen(true);
       } else {
-        setIsOpen(false);
+        // En tablet, colapsa por defecto
+        setIsCollapsed(true);
+        setIsOpen(true);
       }
     };
 
-    const savedState = localStorage.getItem('sidebarCollapsed');
-    if (savedState) setIsCollapsed(savedState === 'true');
+    // Carga el estado guardado solo en escritorio
+    if (window.innerWidth >= 1024) {
+      const savedState = localStorage.getItem('sidebarCollapsed');
+      if (savedState) setIsCollapsed(savedState === 'true');
+    }
+
+    // Detectar área segura en iOS
+    // Nota: Esto se ejecuta solo en el cliente (navegador)
+    if (typeof window !== 'undefined') {
+      // Detectar si estamos en iOS y aplicar padding para área segura
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+      if (isIOS) {
+        // Valor por defecto en caso de que las variables CSS no estén disponibles
+        setSafeAreaBottom(34); // Valor típico para iPhones con notch/dynamic island
+      }
+    }
 
     handleResize();
     window.addEventListener('resize', handleResize);
@@ -33,43 +60,58 @@ const Sidebar = () => {
     } else {
       const newState = !isCollapsed;
       setIsCollapsed(newState);
-      localStorage.setItem('sidebarCollapsed', String(newState));
+      if (!isTablet) {
+        localStorage.setItem('sidebarCollapsed', String(newState));
+      }
     }
   };
 
-  // Determina si se debe mostrar el texto basado en el estado móvil/abierto
+  // Overlay para móvil cuando el sidebar está abierto
+  const MobileOverlay = () => (
+    isMobile && isOpen && (
+      <div 
+        className="fixed inset-0 bg-black/50 z-30 backdrop-blur-sm"
+        onClick={() => setIsOpen(false)}
+        aria-hidden="true"
+      />
+    )
+  );
+
+  // Determina si se debe mostrar el texto basado en el estado
   const shouldShowText = isMobile ? isOpen : !isCollapsed;
 
   return (
     <>
+      {/* Mobile overlay */}
+      <MobileOverlay />
+      
       {/* Mobile toggle button */}
       <button 
         onClick={toggleSidebar}
-        className={`md:hidden fixed top-4 left-4 z-50 p-2 rounded-full bg-zinc-800/90 text-white shadow-lg transition-all ${
-          isOpen ? 'left-16 transform -translate-x-12' : 'left-4'
-        } backdrop-blur-sm`}
+        className={`sm:hidden fixed top-4 left-4 z-50 p-2 rounded-full bg-zinc-800/90 text-white shadow-lg transition-all duration-300 hover:bg-zinc-700 active:scale-95`}
         aria-label="Toggle menu"
       >
-        <Menu size={24} />
+        {isOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
 
+      {/* Sidebar container */}
       <aside 
         className={`
-          ${isMobile ? 'fixed inset-0 z-40' : 'fixed h-screen'} 
-          ${isCollapsed ? 'w-64 md:w-32' : 'w-64'} 
-          ${isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
-          bg-zinc-900/95 text-white p-4 flex flex-col
-          sidebar-transition
+          fixed h-screen z-40
+          ${isCollapsed ? 'w-16 sm:w-20' : 'w-64'} 
+          ${isOpen ? 'translate-x-0' : '-translate-x-full sm:translate-x-0'}
+          bg-zinc-900/95 text-white flex flex-col
+          transition-all duration-300 ease-in-out
           shadow-xl backdrop-blur-md
           border-r border-zinc-800
         `}
-        style={{ height: '100vh' }}
+        style={{ paddingBottom: isMobile ? `${safeAreaBottom + 16}px` : '16px' }}
       >
-        {/* Collapse/Expand button */}
+        {/* Collapse/Expand button - solo visible en tablet y desktop */}
         <button 
           onClick={toggleSidebar}
-          className="hidden md:flex absolute -right-3 top-6 bg-zinc-800 rounded-full p-1 border-2 border-zinc-700 hover:bg-zinc-700 transition-all z-10"
-          aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+          className="hidden sm:flex absolute -right-3 top-6 bg-zinc-800 rounded-full p-1 border-2 border-zinc-700 hover:bg-zinc-700 transition-all z-10 shadow-md hover:shadow-lg active:scale-95"
+          aria-label={isCollapsed ? "Expandir menú" : "Colapsar menú"}
         >
           {isCollapsed ? (
             <ChevronRight size={18} className="text-zinc-300" />
@@ -78,44 +120,62 @@ const Sidebar = () => {
           )}
         </button>
 
-        <TitleSidebar collapsed={isCollapsed && !isMobile} />
+        {/* Header con título/logo */}
+        <div className="px-3 py-4">
+          <TitleSidebar collapsed={isCollapsed && !isMobile} />
+        </div>
 
-        <nav className="flex flex-col flex-grow overflow-hidden">
-          <ul className="mb-6">
-            <li className="w-[85%]">
-              <Link 
-                href="/" 
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-yellow-500/20 transition-all group nav-item-hover"
-              >
-                <div className="p-1.5 rounded-lg bg-yellow-500/10 group-hover:bg-yellow-500/30 transition-colors">
-                  <Home size={20} className="text-yellow-400" />
-                </div>
-                {shouldShowText && (
-                  <span className="text-sm font-medium clash">Inicio</span>
-                )}
-              </Link>
-            </li>
-          </ul>
+        {/* Menú de navegación - estructura revisada para iOS */}
+        <div className="flex flex-col flex-grow overflow-hidden">
+          {/* Enlaces fijos superiores */}
+          <div className="px-2 mb-3">
+            <ul>
+              <li className={`${isCollapsed ? 'mx-auto' : 'w-[90%] mx-auto'}`}>
+                <Link 
+                  href="/" 
+                  className={`
+                    flex items-center ${isCollapsed ? 'justify-center' : 'justify-start'} gap-3 
+                    p-3 rounded-lg hover:bg-yellow-500/20 transition-all group 
+                    active:bg-yellow-500/30
+                  `}
+                >
+                  <div className="p-1.5 rounded-lg bg-yellow-500/10 group-hover:bg-yellow-500/30 transition-colors">
+                    <Home size={20} className="text-yellow-400" />
+                  </div>
+                  {shouldShowText && (
+                    <span className="text-sm font-medium clash">Inicio</span>
+                  )}
+                </Link>
+              </li>
+            </ul>
+          </div>
 
-          {/* Categorías dinámicas */}
-          <div className="flex-grow overflow-y-auto">
-            {shouldShowText && (
-              <h3 className="text-xs uppercase text-zinc-500 mb-3 px-3 clash">
-                Categorías
-              </h3>
-            )}
-            <ul className="space-y-1 pr-1">
+          {/* Separador categorías */}
+          {shouldShowText && (
+            <h3 className="text-xs uppercase text-zinc-500 mb-2 px-4 clash">
+              Categorías
+            </h3>
+          )}
+
+          {/* Categorías con scroll */}
+          <div className="flex-grow overflow-y-auto px-2 scrollbar-thin scrollbar-thumb-zinc-700 scrollbar-track-transparent">
+            <ul className={`space-y-1 ${!shouldShowText && 'flex flex-col items-center'}`}>
               {categories.map((cat) => (
-                <li key={cat.id} className="w-[85%]">
+                <li key={cat.id} className={`${isCollapsed ? 'w-full' : 'w-[95%] mx-auto'}`}>
                   <Link 
                     href={`/${cat.id}`} 
-                    className="flex items-center gap-3 p-3 rounded-lg hover:bg-zinc-800 transition-all group nav-item-hover"
+                    className={`
+                      flex items-center ${isCollapsed ? 'justify-center' : 'justify-start'} gap-3 
+                      p-3 rounded-lg hover:bg-zinc-800 transition-all group 
+                      active:bg-zinc-700
+                    `}
+                    title={isCollapsed ? cat.name : ""}
                   >
                     <div className="p-1.5 rounded-lg bg-zinc-800 group-hover:bg-zinc-700 transition-colors">
                       <cat.icon size={20} className="text-white" />
                     </div>
                     {shouldShowText && (
-                      <span className="text-sm font-medium clash">{cat.name}</span>
+                      <span className="text-sm font-medium clash truncate">{cat.name}</span>
                     )}
                   </Link>
                 </li>
@@ -123,38 +183,64 @@ const Sidebar = () => {
             </ul>
           </div>
 
-          <div className="border-t border-zinc-800 my-4"></div>
+          {/* Enlaces de pie - Área fija en la parte inferior */}
+          <div className="mt-auto">
+            <div className="border-t border-zinc-800 my-2"></div>
 
-          <ul className="space-y-1 pb-4">
-            <li className="w-[85%]">
-              <Link 
-                href="/faq" 
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-sky-500/20 transition-all group nav-item-hover"
-              >
-                <div className="p-1.5 rounded-lg bg-sky-500/10 group-hover:bg-sky-500/30 transition-colors">
-                  <MessageCircleQuestion size={20} className="text-sky-400" />
-                </div>
-                {shouldShowText && (
-                  <span className="text-sm font-medium clash">Ayuda</span>
-                )}
-              </Link>
-            </li>
-            <li className="w-[85%]">
-              <Link 
-                href="/" 
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-amber-300/20 transition-all group nav-item-hover"
-              >
-                <div className="p-1.5 rounded-lg bg-amber-300/10 group-hover:bg-amber-300/30 transition-colors">
-                  <Sparkles size={20} className="text-amber-300" />
-                </div>
-                {shouldShowText && (
-                  <span className="text-sm font-medium clash">Contribuir</span>
-                )}
-              </Link>
-            </li>
-          </ul>
-        </nav>
+            <div className="px-2">
+              <ul className={`space-y-1 ${!shouldShowText && 'flex flex-col items-center'}`}>
+                <li className={`${isCollapsed ? 'w-full' : 'w-[95%] mx-auto'}`}>
+                  <Link 
+                    href="/faq" 
+                    className={`
+                      flex items-center ${isCollapsed ? 'justify-center' : 'justify-start'} gap-3 
+                      p-3 rounded-lg hover:bg-sky-500/20 transition-all group 
+                      active:bg-sky-500/30
+                    `}
+                    title={isCollapsed ? "Ayuda" : ""}
+                  >
+                    <div className="p-1.5 rounded-lg bg-sky-500/10 group-hover:bg-sky-500/30 transition-colors">
+                      <MessageCircleQuestion size={20} className="text-sky-400" />
+                    </div>
+                    {shouldShowText && (
+                      <span className="text-sm font-medium clash">Ayuda</span>
+                    )}
+                  </Link>
+                </li>
+                <li className={`${isCollapsed ? 'w-full' : 'w-[95%] mx-auto'}`}>
+                  <Link 
+                    href="/" 
+                    className={`
+                      flex items-center ${isCollapsed ? 'justify-center' : 'justify-start'} gap-3 
+                      p-3 rounded-lg hover:bg-amber-300/20 transition-all group 
+                      active:bg-amber-300/30
+                    `}
+                    title={isCollapsed ? "Contribuir" : ""}
+                  >
+                    <div className="p-1.5 rounded-lg bg-amber-300/10 group-hover:bg-amber-300/30 transition-colors">
+                      <Sparkles size={20} className="text-amber-300" />
+                    </div>
+                    {shouldShowText && (
+                      <span className="text-sm font-medium clash">Contribuir</span>
+                    )}
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </aside>
+
+      {/* Código para detectar el valor del área segura en iOS y actualizar el estado */}
+      {typeof window !== 'undefined' && (
+        <style jsx global>{`
+          @supports (padding-bottom: env(safe-area-inset-bottom)) {
+            .ios-safe-padding {
+              padding-bottom: env(safe-area-inset-bottom);
+            }
+          }
+        `}</style>
+      )}
     </>
   );
 };
