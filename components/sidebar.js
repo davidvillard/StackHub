@@ -104,6 +104,7 @@ const Sidebar = () => {
           transition-all duration-300 ease-in-out
           shadow-xl backdrop-blur-md
           border-r border-zinc-800
+          pb-4 ios-safe-padding
         `}
         style={{ paddingBottom: isMobile ? `${safeAreaBottom + 16}px` : '16px' }}
       >
