@@ -8,6 +8,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --app-height: 100%;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -15,6 +16,11 @@
     --background: var(--color-zinc-900);
     --foreground: #ededed;
   }
+}
+
+html, body {
+  height: 100dvh; /* Dynamic viewport height */
+  height: var(--app-height);
 }
 
 body {
