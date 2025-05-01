@@ -9,9 +9,17 @@ const Sidebar = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  // Eliminamos el estado safeAreaBottom ya que usaremos CSS variables
 
   useEffect(() => {
+    // Efecto para establecer la variable CSS --vh
+    const setVh = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+    
+    setVh();
+    window.addEventListener('resize', setVh);
+
     const handleResize = () => {
       const width = window.innerWidth;
       setIsMobile(width < 640);
@@ -40,7 +48,11 @@ const Sidebar = () => {
 
     handleResize();
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('resize', setVh);
+    };
   }, []);
 
   const toggleSidebar = () => {
@@ -86,14 +98,14 @@ const Sidebar = () => {
       {/* Sidebar container - CAMBIO IMPORTANTE AQUÍ */}
       <aside 
         className={`
-          fixed h-screen z-40
+          fixed z-40
+          sidebar-height-fix
           ${isCollapsed ? 'w-16 sm:w-20' : 'w-64'} 
           ${isOpen ? 'translate-x-0' : '-translate-x-full sm:translate-x-0'}
           bg-zinc-900/95 text-white flex flex-col
           transition-all duration-300 ease-in-out
           shadow-xl backdrop-blur-md
           border-r border-zinc-800
-          safe-area-sidebar
         `}
       >
         {/* Collapse/Expand button - solo visible en tablet y desktop */}
@@ -220,26 +232,30 @@ const Sidebar = () => {
         </div>
       </aside>
 
-      {/* Estilos CSS para el safe area de iOS */}
+      {/* Estilos CSS para altura dinámica y safe area de iOS */}
       <style jsx global>{`
-        /* Clase general para el sidebar */
-        .safe-area-sidebar {
-          padding-bottom: 16px; /* Padding base para todos los dispositivos */
+        :root {
+          --vh: 1vh;
         }
         
-        /* Padding específico para la parte inferior con elementos */
+        .sidebar-height-fix {
+          height: 100vh; /* Fallback */
+          height: 100dvh; /* Solución dynamic viewport height */
+          height: calc(var(--vh, 1vh) * 100); /* Solución alternativa para navegadores más antiguos */
+          overflow-y: auto;
+          display: flex;
+          flex-direction: column;
+        }
+        
         .pb-safe {
-          padding-bottom: 16px;
+          padding-bottom: env(safe-area-inset-bottom, 20px);
         }
         
-        /* Media query para dispositivos móviles */
-        @media (max-width: 640px) {
-          .safe-area-sidebar {
-            padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
-          }
-          
-          .pb-safe {
-            padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+        /* Asegurarse de que los elementos inferiores sean visibles en iPhones con notch/barra */
+        @supports (padding-bottom: env(safe-area-inset-bottom)) {
+          .sidebar-height-fix {
+            /* Hacer que el sidebar tenga en cuenta el safe area */
+            padding-bottom: env(safe-area-inset-bottom);
           }
         }
       `}</style>
