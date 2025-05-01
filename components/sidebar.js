@@ -9,7 +9,7 @@ const Sidebar = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [safeAreaBottom, setSafeAreaBottom] = useState(0);
+  // Eliminamos el estado safeAreaBottom ya que usaremos CSS variables
 
   useEffect(() => {
     const handleResize = () => {
@@ -36,17 +36,6 @@ const Sidebar = () => {
     if (window.innerWidth >= 1024) {
       const savedState = localStorage.getItem('sidebarCollapsed');
       if (savedState) setIsCollapsed(savedState === 'true');
-    }
-
-    // Detectar área segura en iOS
-    // Nota: Esto se ejecuta solo en el cliente (navegador)
-    if (typeof window !== 'undefined') {
-      // Detectar si estamos en iOS y aplicar padding para área segura
-      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-      if (isIOS) {
-        // Valor por defecto en caso de que las variables CSS no estén disponibles
-        setSafeAreaBottom(34); // Valor típico para iPhones con notch/dynamic island
-      }
     }
 
     handleResize();
@@ -94,7 +83,7 @@ const Sidebar = () => {
         {isOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
 
-      {/* Sidebar container */}
+      {/* Sidebar container - CAMBIO IMPORTANTE AQUÍ */}
       <aside 
         className={`
           fixed h-screen z-40
@@ -104,9 +93,8 @@ const Sidebar = () => {
           transition-all duration-300 ease-in-out
           shadow-xl backdrop-blur-md
           border-r border-zinc-800
-          pb-4 ios-safe-padding
+          safe-area-sidebar
         `}
-        style={{ paddingBottom: isMobile ? `${safeAreaBottom + 16}px` : '16px' }}
       >
         {/* Collapse/Expand button - solo visible en tablet y desktop */}
         <button 
@@ -184,8 +172,8 @@ const Sidebar = () => {
             </ul>
           </div>
 
-          {/* Enlaces de pie - Área fija en la parte inferior */}
-          <div className="mt-auto">
+          {/* Enlaces de pie - IMPORTANTE: aquí agregamos padding extra en la parte inferior */}
+          <div className="mt-auto pb-safe">
             <div className="border-t border-zinc-800 my-2"></div>
 
             <div className="px-2">
@@ -232,16 +220,29 @@ const Sidebar = () => {
         </div>
       </aside>
 
-      {/* Código para detectar el valor del área segura en iOS y actualizar el estado */}
-      {typeof window !== 'undefined' && (
-        <style jsx global>{`
-          @supports (padding-bottom: env(safe-area-inset-bottom)) {
-            .ios-safe-padding {
-              padding-bottom: env(safe-area-inset-bottom);
-            }
+      {/* Estilos CSS para el safe area de iOS */}
+      <style jsx global>{`
+        /* Clase general para el sidebar */
+        .safe-area-sidebar {
+          padding-bottom: 16px; /* Padding base para todos los dispositivos */
+        }
+        
+        /* Padding específico para la parte inferior con elementos */
+        .pb-safe {
+          padding-bottom: 16px;
+        }
+        
+        /* Media query para dispositivos móviles */
+        @media (max-width: 640px) {
+          .safe-area-sidebar {
+            padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
           }
-        `}</style>
-      )}
+          
+          .pb-safe {
+            padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+          }
+        }
+      `}</style>
     </>
   );
 };
