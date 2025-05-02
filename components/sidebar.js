@@ -93,7 +93,7 @@ const Sidebar = () => {
       {/* Sidebar container */}
       <aside 
         className={`
-          fixed h-screen z-40
+          fixed h-[100dvh] z-40
           ${isCollapsed ? 'w-16 sm:w-20' : 'w-64'} 
           ${isOpen ? 'translate-x-0' : '-translate-x-full sm:translate-x-0'}
           bg-zinc-900/95 text-white flex flex-col
