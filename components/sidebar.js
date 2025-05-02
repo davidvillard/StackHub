@@ -9,17 +9,23 @@ const Sidebar = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [safeAreaBottom, setSafeAreaBottom] = useState(0);
+
+  // Función para manejar clics en enlaces
+  const handleLinkClick = () => {
+    if (isMobile) {
+      // En móvil, cierra el sidebar
+      setIsOpen(false);
+    } else if (!isCollapsed) {
+      // En tablet/desktop, colapsa el sidebar si está expandido
+      setIsCollapsed(true);
+      if (!isTablet) {
+        localStorage.setItem('sidebarCollapsed', 'true');
+      }
+    }
+  };
 
   useEffect(() => {
-    // Efecto para establecer la variable CSS --vh
-    const setVh = () => {
-      const vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty('--vh', `${vh}px`);
-    };
-    
-    setVh();
-    window.addEventListener('resize', setVh);
-
     const handleResize = () => {
       const width = window.innerWidth;
       setIsMobile(width < 640);
@@ -46,13 +52,17 @@ const Sidebar = () => {
       if (savedState) setIsCollapsed(savedState === 'true');
     }
 
+    // Detectar área segura en iOS
+    if (typeof window !== 'undefined') {
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+      if (isIOS) {
+        setSafeAreaBottom(34);
+      }
+    }
+
     handleResize();
     window.addEventListener('resize', handleResize);
-    
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      window.removeEventListener('resize', setVh);
-    };
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const toggleSidebar = () => {
@@ -95,31 +105,36 @@ const Sidebar = () => {
         {isOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
 
-      {/* Sidebar container - CAMBIO IMPORTANTE AQUÍ */}
+      {/* Sidebar container */}
       <aside 
         className={`
-          fixed z-40
-          sidebar-height-fix
+          fixed h-screen z-40
           ${isCollapsed ? 'w-16 sm:w-20' : 'w-64'} 
           ${isOpen ? 'translate-x-0' : '-translate-x-full sm:translate-x-0'}
           bg-zinc-900/95 text-white flex flex-col
           transition-all duration-300 ease-in-out
           shadow-xl backdrop-blur-md
           border-r border-zinc-800
+          pb-4 ios-safe-padding
+          overflow-visible
         `}
+        style={{ paddingBottom: isMobile ? `${safeAreaBottom + 16}px` : '16px' }}
       >
-        {/* Collapse/Expand button - solo visible en tablet y desktop */}
-        <button 
-          onClick={toggleSidebar}
-          className="hidden sm:flex absolute -right-3 top-6 bg-zinc-800 rounded-full p-1 border-2 border-zinc-700 hover:bg-zinc-700 transition-all z-10 shadow-md hover:shadow-lg active:scale-95"
-          aria-label={isCollapsed ? "Expandir menú" : "Colapsar menú"}
-        >
-          {isCollapsed ? (
-            <ChevronRight size={18} className="text-zinc-300" />
-          ) : (
-            <ChevronLeft size={18} className="text-zinc-300" />
-          )}
-        </button>
+        {/* Collapse/Expand button - MODIFICADO con mejor z-index y posicionamiento */}
+        <div className="relative">
+          <button 
+            onClick={toggleSidebar}
+            className="hidden sm:flex absolute right-0 top-6 bg-zinc-800 rounded-full p-1 border-2 border-zinc-700 hover:bg-zinc-700 transition-all z-50 shadow-md hover:shadow-lg active:scale-95"
+            aria-label={isCollapsed ? "Expandir menú" : "Colapsar menú"}
+            style={{ transform: "translateX(50%)" }}
+          >
+            {isCollapsed ? (
+              <ChevronRight size={18} className="text-zinc-300" />
+            ) : (
+              <ChevronLeft size={18} className="text-zinc-300" />
+            )}
+          </button>
+        </div>
 
         {/* Header con título/logo */}
         <div className="px-3 py-4">
@@ -128,12 +143,13 @@ const Sidebar = () => {
 
         {/* Menú de navegación - estructura revisada para iOS */}
         <div className="flex flex-col flex-grow overflow-hidden">
-          {/* Enlaces fijos superiores */}
+          {/* Enlaces fijos superiores - AÑADIDO onClick para colapsar */}
           <div className="px-2 mb-3">
             <ul>
               <li className={`${isCollapsed ? 'mx-auto' : 'w-[90%] mx-auto'}`}>
                 <Link 
                   href="/" 
+                  onClick={handleLinkClick}
                   className={`
                     flex items-center ${isCollapsed ? 'justify-center' : 'justify-start'} gap-3 
                     p-3 rounded-lg hover:bg-yellow-500/20 transition-all group 
@@ -158,13 +174,14 @@ const Sidebar = () => {
             </h3>
           )}
 
-          {/* Categorías con scroll */}
+          {/* Categorías con scroll - AÑADIDO onClick para colapsar */}
           <div className="flex-grow overflow-y-auto px-2 scrollbar-thin scrollbar-thumb-zinc-700 scrollbar-track-transparent">
             <ul className={`space-y-1 ${!shouldShowText && 'flex flex-col items-center'}`}>
               {categories.map((cat) => (
                 <li key={cat.id} className={`${isCollapsed ? 'w-full' : 'w-[95%] mx-auto'}`}>
                   <Link 
                     href={`/${cat.id}`} 
+                    onClick={handleLinkClick}
                     className={`
                       flex items-center ${isCollapsed ? 'justify-center' : 'justify-start'} gap-3 
                       p-3 rounded-lg hover:bg-zinc-800 transition-all group 
@@ -184,8 +201,8 @@ const Sidebar = () => {
             </ul>
           </div>
 
-          {/* Enlaces de pie - IMPORTANTE: aquí agregamos padding extra en la parte inferior */}
-          <div className="mt-auto pb-safe">
+          {/* Enlaces de pie - AÑADIDO onClick para colapsar */}
+          <div className="mt-auto">
             <div className="border-t border-zinc-800 my-2"></div>
 
             <div className="px-2">
@@ -193,6 +210,7 @@ const Sidebar = () => {
                 <li className={`${isCollapsed ? 'w-full' : 'w-[95%] mx-auto'}`}>
                   <Link 
                     href="/faq" 
+                    onClick={handleLinkClick}
                     className={`
                       flex items-center ${isCollapsed ? 'justify-center' : 'justify-start'} gap-3 
                       p-3 rounded-lg hover:bg-sky-500/20 transition-all group 
@@ -211,6 +229,7 @@ const Sidebar = () => {
                 <li className={`${isCollapsed ? 'w-full' : 'w-[95%] mx-auto'}`}>
                   <Link 
                     href="/" 
+                    onClick={handleLinkClick}
                     className={`
                       flex items-center ${isCollapsed ? 'justify-center' : 'justify-start'} gap-3 
                       p-3 rounded-lg hover:bg-amber-300/20 transition-all group 
@@ -232,33 +251,17 @@ const Sidebar = () => {
         </div>
       </aside>
 
-      {/* Estilos CSS para altura dinámica y safe area de iOS */}
-      <style jsx global>{`
-        :root {
-          --vh: 1vh;
-        }
-        
-        .sidebar-height-fix {
-          height: 100vh; /* Fallback */
-          height: 100dvh; /* Solución dynamic viewport height */
-          height: calc(var(--vh, 1vh) * 100); /* Solución alternativa para navegadores más antiguos */
-          overflow-y: auto;
-          display: flex;
-          flex-direction: column;
-        }
-        
-        .pb-safe {
-          padding-bottom: env(safe-area-inset-bottom, 20px);
-        }
-        
-        /* Asegurarse de que los elementos inferiores sean visibles en iPhones con notch/barra */
-        @supports (padding-bottom: env(safe-area-inset-bottom)) {
-          .sidebar-height-fix {
-            /* Hacer que el sidebar tenga en cuenta el safe area */
-            padding-bottom: env(safe-area-inset-bottom);
+
+      {/* Código para detectar el valor del área segura en iOS y actualizar el estado */}
+      {typeof window !== 'undefined' && (
+        <style jsx global>{`
+          @supports (padding-bottom: env(safe-area-inset-bottom)) {
+            .ios-safe-padding {
+              padding-bottom: env(safe-area-inset-bottom);
+            }
           }
-        }
-      `}</style>
+        `}</style>
+      )}
     </>
   );
 };
