@@ -176,7 +176,7 @@ const Sidebar = () => {
                       <cat.icon size={20} className="text-white" />
                     </div>
                     {shouldShowText && (
-                      <span className="text-sm font-medium clash truncate">{cat.name}</span>
+                      <span className="text-sm font-medium clash truncate ">{cat.name}</span>
                     )}
                   </Link>
                 </li>

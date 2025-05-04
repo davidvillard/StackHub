@@ -38,7 +38,7 @@ export default function CategoryPage() {
   return (
     <div className="p-6 ml-0 md:ml-32 mt-8 md:mt-0">
       <h1 className="text-4xl font-bold mb-16 sm:mb-16">
-        <span>
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-yellow-400">
           {nombreCategoria}
         </span>
       </h1>

@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center w-full h-full px-6 py-10 sm:py-16 lg:py-20">
       <Image 
-        src="/logo_freestack_white_96px.svg" 
+        src="/StackHub_3D.png" 
         alt="Freestack"
         className="animate-bounceSlow w-auto h-auto max-w-[60%] sm:max-w-[50%] md:max-w-[40%] lg:max-w-[30%] xl:max-w-[20%]"
         width={363}
