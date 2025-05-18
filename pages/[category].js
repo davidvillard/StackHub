@@ -6,7 +6,6 @@ import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 import categorias from "@/data/categories";
 
-
 export default function CategoryPage() {
   const router = useRouter();
   const { category } = router.query;
@@ -34,13 +33,16 @@ export default function CategoryPage() {
   });
 
   const nombreCategoria = categoriaActual ? categoriaActual.name : "Categoría no encontrada";
+  const totalResources = categoryResources.length; // Calcular el total de recursos
 
   return (
     <div className="p-6 ml-0 md:ml-32 mt-8 md:mt-0">
-      <h1 className="text-4xl font-bold mb-16 sm:mb-16">
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-yellow-400">
-          {nombreCategoria}
+      <h1 className="relative text-5xl font-extrabold mb-16 sm:mb-16 text-white group">
+        {nombreCategoria}
+        <span className="text-zinc-400 ml-3 text-base font-medium align-bottom mt-4 inline-block">
+          {totalResources} {totalResources === 1 ? 'recurso' : 'recursos'} disponibles
         </span>
+        <span className="absolute -bottom-3 left-0 w-20 h-1 bg-gradient-to-r from-yellow-400 to-yellow-200 rounded-full opacity-80 group-hover:w-32 transition-all duration-300"></span>
       </h1>
       {/* Bloque Grid 3x3 */}
       <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
@@ -102,23 +104,6 @@ export default function CategoryPage() {
           </Link>
         ))}
       </div>
-
-      {/* <ul className="space-y-4">
-        {categoryResources.map((resource) => (
-          <li key={resource.id} className="p-4 border rounded-md">
-            <h2 className="text-xl font-semibold">{resource.title}</h2>
-            <p className="text-neutral-600">{resource.description}</p>
-            <a
-              href={resource.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sky-500 hover:underline"
-            >
-              Visit
-            </a>
-          </li>
-        ))}
-      </ul> */}
     </div>
   );
 }
