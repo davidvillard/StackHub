@@ -24,6 +24,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.2.0",
     "postcss": "^8.5.3",
-    "tailwindcss": "^4.0.15"
+    "tailwindcss": "^4.1.4",
+    "tailwindcss-safe-area": "^0.6.0"
   }
 }
