@@ -6,7 +6,7 @@ import "@/styles/globals.css";
 function MyApp({ Component, pageProps }) {
   return (
     <Layout> 
-      <SEO title="FreeStack" description="Colección de recursos gratuitos"/>
+      <SEO title="StackHub" description="Colección de recursos gratuitos organizado por categorias. Unete a StackHub!"/>
       <Component {...pageProps} />
     </Layout>
   );
