@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html lang="es">
       <Head>
-      <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+      {/* El meta viewport ya está configurado por Next.js */}
       </Head>
       <body className="antialiased">
         <Main />

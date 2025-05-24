@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-function SEO({ title, keywords, description }) {
+function SEO({ title, keywords = "", description }) {
   return (
     <Head>
       {/* Meta SEO Básico */}
