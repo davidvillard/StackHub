@@ -211,7 +211,7 @@ const Sidebar = () => {
                 </li>
                 <li className={`${isCollapsed ? 'w-full' : 'w-[95%] mx-auto'}`}>
                   <Link 
-                    href="/" 
+                    href="https://github.com/davidvillard" 
                     onClick={handleLinkClick}
                     className={`
                       flex items-center ${isCollapsed ? 'justify-center' : 'justify-start'} gap-3 
