@@ -1,0 +1,23 @@
+# StackHub - Colección de recursos gratuitos organizado por categorías
+
+# Permitir a todos los buscadores
+User-agent: *
+Allow: /
+
+# Reglas específicas para bots agresivos
+User-agent: AdsBot-Google
+Crawl-delay: 5
+
+# Evitar indexación de archivos específicos y rutas técnicas
+User-agent: *
+Disallow: /_next/
+Disallow: /api/
+Disallow: /404
+Disallow: /500
+Disallow: /*.json$
+
+# Host
+Host: https://stackhub.netlify.app
+
+# Sitemaps
+Sitemap: https://stackhub.netlify.app/sitemap.xml
