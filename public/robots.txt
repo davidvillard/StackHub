@@ -1,14 +1,8 @@
-# StackHub - Colección de recursos gratuitos organizado por categorías
-
-# Permitir a todos los buscadores
+# *
 User-agent: *
 Allow: /
 
-# Reglas específicas para bots agresivos
-User-agent: AdsBot-Google
-Crawl-delay: 5
-
-# Evitar indexación de archivos específicos y rutas técnicas
+# *
 User-agent: *
 Disallow: /_next/
 Disallow: /api/
