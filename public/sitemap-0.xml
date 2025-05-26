@@ -6,91 +6,91 @@
     xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
     xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
     <url>
-        <loc>https://stackhub.vercel.app/</loc>
+        <loc>https://stackhub.netlify.app/</loc>
         <lastmod>2025-05-25T00:00:00.000Z</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://stackhub.vercel.app/faq</loc>
+        <loc>https://stackhub.netlify.app/faq</loc>
         <lastmod>2025-05-25T00:00:00.000Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://stackhub.vercel.app/icons</loc>
+        <loc>https://stackhub.netlify.app/icons</loc>
         <lastmod>2025-05-25T00:00:00.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://stackhub.vercel.app/logos</loc>
+        <loc>https://stackhub.netlify.app/logos</loc>
         <lastmod>2025-05-25T00:00:00.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://stackhub.vercel.app/illustrations</loc>
+        <loc>https://stackhub.netlify.app/illustrations</loc>
         <lastmod>2025-05-25T00:00:00.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://stackhub.vercel.app/images</loc>
+        <loc>https://stackhub.netlify.app/images</loc>
         <lastmod>2025-05-25T00:00:00.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://stackhub.vercel.app/videos</loc>
+        <loc>https://stackhub.netlify.app/videos</loc>
         <lastmod>2025-05-25T00:00:00.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://stackhub.vercel.app/fonts</loc>
+        <loc>https://stackhub.netlify.app/fonts</loc>
         <lastmod>2025-05-25T00:00:00.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://stackhub.vercel.app/colors</loc>
+        <loc>https://stackhub.netlify.app/colors</loc>
         <lastmod>2025-05-25T00:00:00.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://stackhub.vercel.app/background</loc>
+        <loc>https://stackhub.netlify.app/background</loc>
         <lastmod>2025-05-25T00:00:00.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://stackhub.vercel.app/tools</loc>
+        <loc>https://stackhub.netlify.app/tools</loc>
         <lastmod>2025-05-25T00:00:00.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://stackhub.vercel.app/components</loc>
+        <loc>https://stackhub.netlify.app/components</loc>
         <lastmod>2025-05-25T00:00:00.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://stackhub.vercel.app/inspirations</loc>
+        <loc>https://stackhub.netlify.app/inspirations</loc>
         <lastmod>2025-05-25T00:00:00.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://stackhub.vercel.app/librerias</loc>
+        <loc>https://stackhub.netlify.app/librerias</loc>
         <lastmod>2025-05-25T00:00:00.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://stackhub.vercel.app/ia</loc>
+        <loc>https://stackhub.netlify.app/ia</loc>
         <lastmod>2025-05-25T00:00:00.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
