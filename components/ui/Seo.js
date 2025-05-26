@@ -35,13 +35,13 @@ function SEO({ title, keywords = "", description }) {
             "@context": "https://schema.org",
             "@type": "WebSite",
             name: "StackHub",
-            url: "https://stackhub.vercel.app",
+            url: "https://stackhub.netlify.app",
             description:
               "Colección de recursos gratuitos organizado por categorias para diseñadores y desarrolladores.",
             potentialAction: {
               "@type": "SearchAction",
               target:
-                "https://stackhub.vercel.app/search?q={search_term_string}",
+                "https://stackhub.netlify.app/search?q={search_term_string}",
               "query-input": "required name=search_term_string",
             },
           }),
