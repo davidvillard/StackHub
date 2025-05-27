@@ -16,6 +16,7 @@ function SEO({ title, keywords = "", description }) {
       <meta name="author" content="David Villar Durán" />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href={canonicalUrl} />
+      <meta name="google-site-verification" content="yPYcwOlcQrH1_eHTOuXu3N_rbO0ikshJYhpBmKftTHA" />
 
       {/* Open Graph para compartir en redes (Facebook, LinkedIn, etc.) */}
       <meta property="og:title" content={title} />
