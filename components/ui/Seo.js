@@ -6,47 +6,25 @@ function SEO({ title, keywords = "", description }) {
   const canonicalUrl = `https://stackhub.netlify.app${
     router.asPath === "/" ? "" : router.asPath
   }`;
-
+  
+  // Título completo con formato para brandear
+  const fullTitle = title ? `${title} | StackHub` : "StackHub - Recursos para diseñadores y desarrolladores";
+  const metaDescription = description || "Colección de recursos gratuitos para diseñadores y desarrolladores web organizados por categorías.";
+  
   return (
     <Head>
-      {/* Meta SEO Básico */}
-      <title>{title}</title>
-      <meta name="description" content={description} />
-      <meta name="keywords" content={keywords} />
-      <meta name="author" content="David Villar Durán" />
-      <meta name="robots" content="index, follow" />
+      <title>{fullTitle}</title>
+      <meta name="description" content={metaDescription} />
+      {keywords && <meta name="keywords" content={keywords} />}
       <link rel="canonical" href={canonicalUrl} />
-
-      {/* Open Graph para compartir en redes (Facebook, LinkedIn, etc.) */}
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:image" content="/logo_stackhub_white.svg" />
-      <meta property="og:url" content="https://stackhub.com" />
+      <meta property="og:title" content={fullTitle} />
+      <meta property="og:description" content={metaDescription} />
+      <meta property="og:url" content={canonicalUrl} />
       <meta property="og:type" content="website" />
-
-      {/* Favicon */}
-      <link rel="icon" href="/logo_stackhub_white.svg" />
-
-      {/* Schema.org markup for Google+ */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            name: "StackHub",
-            url: "https://stackhub.netlify.app",
-            description:
-              "Colección de recursos gratuitos organizado por categorias para diseñadores y desarrolladores.",
-            potentialAction: {
-              "@type": "SearchAction",
-              target:
-                "https://stackhub.netlify.app/search?q={search_term_string}",
-              "query-input": "required name=search_term_string",
-            },
-          }),
-        }}
-      />
+      <meta property="og:site_name" content="StackHub" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={fullTitle} />
+      <meta name="twitter:description" content={metaDescription} />
     </Head>
   );
 }
