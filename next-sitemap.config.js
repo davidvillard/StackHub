@@ -1,7 +1,7 @@
 module.exports = {
   siteUrl: 'https://stackhub.netlify.app',
   generateRobotsTxt: true,
-  outDir: 'public', // Asegura que se escriba en la carpeta public
+  outDir: 'public', // Make sure this directory exists
   robotsTxtOptions: {
     policies: [
       { userAgent: "*", allow: "/" },
