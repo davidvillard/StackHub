@@ -8,7 +8,7 @@ function SEO({ title, keywords = "", description }) {
   }`;
   
   // Título completo con formato para brandear
-  const fullTitle = title ? `${title} | StackHub` : "StackHub - Recursos para diseñadores y desarrolladores";
+  const fullTitle = "StackHub - Recursos para diseñadores y desarrolladores";
   const metaDescription = description || "Colección de recursos gratuitos para diseñadores y desarrolladores web organizados por categorías.";
   
   return (

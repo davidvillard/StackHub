@@ -139,6 +139,15 @@ const resources = {
       image: "/illustrations/flowbite-illustrations.png",
       tags: ["Illustrations", "UI"],
     },
+    {
+      id: 4,
+      title: "Transhumans",
+      description:
+        " Transhumans es una plataforma que ofrece una colección de ilustraciones y gráficos vectoriales diseñados para proyectos web y móviles. Con un enfoque en la estética moderna y minimalista, Transhumans proporciona recursos visuales que son ideales para mejorar la apariencia de aplicaciones, sitios web y presentaciones. La plataforma permite a los usuarios explorar una amplia variedad de estilos y temas, lo que facilita encontrar la ilustración perfecta para cualquier",
+      url: "https://www.transhumans.xyz/",
+      image: "/illustrations/transhumans.png",
+      tags: ["Illustrations", "Graphics, "],
+    }
   ],
   images: [
     {
