@@ -2,7 +2,10 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 
 function SEO({ title, keywords = "", description }) {
+  
+
   const router = useRouter();
+
   const canonicalUrl = `https://stackhub.netlify.app${
     router.asPath === "/" ? "" : router.asPath
   }`;
@@ -22,6 +25,7 @@ function SEO({ title, keywords = "", description }) {
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="StackHub" />
+      <meta name="title" content="StackHub" />
     </Head>
   );
 }
