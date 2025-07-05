@@ -81,6 +81,70 @@ const resources = {
       image: "/icons/phosphor.png",
       tags: ["Icons"],
     },
+    {
+      id: 10,
+      title: "Google Icons",
+      description:
+        "Google Icons es una colección de iconos diseñados por Google, que forman parte de su sistema de diseño Material Design. Estos iconos están diseñados para ser simples, claros y altamente funcionales, lo que los hace ideales para aplicaciones web y móviles. La colección incluye una amplia variedad de iconos, desde elementos básicos hasta iconos más especializados, lo que la hace adecuada para una variedad de aplicaciones. Una de las características destacadas de Google Icons es su enfoque en la accesibilidad y la usabilidad. Todos los iconos están optimizados para su uso en aplicaciones web y móviles, garantizando una excelente legibilidad y claridad visual. Además, Google Icons es completamente gratuito y se puede utilizar sin restricciones, lo que lo convierte en una opción accesible para proyectos de cualquier escala.",
+      url: "https://fonts.google.com/icons",
+      image: "/icons/google.png",
+      tags: ["Icons, UI"],
+    },
+    {
+      id: 11,
+      title: "Isocons",
+      description:
+        "Isocons es una colección premium de iconos isométricos vectoriales diseñados para darle una perspectiva única y moderna a tus proyectos. Con un estilo distintivo en 3D, estos iconos son ideales para interfaces, presentaciones y material gráfico que busque destacar con un enfoque visual innovador. La colección abarca categorías como tecnología, negocios, educación y más, todos manteniendo una consistencia visual que garantiza armonía en cualquier diseño. Los iconos están disponibles en formatos SVG y PNG, permitiendo escalabilidad y personalización completa de colores y estilos.",
+      url: "https://www.isocons.app/",
+      image: "/icons/isocons.jpg",
+      tags: ["Icons", "Isometric", "3D"],
+    },
+    {
+      id: 12,
+      title: "Spectrums",
+      description:
+        "Spectrums es una colección moderna de iconos diseñada específicamente para integrarse con Framer y otros herramientas de diseño contemporáneas. Ofrece una amplia gama de iconos minimalistas y elegantes que se adaptan perfectamente a interfaces modernas y proyectos de branding. La colección se caracteriza por su consistencia visual y su enfoque en la simplicidad, manteniendo la funcionalidad sin sacrificar la estética. Espectrums es ideal para diseñadores que buscan iconos que complementen diseños limpios y sofisticados.",
+      url: "https://spectrums.framer.website/",
+      image: "/icons/spectrum.webp",
+      tags: ["Icons", "Framer", "Modern"],
+    },
+    {
+      id: 13,
+      title: "3D Icons",
+      description:
+        "3D Icons es una plataforma que ofrece una extensa colección de iconos tridimensionales de alta calidad, perfectos para darle profundidad y modernidad a cualquier proyecto digital. Con un estilo distintivo que combina realismo y minimalismo, estos iconos son ideales para aplicaciones, sitios web, presentaciones y material promocional que busque un impacto visual superior. La colección incluye categorías como tecnología, finanzas, salud, educación y más, todos diseñados con una paleta de colores coherente y un estilo uniforme. Los iconos están disponibles en múltiples formatos y resoluciones, permitiendo su uso tanto en medios digitales como impresos.",
+      url: "https://3dicons.co/",
+      image: "/icons/3dicons.png",
+      tags: ["Icons", "3D", "Premium"],
+    },
+    {
+      id: 14,
+      title: "Majesticons",
+      description:
+        "Majesticons es una biblioteca de iconos premium que combina elegancia y funcionalidad en cada diseño. Con un enfoque en la simplicidad sofisticada, esta colección ofrece iconos meticulosamente crafteados que se adaptan tanto a interfaces minimalistas como a diseños más elaborados. La biblioteca incluye iconos en diferentes estilos (outline, filled, y duotone), permitiendo flexibilidad en la implementación según las necesidades del proyecto. Majesticons destaca por su atención al detalle y su consistencia visual, asegurando que todos los iconos mantengan la misma calidad y estilo a lo largo de la colección.",
+      url: "https://www.majesticons.com/",
+      image: "/icons/majesticons.png",
+      tags: ["Icons", "Premium", "Elegant"],
+    },
+    {
+      id: 15,
+      title: "Iconic",
+      description:
+        "Iconic App es una plataforma innovadora que facilita la búsqueda, personalización y gestión de iconos para proyectos digitales. Con una interfaz intuitiva y herramientas avanzadas de búsqueda, permite a los diseñadores encontrar rápidamente el icono perfecto entre miles de opciones disponibles. La aplicación ofrece funciones de personalización en tiempo real, permitiendo ajustar colores, tamaños y estilos antes de la descarga. Además, incluye herramientas de organización para crear colecciones personalizadas y exportar iconos en múltiples formatos, optimizando el flujo de trabajo de diseño.",
+      url: "http://iconic.app/",
+      image: "/icons/iconic.jfif",
+      tags: ["Icons", "App", "Tools"],
+    },
+    {
+      id: 16,
+      title: "Octicons",
+      description:
+        "Octicons es la biblioteca de iconos oficial de GitHub, diseñada siguiendo los principios de claridad y funcionalidad que caracterizan a la plataforma. Esta colección de iconos SVG está optimizada para interfaces de desarrollador y aplicaciones técnicas, ofreciendo elementos esenciales como indicadores de estado, acciones de repositorio, navegación y herramientas de desarrollo. Los iconos mantienen una estética limpia y profesional, perfecta para dashboards, aplicaciones de desarrollo y herramientas técnicas. Octicons es completamente gratuito y de código abierto, con documentación completa y soporte para múltiples frameworks de desarrollo.",
+      url: "https://primer.style/octicons/",
+      image: "/icons/octicons.webp",
+      tags: ["Icons", "GitHub", "Development"],
+    },
+    
   ],
   logos: [
     {
@@ -147,7 +211,7 @@ const resources = {
       url: "https://www.transhumans.xyz/",
       image: "/illustrations/transhumans.png",
       tags: ["Illustrations", "Graphics, "],
-    }
+    },
   ],
   images: [
     {
@@ -453,14 +517,14 @@ const resources = {
       tags: ["Libraries", "UI"],
     },
     {
-    id: 8,
-    title: "Animista",
-    description:
-      "Animista es una herramienta online que permite crear y personalizar animaciones CSS con una interfaz visual intuitiva. Con más de 100 efectos predefinidos, permite ajustar parámetros como duración, tiempo, retraso y más para obtener el comportamiento exacto deseado. Los desarrolladores pueden previsualizar las animaciones en tiempo real y exportar directamente el código CSS listo para usar.\n\nA diferencia de otras bibliotecas, Animista se enfoca en proporcionar un generador de animaciones más que una colección estática, lo que ofrece mayor control y personalización. Es ideal para desarrolladores que buscan añadir movimiento y dinamismo a interfaces sin escribir código complejo de animación desde cero.",
-    url: "https://animista.net/",
-    image: "/librerias/animista.png",
-    tags: ["Libraries", "CSS", "Animation"],
-  },
+      id: 8,
+      title: "Animista",
+      description:
+        "Animista es una herramienta online que permite crear y personalizar animaciones CSS con una interfaz visual intuitiva. Con más de 100 efectos predefinidos, permite ajustar parámetros como duración, tiempo, retraso y más para obtener el comportamiento exacto deseado. Los desarrolladores pueden previsualizar las animaciones en tiempo real y exportar directamente el código CSS listo para usar.\n\nA diferencia de otras bibliotecas, Animista se enfoca en proporcionar un generador de animaciones más que una colección estática, lo que ofrece mayor control y personalización. Es ideal para desarrolladores que buscan añadir movimiento y dinamismo a interfaces sin escribir código complejo de animación desde cero.",
+      url: "https://animista.net/",
+      image: "/librerias/animista.png",
+      tags: ["Libraries", "CSS", "Animation"],
+    },
   ],
   ia: [
     {
@@ -498,14 +562,14 @@ const resources = {
       tags: ["AI", "Web Generation"],
     },
     {
-    id: 5,
-    title: "GitMind",
-    description:
-      "GitMind es una herramienta de creación de mapas mentales impulsada por IA que permite visualizar ideas y conceptos de forma estructurada. Ofrece funciones de colaboración en tiempo real, plantillas prediseñadas y una interfaz intuitiva para facilitar la organización del pensamiento. La plataforma incorpora capacidades de IA para sugerir conexiones entre ideas y optimizar la estructura de los mapas mentales.\n\nCon soporte para diferentes formatos de exportación y compatibilidad multiplataforma, GitMind es ideal para planificación de proyectos, tormenta de ideas, toma de notas estructuradas y presentaciones visuales. Su combinación de simplicidad y potencia la convierte en una opción excelente para estudiantes, profesionales y equipos de trabajo.",
-    url: "https://gitmind.com/",
-    image: "/ia/gitmind.jpg",
-    tags: ["AI", "Productivity", "Mind Mapping"],
-  },
+      id: 5,
+      title: "GitMind",
+      description:
+        "GitMind es una herramienta de creación de mapas mentales impulsada por IA que permite visualizar ideas y conceptos de forma estructurada. Ofrece funciones de colaboración en tiempo real, plantillas prediseñadas y una interfaz intuitiva para facilitar la organización del pensamiento. La plataforma incorpora capacidades de IA para sugerir conexiones entre ideas y optimizar la estructura de los mapas mentales.\n\nCon soporte para diferentes formatos de exportación y compatibilidad multiplataforma, GitMind es ideal para planificación de proyectos, tormenta de ideas, toma de notas estructuradas y presentaciones visuales. Su combinación de simplicidad y potencia la convierte en una opción excelente para estudiantes, profesionales y equipos de trabajo.",
+      url: "https://gitmind.com/",
+      image: "/ia/gitmind.jpg",
+      tags: ["AI", "Productivity", "Mind Mapping"],
+    },
   ],
 };
 
