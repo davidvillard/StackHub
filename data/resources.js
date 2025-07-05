@@ -174,6 +174,43 @@ const resources = {
       image: "/logos/worldvectorlogo.jpg",
       tags: ["Logos", "Branding"],
     },
+    {
+      id: 4,
+      title: "VoidenMD",
+      description:
+        "VoidenMD es una plataforma moderna de diseño de logotipos que combina simplicidad con herramientas profesionales. Ofrece una amplia gama de plantillas y elementos personalizables que permiten crear logotipos únicos y atractivos de forma rápida y eficiente. La plataforma está diseñada para ser intuitiva, facilitando el proceso de diseño tanto para principiantes como para profesionales. VoidenMD también incluye opciones avanzadas de personalización, como ajustes de tipografía, paletas de colores y efectos visuales. La herramienta es ideal para emprendedores, startups y pequeñas empresas que buscan una identidad visual profesional sin la complejidad de software de diseño avanzado.",
+      url: "https://voiden.md/",
+      image: "/logos/voiden.webp",
+      tags: ["Logos", "API Building", "Documentation"],
+    },
+    {
+      id: 5,
+      title: "Ucraft",
+      description:
+        "Ucraft Logo Maker es una herramienta gratuita de creación de logotipos que ofrece una interfaz simple y efectiva para diseñar identidades visuales profesionales. Con una amplia colección de iconos, fuentes y elementos gráficos, permite crear logotipos personalizados en minutos. La plataforma guía a los usuarios a través de un proceso paso a paso, desde la selección del estilo hasta la personalización de colores y tipografías. Ucraft Logo Maker es especialmente útil para pequeñas empresas y emprendedores que necesitan un logotipo de calidad sin invertir en diseño profesional. Además, ofrece opciones para descargar el logotipo en diferentes formatos y resoluciones.",
+      url: "https://www.ucraft.com/free-logo-maker",
+      image: "/logos/ucraft.jpg",
+      tags: ["Logos"],
+    },
+    {
+      id: 6,
+      title: "Logology",
+      description:
+        "Logology es una plataforma especializada en la creación de logotipos profesionales con un enfoque en la calidad y la personalización. Ofrece una amplia variedad de plantillas y herramientas de diseño que permiten crear logotipos únicos y memorables. La plataforma destaca por su interfaz intuitiva y su capacidad para generar múltiples variaciones de un mismo concepto, facilitando la exploración de diferentes opciones de diseño. Logology es ideal para diseñadores, agencias y empresas que buscan crear identidades visuales distintivas y profesionales. Además, proporciona recursos adicionales como guías de marca y archivos en múltiples formatos para asegurar una implementación consistente del logotipo.",
+      url: "https://www.logology.co/",
+      image: "/logos/logology.png",
+      tags: ["Logos", "Branding"],
+    },
+    {
+      id: 7,
+      title: "Clearbit Logo",
+      description:
+        "Clearbit Logo es una herramienta que proporciona acceso a logotipos de empresas de forma automatizada y programática. Es especialmente útil para desarrolladores y diseñadores que necesitan obtener logotipos de empresas de forma rápida y confiable para sus aplicaciones o proyectos. La plataforma mantiene una base de datos actualizada con logotipos de miles de empresas, permitiendo acceder a ellos mediante URL o API. Clearbit Logo es ideal para proyectos que requieren mostrar logotipos de empresas de forma dinámica, como dashboards, aplicaciones de CRM o herramientas de análisis. Su enfoque programático lo convierte en una solución eficiente para integraciones automatizadas.",
+      url: "https://clearbit.com/logo",
+      image: "/logos/clearbit.png",
+      tags: ["Logos", "API", "Development"],
+    },
+
   ],
   illustrations: [
     {
