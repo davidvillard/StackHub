@@ -244,10 +244,55 @@ const resources = {
       id: 4,
       title: "Transhumans",
       description:
-        " Transhumans es una plataforma que ofrece una colección de ilustraciones y gráficos vectoriales diseñados para proyectos web y móviles. Con un enfoque en la estética moderna y minimalista, Transhumans proporciona recursos visuales que son ideales para mejorar la apariencia de aplicaciones, sitios web y presentaciones. La plataforma permite a los usuarios explorar una amplia variedad de estilos y temas, lo que facilita encontrar la ilustración perfecta para cualquier",
+        "Transhumans es una plataforma que ofrece una colección de ilustraciones y gráficos vectoriales diseñados para proyectos web y móviles. Con un enfoque en la estética moderna y minimalista, Transhumans proporciona recursos visuales que son ideales para mejorar la apariencia de aplicaciones, sitios web y presentaciones. La plataforma permite a los usuarios explorar una amplia variedad de estilos y temas, lo que facilita encontrar la ilustración perfecta para cualquier proyecto.",
       url: "https://www.transhumans.xyz/",
       image: "/illustrations/transhumans.png",
-      tags: ["Illustrations", "Graphics, "],
+      tags: ["Illustrations", "Graphics"],
+    },
+    {
+      id: 5,
+      title: "Beanheads",
+      description:
+        "Beanheads es una biblioteca de ilustraciones de personajes únicos y personalizables creada por Robert Broersma. Esta colección ofrece una amplia variedad de cabezas de personajes en estilo vectorial, perfectas para agregar personalidad y diversidad a cualquier proyecto. Los personajes incluyen diferentes estilos de cabello, accesorios, expresiones faciales y características étnicas, permitiendo crear representaciones inclusivas y atractivas. Beanheads es especialmente útil para avatares, perfiles de usuario, ilustraciones de equipos y cualquier proyecto que requiera representación humana de forma amigable y profesional.",
+      url: "https://beanheads.robertbroersma.com/",
+      image: "/illustrations/bigHeads.jpg",
+      tags: ["Illustrations", "Characters", "Avatars"],
+    },
+    {
+      id: 6,
+      title: "Doodlicons",
+      description:
+        "Doodlicons es una colección de iconos e ilustraciones dibujados a mano que combina funcionalidad con un estilo artístico único. Estos recursos visuales están diseñados para proyectos que buscan alejarse de la estética digital tradicional y agregar un toque más humano y creativo.",
+      url: "https://doodlicons.com/",
+      image: "/illustrations/atlasIcons.jfif",
+      tags: ["Illustrations", "Hand-drawn", "Icons"],
+    },
+    {
+      id: 7,
+      title: "Humaaans",
+      description:
+        "Humaaans es una biblioteca de ilustraciones de personas diseñadas por Pablo Stanley, que ofrece una forma moderna y inclusiva de representar seres humanos en proyectos digitales. La colección se caracteriza por su estilo minimalista y contemporáneo, con personajes diversos en diferentes poses, actividades y estilos de vida.",
+      url: "https://www.humaaans.com/",
+      image: "/illustrations/Humaaans.jfif",
+      tags: ["Illustrations", "People", "Inclusive"],
+    },
+    {
+      id: 8,
+      title: "Lukasz Adam Illustrations",
+      description:
+        "Lukasz Adam ofrece una colección de ilustraciones vectoriales profesionales con un estilo distintivo y moderno. Sus trabajos se caracterizan por el uso de colores vibrantes, composiciones dinámicas y un enfoque en la narrativa visual. La colección incluye ilustraciones para tecnología, negocios, lifestyle y conceptos abstractos, todas diseñadas con un alto nivel de detalle y calidad artística.",
+      url: "https://lukaszadam.com/",
+      image: "/illustrations/lukasz.jpg",
+      tags: ["Illustrations", "Professional", "Modern"],
+    },
+    {
+      id: 9,
+      title: "Open Doodles",
+      description:
+        "Open Doodles es una biblioteca de ilustraciones gratuitas y de código abierto creada por Pablo Stanley, que ofrece un estilo de dibujo casual y amigable. La colección incluye personas, objetos, animales y escenas cotidianas dibujadas con un estilo de doodle (garabato) que transmite accesibilidad y calidez humana.",
+      url: "https://www.opendoodles.com/",
+      image: "/illustrations/OpenDoodle.webp",
+      tags: ["Illustrations", "Doodles", "Open Source"],
     },
   ],
   images: [
@@ -268,6 +313,60 @@ const resources = {
       url: "https://www.pexels.com/",
       image: "/images/pexels.png",
       tags: ["Images", "Stock"],
+    },
+    {
+      id: 3,
+      title: "Pictify",
+      description:
+        "Pictify es una herramienta de edición de imágenes impulsada por inteligencia artificial que permite a los usuarios transformar y mejorar sus fotos de manera rápida y profesional. La plataforma ofrece una amplia gama de filtros automáticos, efectos y herramientas de retoque que facilitan la creación de imágenes atractivas sin necesidad de conocimientos avanzados en edición.",
+      url: "https://pictify.io/",
+      image: "/images/pictify.png",
+      tags: ["Images", "AI", "Editing"],
+    },
+    {
+      id: 4,
+      title: "PQINA",
+      description:
+        "PQINA es una plataforma que ofrece herramientas innovadoras para la manipulación y presentación de imágenes en proyectos web. Especializada en componentes interactivos como editores de imagen, croppers y herramientas de upload, PQINA proporciona soluciones técnicas avanzadas para desarrolladores que necesitan funcionalidades de imagen robustas en sus aplicaciones.",
+      url: "https://pqina.nl/",
+      image: "/images/pqina.jpg",
+      tags: ["Images", "Tools", "Development"],
+    },
+    {
+      id: 5,
+      title: "Rupert",
+      description:
+        "Rupert es una herramienta de edición de imágenes basada en inteligencia artificial que se especializa en la eliminación automática de fondos y la mejora de fotografías de productos. Es especialmente útil para comercio electrónico, permitiendo a los usuarios crear imágenes de productos profesionales con fondos limpios y uniformes.",
+      url: "https://www.getrupert.com/",
+      image: "/images/getrupert.jpg",
+      tags: ["Images", "AI", "E-commerce"],
+    },
+    {
+      id: 6,
+      title: "PhotoRoom",
+      description:
+        "PhotoRoom es una aplicación de edición de fotos impulsada por inteligencia artificial que permite a los usuarios crear imágenes profesionales para redes sociales, comercio electrónico y marketing. Su característica más destacada es la eliminación automática e instantánea de fondos, permitiendo a los usuarios reemplazarlos con plantillas prediseñadas o fondos personalizados.",
+      url: "https://www.photoroom.com/es",
+      image: "/images/photoroom.png",
+      tags: ["Images", "AI", "Social Media"],
+    },
+    {
+      id: 7,
+      title: "PixelCut",
+      description:
+        "PixelCut es una suite completa de herramientas de edición de imágenes basada en inteligencia artificial que ofrece múltiples funcionalidades para la creación y optimización de contenido visual. La plataforma incluye herramientas para eliminar fondos, mejorar la calidad de imágenes, crear diseños para redes sociales y generar mockups profesionales.",
+      url: "https://www.pixelcut.ai/",
+      image: "/images/pixelcut.png",
+      tags: ["Images", "AI", "Design"],
+    },
+    {
+      id: 8,
+      title: "Optimize Images",
+      description:
+        "Optimize Images es una herramienta especializada en la compresión y optimización de imágenes para web, diseñada para mejorar el rendimiento de sitios web y aplicaciones. La plataforma permite reducir significativamente el tamaño de archivos de imagen sin comprometer la calidad visual, utilizando algoritmos avanzados de compresión que mantienen la nitidez y los detalles importantes.",
+      url: "https://www.optimizeimages.com/",
+      image: "/images/optimizeImages.jpg",
+      tags: ["Images", "Optimization", "Web Performance"],
     },
   ],
   videos: [
