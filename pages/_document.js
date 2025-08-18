@@ -12,6 +12,8 @@ export default function Document() {
         <meta name="apple-mobile-web-app-title" content="StackHub" />
         <meta name="google-site-verification" content="yPYcwOlcQrH1_eHTOuXu3N_rbO0ikshJYhpBmKftTHA" />
         <link rel="manifest" href="/site.webmanifest" />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5262569292350142"
+     crossorigin="anonymous"></script>
       </Head>
       <body className="antialiased">
         <Main />
