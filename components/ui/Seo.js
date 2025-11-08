@@ -11,7 +11,7 @@ function SEO({
   const router = useRouter();
 
   // URL base (cambiar a vercel cuando lo despliegues)
-  const baseUrl = "https://stackhub.vercel.app";
+  const baseUrl = "https://stackhub-app.vercel.app";
   const canonicalUrl = `${baseUrl}${router.asPath === "/" ? "" : router.asPath}`;
   
   // Título optimizado con palabra clave principal
