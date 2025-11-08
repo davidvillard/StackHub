@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://stackhub.vercel.app
+Host: https://stackhub-app.vercel.app
 
 # Sitemaps
-Sitemap: https://stackhub.vercel.app/sitemap.xml
+Sitemap: https://stackhub-app.vercel.app/sitemap.xml

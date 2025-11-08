@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.SITE_URL || 'https://stackhub.vercel.app',
+  siteUrl: process.env.SITE_URL || 'https://stackhub-app.vercel.app',
   generateRobotsTxt: true,
   generateIndexSitemap: false,
   changefreq: 'weekly',
@@ -9,7 +9,7 @@ module.exports = {
   exclude: ['/api/*'],
   robotsTxtOptions: {
     additionalSitemaps: [
-      'https://stackhub.vercel.app/sitemap.xml',
+      'https://stackhub-app.vercel.app/sitemap.xml',
     ],
     policies: [
       {
