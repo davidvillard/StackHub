@@ -8,7 +8,8 @@
     "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
-    "add-resources": "node add-resources.js"
+    "update-resources": "node scripts/csv-to-resources.js",
+    "backup-resources": "node scripts/js-to-csv.js"
   },
   "dependencies": {
     "clsx": "^2.1.1",

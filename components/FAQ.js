@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { Minus, Plus } from "lucide-react";
 
 const faqs = [
   { 
@@ -34,51 +34,81 @@ const FAQ = () => {
   const toggleFAQ = (index) => setOpenIndex(openIndex === index ? null : index);
 
   return (
-    <div className="max-w-xl mx-auto px-4 py-8">
-      <h1 className="text-3xl sm:text-4xl font-extrabold text-center mb-10 text-white">
-        Preguntas Frecuentes
-      </h1>
-      <div className="space-y-6">
-        {faqs.map((faq, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: index * 0.1 }}
-            className="bg-zinc-900 p-5 rounded-lg shadow-md border border-zinc-700 w-full"
-          >
-            <div className="w-full">
+    <div className="min-h-screen px-6 py-12 ml-0 md:ml-32 md:py-16">
+      <div className="max-w-3xl mx-auto">
+        {/* Header minimalista */}
+        <div className="mb-16">
+          <p className="text-zinc-500 text-sm mb-3 tracking-wide">
+            Centro de ayuda
+          </p>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-4">
+            Preguntas Frecuentes
+          </h1>
+        </div>
+
+        {/* Lista de FAQs */}
+        <div className="space-y-1">
+          {faqs.map((faq, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3, delay: index * 0.05 }}
+            >
               <button
-                className="flex items-center justify-between w-full text-lg font-semibold text-white hover:text-[#FFEA00] transition cursor-pointer"
                 onClick={() => toggleFAQ(index)}
+                className="w-full text-left py-6 border-b border-zinc-800 hover:border-zinc-700 transition-colors group"
               >
-                <span className="text-left">{faq.question}</span>
-                <motion.div 
-                  animate={{ rotate: openIndex === index ? 180 : 0 }} 
-                  transition={{ duration: 0.3 }}
-                  className="flex-shrink-0 ml-2"
-                >
-                  {openIndex === index ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
-                </motion.div>
+                <div className="flex items-start justify-between gap-4">
+                  <span className={`text-lg font-medium transition-colors ${
+                    openIndex === index ? 'text-white' : 'text-zinc-400 group-hover:text-white'
+                  }`}>
+                    {faq.question}
+                  </span>
+                  
+                  <div className={`flex-shrink-0 transition-colors ${
+                    openIndex === index ? 'text-white' : 'text-zinc-600 group-hover:text-zinc-400'
+                  }`}>
+                    {openIndex === index ? (
+                      <Minus size={20} strokeWidth={2} />
+                    ) : (
+                      <Plus size={20} strokeWidth={2} />
+                    )}
+                  </div>
+                </div>
+                
+                <AnimatePresence>
+                  {openIndex === index && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="overflow-hidden"
+                    >
+                      <p className="text-zinc-500 leading-relaxed pt-4 pr-8">
+                        {faq.answer}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </button>
-              <AnimatePresence>
-                {openIndex === index && (
-                  <motion.div
-                    className="overflow-hidden"
-                    initial={{ height: 0 }}
-                    animate={{ height: "auto" }}
-                    exit={{ height: 0 }}
-                    transition={{ duration: 0.4 }}
-                  >
-                    <p className="text-gray-300 mt-3">
-                      {faq.answer}
-                    </p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          </motion.div>
-        ))}
+            </motion.div>
+          ))}
+        </div>
+
+        {/* CTA minimalista */}
+        <div className="mt-16 pt-12 border-t border-zinc-800">
+          <p className="text-zinc-500 mb-4">
+            ¿Tienes más preguntas?
+          </p>
+          <a 
+            href="mailto:davidvillard6@gmail.com"
+            className="inline-block text-white font-medium hover:text-zinc-400 transition-colors"
+          >
+            davidvillard6@gmail.com →
+          </a>
+        </div>
       </div>
     </div>
   );

@@ -2,16 +2,8 @@
 User-agent: *
 Allow: /
 
-# *
-User-agent: *
-Disallow: /_next/
-Disallow: /api/
-Disallow: /404
-Disallow: /500
-Disallow: /*.json$
-
 # Host
-Host: https://stackhub.netlify.app
+Host: https://stackhub.vercel.app
 
 # Sitemaps
-Sitemap: https://stackhub.netlify.app/sitemap.xml
+Sitemap: https://stackhub.vercel.app/sitemap.xml

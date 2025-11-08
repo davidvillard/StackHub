@@ -1,712 +1,1797 @@
-const resources = {
-  icons: [
-    {
-      id: 1,
-      title: "Tabler Icons",
-      description:
-        "Tabler Icons es una colección de más de 4500 iconos SVG gratuitos y de código abierto diseñados para ser simples, personalizables y visualmente atractivos. Son ideales para interfaz de usuario (UI), dashboards y aplicaciones web o móviles.",
-      url: "https://tabler.io/",
-      image: "/icons/tabler_icons.png",
-      tags: ["SVG", "Open Source", "UI"],
-    },
-    {
-      id: 2,
-      title: "Svgl",
-      description:
-        "SVGL es una plataforma que ofrece una colección gratuita de gráficos SVG personalizables, como iconos e ilustraciones, listos para usar en proyectos web. Optimizado para facilidad de uso y rápida integración.",
-      url: "https://svgl.app/",
-      image: "/icons/svgl.png",
-      tags: ["SVG", "Icons"],
-    },
-    {
-      id: 3,
-      title: "Flowbite Icons",
-      description:
-        "Flowbite Icons es una colección de iconos modernos y minimalistas diseñados específicamente para interfaces de usuario (UI) y aplicaciones web. Estos iconos están disponibles en formato SVG, lo que permite una fácil personalización y escalabilidad sin perder calidad. Son ideales para desarrolladores y diseñadores que buscan integrar iconos consistentes y atractivos en sus proyectos. La colección incluye una amplia variedad de categorías, desde iconos básicos hasta elementos más especializados, como iconos para redes sociales, dispositivos y acciones comunes. Flowbite Icons se integra perfectamente con frameworks populares como Tailwind CSS, lo que facilita su uso en proyectos modernos y responsivos. Además, Flowbite Icons es de código abierto y completamente gratuito, lo que lo convierte en una excelente opción para equipos que buscan reducir costos sin sacrificar la calidad del diseño.",
-      url: "https://flowbite.com/icons/",
-      image: "/icons/flowbite.jpg",
-      tags: ["Icons", "UI"],
-    },
-    {
-      id: 4,
-      title: "Heroicons",
-      description:
-        "Heroicons es una biblioteca de iconos creada por los desarrolladores de Tailwind CSS. Estos iconos están diseñados para ser simples, limpios y altamente funcionales, lo que los hace perfectos para interfaces de usuario modernas. Disponibles en dos estilos (outline y solid), Heroicons ofrece flexibilidad para adaptarse a diferentes necesidades de diseño. Cada icono está optimizado para su uso en aplicaciones web y móviles, con un enfoque en la claridad y la legibilidad. Heroicons es especialmente popular entre los desarrolladores que utilizan Tailwind CSS, ya que se integra de manera nativa con este framework, permitiendo una implementación rápida y eficiente. Además, Heroicons es de código abierto y gratuito, lo que lo convierte en una opción accesible para proyectos de cualquier escala.",
-      url: "https://heroicons.com/",
-      image: "/icons/heroicons.jpg",
-      tags: ["Icons", "UI"],
-    },
-    {
-      id: 5,
-      title: "Remix Icon",
-      description:
-        "Remix Icon es una colección de más de 2,000 iconos en formato SVG, diseñados para ser versátiles y fáciles de usar en cualquier proyecto web o móvil. Estos iconos cubren una amplia gama de categorías, desde elementos de interfaz de usuario hasta iconos temáticos y especializados, lo que los hace adecuados para una variedad de aplicaciones. Una de las características destacadas de Remix Icon es su enfoque en la consistencia visual. Todos los iconos siguen un estilo uniforme, lo que garantiza que se vean bien juntos en cualquier proyecto. Además, los iconos son altamente personalizables, lo que permite a los diseñadores ajustar colores, tamaños y estilos según sus necesidades. Remix Icon es de código abierto y completamente gratuito, lo que lo convierte en una excelente opción para desarrolladores y diseñadores que buscan una biblioteca de iconos completa y profesional sin incurrir en costos adicionales.",
-      url: "https://remixicon.com/",
-      image: "/icons/remix-icon.png",
-      tags: ["Icons", "UI"],
-    },
-    {
-      id: 6,
-      title: "Boxicons",
-      description:
-        "Boxicons es una biblioteca de iconos que ofrece una amplia variedad de opciones en dos estilos principales: regular y solid. Estos iconos están diseñados para ser simples, modernos y altamente funcionales, lo que los hace ideales para aplicaciones web y móviles. Boxicons es especialmente conocido por su facilidad de integración y su enfoque en la usabilidad. La colección incluye más de 1,500 iconos, cubriendo una amplia gama de categorías, desde elementos básicos hasta iconos más especializados. Boxicons también ofrece soporte para SVG, lo que permite una fácil personalización y escalabilidad sin perder calidad visual. Además, Boxicons es de código abierto y gratuito, lo que lo convierte en una opción accesible para proyectos de cualquier tamaño.",
-      url: "https://boxicons.com/",
-      image: "/icons/boxicons.png",
-      tags: ["Icons", "UI"],
-    },
-    {
-      id: 7,
-      title: "Streamline",
-      description:
-        "Streamline es una plataforma que ofrece una colección masiva de iconos e ilustraciones diseñados para interfaces de usuario modernas. Con más de 30,000 recursos disponibles, Streamline es una de las bibliotecas más completas del mercado, ideal para proyectos que requieren una amplia variedad de iconos y elementos visuales. Una de las características únicas de Streamline es su enfoque en la personalización. Los usuarios pueden ajustar colores, estilos y tamaños directamente en la plataforma, lo que facilita la creación de iconos que se adapten perfectamente a cualquier diseño. Además, Streamline ofrece integraciones con herramientas populares como Figma, Sketch y Adobe XD. Streamline es una opción premium, pero su extensa biblioteca y su enfoque en la calidad lo convierten en una inversión valiosa para equipos de diseño y desarrollo.",
-      url: "https://home.streamlinehq.com/",
-      image: "/icons/streamline.jpg",
-      tags: ["Icons", "UI"],
-    },
-    {
-      id: 8,
-      title: "Iconoir",
-      description:
-        "Iconoir es una colección de iconos SVG gratuitos y de código abierto, diseñada para ser simple, moderna y altamente personalizable. Con más de 1,300 iconos disponibles, Iconoir es ideal para desarrolladores y diseñadores que buscan una biblioteca de iconos versátil y fácil de usar. La colección abarca una amplia gama de categorías, desde iconos básicos hasta elementos más especializados, lo que la hace adecuada para una variedad de aplicaciones. Una de las características destacadas de Iconoir es su enfoque en la accesibilidad y la usabilidad. Todos los iconos están optimizados para su uso en aplicaciones web y móviles, garantizando una excelente legibilidad y claridad visual. Además, Iconoir es completamente gratuito y se puede utilizar sin restricciones, lo que lo convierte en una opción accesible para proyectos de cualquier escala.",
-      url: "https://iconoir.com/",
-      image: "/icons/iconoir.png",
-      tags: ["Icons"],
-    },
-    {
-      id: 9,
-      title: "Phosphoricons",
-      description:
-        "Phosphoricons es una colección de iconos SVG de código abierto que ofrece una amplia variedad de iconos minimalistas y modernos. Con más de 2,000 iconos disponibles, Phosphoricons es ideal para desarrolladores y diseñadores que buscan una biblioteca de iconos versátil y fácil de usar. La colección abarca una amplia gama de categorías, desde iconos básicos hasta elementos más especializados, lo que la hace adecuada para una variedad de aplicaciones. Una de las características destacadas de Phosphoricons es su enfoque en la personalización. Los usuarios pueden ajustar colores, tamaños y estilos directamente en la plataforma, lo que facilita la creación de iconos que se adapten perfectamente a cualquier diseño. Además, Phosphoricons es completamente gratuito y se puede utilizar sin restricciones, lo que lo convierte en una opción accesible para proyectos de cualquier escala.",
-      url: "https://phosphoricons.com/",
-      image: "/icons/phosphor.png",
-      tags: ["Icons"],
-    },
-    {
-      id: 10,
-      title: "Google Icons",
-      description:
-        "Google Icons es una colección de iconos diseñados por Google, que forman parte de su sistema de diseño Material Design. Estos iconos están diseñados para ser simples, claros y altamente funcionales, lo que los hace ideales para aplicaciones web y móviles. La colección incluye una amplia variedad de iconos, desde elementos básicos hasta iconos más especializados, lo que la hace adecuada para una variedad de aplicaciones. Una de las características destacadas de Google Icons es su enfoque en la accesibilidad y la usabilidad. Todos los iconos están optimizados para su uso en aplicaciones web y móviles, garantizando una excelente legibilidad y claridad visual. Además, Google Icons es completamente gratuito y se puede utilizar sin restricciones, lo que lo convierte en una opción accesible para proyectos de cualquier escala.",
-      url: "https://fonts.google.com/icons",
-      image: "/icons/google.png",
-      tags: ["Icons, UI"],
-    },
-    {
-      id: 11,
-      title: "Isocons",
-      description:
-        "Isocons es una colección premium de iconos isométricos vectoriales diseñados para darle una perspectiva única y moderna a tus proyectos. Con un estilo distintivo en 3D, estos iconos son ideales para interfaces, presentaciones y material gráfico que busque destacar con un enfoque visual innovador. La colección abarca categorías como tecnología, negocios, educación y más, todos manteniendo una consistencia visual que garantiza armonía en cualquier diseño. Los iconos están disponibles en formatos SVG y PNG, permitiendo escalabilidad y personalización completa de colores y estilos.",
-      url: "https://www.isocons.app/",
-      image: "/icons/isocons.jpg",
-      tags: ["Icons", "Isometric", "3D"],
-    },
-    {
-      id: 12,
-      title: "Spectrums",
-      description:
-        "Spectrums es una colección moderna de iconos diseñada específicamente para integrarse con Framer y otros herramientas de diseño contemporáneas. Ofrece una amplia gama de iconos minimalistas y elegantes que se adaptan perfectamente a interfaces modernas y proyectos de branding. La colección se caracteriza por su consistencia visual y su enfoque en la simplicidad, manteniendo la funcionalidad sin sacrificar la estética. Espectrums es ideal para diseñadores que buscan iconos que complementen diseños limpios y sofisticados.",
-      url: "https://spectrums.framer.website/",
-      image: "/icons/spectrum.webp",
-      tags: ["Icons", "Framer", "Modern"],
-    },
-    {
-      id: 13,
-      title: "3D Icons",
-      description:
-        "3D Icons es una plataforma que ofrece una extensa colección de iconos tridimensionales de alta calidad, perfectos para darle profundidad y modernidad a cualquier proyecto digital. Con un estilo distintivo que combina realismo y minimalismo, estos iconos son ideales para aplicaciones, sitios web, presentaciones y material promocional que busque un impacto visual superior. La colección incluye categorías como tecnología, finanzas, salud, educación y más, todos diseñados con una paleta de colores coherente y un estilo uniforme. Los iconos están disponibles en múltiples formatos y resoluciones, permitiendo su uso tanto en medios digitales como impresos.",
-      url: "https://3dicons.co/",
-      image: "/icons/3dicons.png",
-      tags: ["Icons", "3D", "Premium"],
-    },
-    {
-      id: 14,
-      title: "Majesticons",
-      description:
-        "Majesticons es una biblioteca de iconos premium que combina elegancia y funcionalidad en cada diseño. Con un enfoque en la simplicidad sofisticada, esta colección ofrece iconos meticulosamente crafteados que se adaptan tanto a interfaces minimalistas como a diseños más elaborados. La biblioteca incluye iconos en diferentes estilos (outline, filled, y duotone), permitiendo flexibilidad en la implementación según las necesidades del proyecto. Majesticons destaca por su atención al detalle y su consistencia visual, asegurando que todos los iconos mantengan la misma calidad y estilo a lo largo de la colección.",
-      url: "https://www.majesticons.com/",
-      image: "/icons/majesticons.png",
-      tags: ["Icons", "Premium", "Elegant"],
-    },
-    {
-      id: 15,
-      title: "Iconic",
-      description:
-        "Iconic App es una plataforma innovadora que facilita la búsqueda, personalización y gestión de iconos para proyectos digitales. Con una interfaz intuitiva y herramientas avanzadas de búsqueda, permite a los diseñadores encontrar rápidamente el icono perfecto entre miles de opciones disponibles. La aplicación ofrece funciones de personalización en tiempo real, permitiendo ajustar colores, tamaños y estilos antes de la descarga. Además, incluye herramientas de organización para crear colecciones personalizadas y exportar iconos en múltiples formatos, optimizando el flujo de trabajo de diseño.",
-      url: "http://iconic.app/",
-      image: "/icons/iconic.jfif",
-      tags: ["Icons", "App", "Tools"],
-    },
-    {
-      id: 16,
-      title: "Octicons",
-      description:
-        "Octicons es la biblioteca de iconos oficial de GitHub, diseñada siguiendo los principios de claridad y funcionalidad que caracterizan a la plataforma. Esta colección de iconos SVG está optimizada para interfaces de desarrollador y aplicaciones técnicas, ofreciendo elementos esenciales como indicadores de estado, acciones de repositorio, navegación y herramientas de desarrollo. Los iconos mantienen una estética limpia y profesional, perfecta para dashboards, aplicaciones de desarrollo y herramientas técnicas. Octicons es completamente gratuito y de código abierto, con documentación completa y soporte para múltiples frameworks de desarrollo.",
-      url: "https://primer.style/octicons/",
-      image: "/icons/octicons.webp",
-      tags: ["Icons", "GitHub", "Development"],
-    },
-    
-  ],
-  logos: [
-    {
-      id: 1,
-      title: "Hatchful",
-      description:
-        "Hatchful es una herramienta en línea desarrollada por Shopify que permite a los usuarios crear logotipos profesionales en cuestión de minutos. Con una interfaz intuitiva y una amplia variedad de plantillas personalizables, Hatchful es ideal para emprendedores y pequeñas empresas que necesitan un logotipo atractivo sin recurrir a diseñadores profesionales. La plataforma guía a los usuarios a través de un proceso sencillo, desde la selección de un estilo hasta la personalización de colores, fuentes y diseños. Hatchful también ofrece opciones para descargar el logotipo en diferentes formatos y tamaños, lo que lo hace adecuado para su uso en redes sociales, sitios web y material impreso. Aunque Hatchful es gratuito, también ofrece opciones premium para aquellos que desean acceder a más recursos y funcionalidades.",
-      url: "https://hatchful.shopify.com/",
-      image: "/logos/hatchful.jpg",
-      tags: ["Logos", "Branding"],
-    },
-    {
-      id: 2,
-      title: "Looka",
-      description:
-        "Looka es una plataforma de diseño de logotipos impulsada por inteligencia artificial que permite a los usuarios crear logotipos personalizados en minutos. Con una interfaz fácil de usar y una amplia gama de opciones de diseño, Looka es ideal para emprendedores, pequeñas empresas y profesionales que buscan una identidad visual única. La herramienta utiliza algoritmos de IA para generar opciones de logotipos basadas en las preferencias del usuario, como colores, estilos y símbolos. Una vez seleccionado un diseño, los usuarios pueden personalizarlo aún más para adaptarlo a sus necesidades. Looka también ofrece paquetes premium que incluyen archivos de alta resolución y derechos de uso exclusivos. Además de logotipos, Looka proporciona herramientas para crear kits de marca completos, incluyendo tarjetas de presentación, papelería y diseños para redes sociales.",
-      url: "https://looka.com/",
-      image: "/logos/looka.png",
-      tags: ["Logos", "Branding"],
-    },
-    {
-      id: 3,
-      title: "World Vector Logo",
-      description:
-        "World Vector Logo es una plataforma que ofrece una extensa colección de logotipos vectoriales de marcas reconocidas a nivel mundial. Estos logotipos están disponibles en formatos escalables como SVG y EPS, lo que los hace ideales para su uso en impresión y diseño digital. La plataforma es especialmente útil para diseñadores y desarrolladores que necesitan logotipos de alta calidad para proyectos de branding, presentaciones o materiales promocionales. World Vector Logo también permite a los usuarios descargar logotipos en diferentes colores y estilos, lo que facilita su integración en diversos diseños. Aunque muchos logotipos están disponibles de forma gratuita, World Vector Logo también ofrece opciones premium para acceder a recursos adicionales y descargas ilimitadas.",
-      url: "https://worldvectorlogo.com/es",
-      image: "/logos/worldvectorlogo.jpg",
-      tags: ["Logos", "Branding"],
-    },
-    {
-      id: 4,
-      title: "VoidenMD",
-      description:
-        "VoidenMD es una plataforma moderna de diseño de logotipos que combina simplicidad con herramientas profesionales. Ofrece una amplia gama de plantillas y elementos personalizables que permiten crear logotipos únicos y atractivos de forma rápida y eficiente. La plataforma está diseñada para ser intuitiva, facilitando el proceso de diseño tanto para principiantes como para profesionales. VoidenMD también incluye opciones avanzadas de personalización, como ajustes de tipografía, paletas de colores y efectos visuales. La herramienta es ideal para emprendedores, startups y pequeñas empresas que buscan una identidad visual profesional sin la complejidad de software de diseño avanzado.",
-      url: "https://voiden.md/",
-      image: "/logos/voiden.webp",
-      tags: ["Logos", "API Building", "Documentation"],
-    },
-    {
-      id: 5,
-      title: "Ucraft",
-      description:
-        "Ucraft Logo Maker es una herramienta gratuita de creación de logotipos que ofrece una interfaz simple y efectiva para diseñar identidades visuales profesionales. Con una amplia colección de iconos, fuentes y elementos gráficos, permite crear logotipos personalizados en minutos. La plataforma guía a los usuarios a través de un proceso paso a paso, desde la selección del estilo hasta la personalización de colores y tipografías. Ucraft Logo Maker es especialmente útil para pequeñas empresas y emprendedores que necesitan un logotipo de calidad sin invertir en diseño profesional. Además, ofrece opciones para descargar el logotipo en diferentes formatos y resoluciones.",
-      url: "https://www.ucraft.com/free-logo-maker",
-      image: "/logos/ucraft.jpg",
-      tags: ["Logos"],
-    },
-    {
-      id: 6,
-      title: "Logology",
-      description:
-        "Logology es una plataforma especializada en la creación de logotipos profesionales con un enfoque en la calidad y la personalización. Ofrece una amplia variedad de plantillas y herramientas de diseño que permiten crear logotipos únicos y memorables. La plataforma destaca por su interfaz intuitiva y su capacidad para generar múltiples variaciones de un mismo concepto, facilitando la exploración de diferentes opciones de diseño. Logology es ideal para diseñadores, agencias y empresas que buscan crear identidades visuales distintivas y profesionales. Además, proporciona recursos adicionales como guías de marca y archivos en múltiples formatos para asegurar una implementación consistente del logotipo.",
-      url: "https://www.logology.co/",
-      image: "/logos/logology.png",
-      tags: ["Logos", "Branding"],
-    },
-    {
-      id: 7,
-      title: "Clearbit Logo",
-      description:
-        "Clearbit Logo es una herramienta que proporciona acceso a logotipos de empresas de forma automatizada y programática. Es especialmente útil para desarrolladores y diseñadores que necesitan obtener logotipos de empresas de forma rápida y confiable para sus aplicaciones o proyectos. La plataforma mantiene una base de datos actualizada con logotipos de miles de empresas, permitiendo acceder a ellos mediante URL o API. Clearbit Logo es ideal para proyectos que requieren mostrar logotipos de empresas de forma dinámica, como dashboards, aplicaciones de CRM o herramientas de análisis. Su enfoque programático lo convierte en una solución eficiente para integraciones automatizadas.",
-      url: "https://clearbit.com/logo",
-      image: "/logos/clearbit.png",
-      tags: ["Logos", "API", "Development"],
-    },
+// Este archivo es generado automáticamente por scripts/csv-to-resources.js
+// No editar manualmente
 
+const resources = {
+  "icons": [
+    {
+      "id": "feather-icons",
+      "title": "Feather Icons",
+      "description": "Feather Icons es una colección de iconos SVG minimalistas y ligeros, diseñados con líneas finas y elegantes. Con más de 280 iconos disponibles, es perfecto para interfaces modernas que buscan un estilo limpio y profesional. Los iconos son de código abierto y completamente personalizables.",
+      "url": "https://feathericons.com/",
+      "image": "/images/resources/feather-icons.jpg",
+      "tags": [
+        "Icons",
+        "SVG",
+        "Minimal"
+      ]
+    },
+    {
+      "id": "font-awesome",
+      "title": "Font Awesome",
+      "description": "Font Awesome es una de las bibliotecas de iconos más populares del mundo, con más de 10,000 iconos disponibles. Ofrece versiones gratuitas y premium, con múltiples estilos como solid, regular, light y duotone. Es ampliamente utilizado en desarrollo web y aplicaciones.",
+      "url": "https://fontawesome.com/",
+      "image": "/images/resources/fontawesome.png",
+      "tags": [
+        "Icons",
+        "Web",
+        "Popular"
+      ]
+    },
+    {
+      "id": "bootstrap-icons",
+      "title": "Bootstrap Icons",
+      "description": "Bootstrap Icons es la biblioteca oficial de iconos de Bootstrap, diseñada para integrarse perfectamente con el framework. Cuenta con más de 1,800 iconos SVG de alta calidad, optimizados para uso web y completamente gratuitos.",
+      "url": "https://icons.getbootstrap.com/",
+      "image": "/images/resources/bootstrap-icons.jpg",
+      "tags": [
+        "Icons",
+        "Bootstrap",
+        "SVG"
+      ]
+    },
+    {
+      "id": "ionicons",
+      "title": "Ionicons",
+      "description": "Ionicons es una biblioteca de iconos premium diseñada específicamente para aplicaciones móviles y web. Creada por el equipo de Ionic Framework, ofrece más de 1,300 iconos en estilos outline, filled y sharp, perfectos para interfaces modernas.",
+      "url": "https://ionic.io/ionicons",
+      "image": "/images/resources/ionicons.jpg",
+      "tags": [
+        "Icons",
+        "Mobile",
+        "Premium"
+      ]
+    },
+    {
+      "id": "simple-icons",
+      "title": "Simple Icons",
+      "description": "Simple Icons ofrece más de 2,800 iconos SVG de marcas populares con sus colores oficiales. Es ideal para proyectos que necesitan logos de redes sociales, plataformas tecnológicas y servicios web reconocidos.",
+      "url": "https://simpleicons.org/",
+      "image": "/images/resources/simple-icons.jpg",
+      "tags": [
+        "Icons",
+        "Brands",
+        "SVG"
+      ]
+    },
+    {
+      "id": "lordicon",
+      "title": "Lordicon",
+      "description": "Lordicon es una biblioteca premium de iconos animados que ofrece más de 8,000 iconos interactivos. Los iconos incluyen animaciones fluidas y transiciones suaves, perfectos para mejorar la experiencia de usuario en aplicaciones web modernas.",
+      "url": "https://lordicon.com/",
+      "image": "/images/resources/lordicon.jpg",
+      "tags": [
+        "Icons",
+        "Animated",
+        "Premium"
+      ]
+    },
+    {
+      "id": "eva-icons",
+      "title": "Eva Icons",
+      "description": "Eva Icons es una colección de más de 480 iconos elegantes disponibles en dos estilos: outline y fill. Diseñados con un enfoque en la simplicidad y la funcionalidad, son perfectos para aplicaciones empresariales y dashboards.",
+      "url": "https://akveo.github.io/eva-icons/",
+      "image": "/images/resources/eva-icons.jpg",
+      "tags": [
+        "Icons",
+        "UI",
+        "Enterprise"
+      ]
+    },
+    {
+      "id": "lucide",
+      "title": "Lucide",
+      "description": "Lucide es un fork comunitario de Feather Icons con más iconos y mejor mantenimiento. Ofrece una colección en constante crecimiento de iconos SVG minimalistas, perfectos para interfaces modernas y limpias.",
+      "url": "https://lucide.dev/",
+      "image": "/images/resources/lucide.jpg",
+      "tags": [
+        "Icons",
+        "Open Source",
+        "Community"
+      ]
+    },
+    {
+      "id": "ant-design-icons",
+      "title": "Ant Design Icons",
+      "description": "Ant Design Icons es la biblioteca oficial de iconos del framework Ant Design. Ofrece más de 700 iconos en múltiples estilos, optimizados para aplicaciones empresariales y sistemas de diseño corporativos.",
+      "url": "https://ant.design/components/icon/",
+      "image": "/images/resources/ant-design-icons.jpg",
+      "tags": [
+        "Icons",
+        "Enterprise",
+        "React"
+      ]
+    },
+    {
+      "id": "zondicons",
+      "title": "Zondicons",
+      "description": "Zondicons es una colección de iconos SVG simples y elegantes creada por Steve Schoger. Con un estilo consistente y minimalista, incluye más de 300 iconos perfectos para interfaces web modernas.",
+      "url": "https://www.zondicons.com/",
+      "image": "/images/resources/zondicons.jpg",
+      "tags": [
+        "Icons",
+        "Minimal",
+        "SVG"
+      ]
+    },
+    {
+      "id": "coreui-icons",
+      "title": "CoreUI Icons",
+      "description": "CoreUI Icons ofrece más de 1,500 iconos gratuitos en múltiples estilos. Diseñados para integrarse perfectamente con el framework CoreUI, son ideales para dashboards y aplicaciones administrativas.",
+      "url": "https://icons.coreui.io/",
+      "image": "/images/resources/coreui-icons.jpg",
+      "tags": [
+        "Icons",
+        "Dashboard",
+        "Admin"
+      ]
+    },
+    {
+      "id": "ikonate",
+      "title": "Ikonate",
+      "description": "Ikonate es una colección de iconos totalmente personalizables mediante CSS. Permite ajustar grosor de líneas, tamaños y colores sin necesidad de editar archivos SVG, ofreciendo máxima flexibilidad.",
+      "url": "https://ikonate.com/",
+      "image": "/images/resources/ikonate.jpg",
+      "tags": [
+        "Icons",
+        "Customizable",
+        "CSS"
+      ]
+    },
+    {
+      "id": "nucleo",
+      "title": "Nucleo",
+      "description": "Nucleo es una biblioteca premium de más de 30,000 iconos en múltiples estilos. Ofrece una aplicación de escritorio para gestionar y exportar iconos, siendo ideal para proyectos grandes que requieren consistencia visual.",
+      "url": "https://nucleoapp.com/",
+      "image": "/images/resources/nucleo.jpg",
+      "tags": [
+        "Icons",
+        "Premium",
+        "Professional"
+      ]
+    }
   ],
-  illustrations: [
+  "logos": [
     {
-      id: 1,
-      title: "Blush",
-      description:
-        "Blush es una plataforma que permite a los usuarios crear ilustraciones personalizadas utilizando una amplia variedad de estilos y elementos. Con una interfaz intuitiva y una biblioteca en constante crecimiento, Blush es ideal para diseñadores que buscan agregar un toque único a sus proyectos. La herramienta ofrece una gran flexibilidad, permitiendo a los usuarios ajustar colores, poses y estilos para crear ilustraciones que se adapten a sus necesidades. Blush también se integra con herramientas populares como Figma, lo que facilita su uso en flujos de trabajo de diseño existentes. Además, Blush es gratuito para uso personal y ofrece opciones de pago para proyectos comerciales.",
-      url: "https://blush.design/",
-      image: "/illustrations/blush.png",
-      tags: ["Illustrations", "UI"],
+      "id": "brandfetch",
+      "title": "Brandfetch",
+      "description": "Brandfetch es una plataforma que permite buscar y descargar logos de marcas de alta calidad en múltiples formatos. Ofrece acceso a logos vectoriales, guías de marca y paletas de colores oficiales de miles de empresas.",
+      "url": "https://brandfetch.com/",
+      "image": "/images/resources/brandfetch.png",
+      "tags": [
+        "Logos",
+        "Brands",
+        "API"
+      ]
     },
     {
-      id: 2,
-      title: "DrawKit",
-      description:
-        "DrawKit es una biblioteca de ilustraciones vectoriales gratuitas y premium diseñadas para proyectos web y móviles. Con una amplia variedad de estilos y temas, DrawKit es ideal para diseñadores que buscan ilustraciones de alta calidad para mejorar la apariencia de sus proyectos. La plataforma ofrece ilustraciones en formatos SVG y PNG, lo que permite una fácil integración en cualquier diseño. DrawKit también incluye opciones de personalización, como la capacidad de cambiar colores y ajustar elementos para adaptarse a las necesidades del proyecto. Además, DrawKit es de código abierto y ofrece una selección gratuita de ilustraciones, lo que lo convierte en una opción accesible para proyectos de cualquier escala.",
-      url: "https://www.drawkit.io/",
-      image: "/illustrations/drawkit.png",
-      tags: ["Illustrations", "UI"],
+      "id": "logo-garden",
+      "title": "Logo Garden",
+      "description": "Logo Garden es un generador de logos gratuito que permite crear identidades visuales profesionales en minutos. Ofrece miles de plantillas personalizables y exportación en múltiples formatos.",
+      "url": "https://www.logogarden.com/",
+      "image": "/images/resources/logogarden.jpg",
+      "tags": [
+        "Logos",
+        "Generator",
+        "Free"
+      ]
     },
     {
-      id: 3,
-      title: "Flowbite Illustrations",
-      description:
-        "Flowbite Illustrations es una colección de ilustraciones vectoriales diseñadas para complementar interfaces de usuario modernas. Estas ilustraciones están disponibles en una variedad de estilos y temas, lo que las hace ideales para proyectos web y móviles. Una de las características destacadas de Flowbite Illustrations es su enfoque en la coherencia visual. Todas las ilustraciones siguen un estilo uniforme, lo que garantiza que se vean bien juntas en cualquier proyecto. Además, las ilustraciones son altamente personalizables, lo que permite a los diseñadores ajustar colores y estilos según sus necesidades. Flowbite Illustrations es de código abierto y completamente gratuito, lo que lo convierte en una excelente opción para equipos que buscan agregar ilustraciones atractivas y profesionales a sus proyectos sin incurrir en costos adicionales.",
-      url: "https://flowbite.com/illustrations/",
-      image: "/illustrations/flowbite-illustrations.png",
-      tags: ["Illustrations", "UI"],
+      "id": "tailor-brands",
+      "title": "Tailor Brands",
+      "description": "Tailor Brands es una plataforma de branding impulsada por IA que genera logos personalizados basados en las preferencias del usuario. Ofrece también herramientas para crear materiales de marca completos.",
+      "url": "https://www.tailorbrands.com/",
+      "image": "/images/resources/tailorbrand.webp",
+      "tags": [
+        "Logos",
+        "AI",
+        "Branding"
+      ]
     },
     {
-      id: 4,
-      title: "Transhumans",
-      description:
-        "Transhumans es una plataforma que ofrece una colección de ilustraciones y gráficos vectoriales diseñados para proyectos web y móviles. Con un enfoque en la estética moderna y minimalista, Transhumans proporciona recursos visuales que son ideales para mejorar la apariencia de aplicaciones, sitios web y presentaciones. La plataforma permite a los usuarios explorar una amplia variedad de estilos y temas, lo que facilita encontrar la ilustración perfecta para cualquier proyecto.",
-      url: "https://www.transhumans.xyz/",
-      image: "/illustrations/transhumans.png",
-      tags: ["Illustrations", "Graphics"],
+      "id": "logomaster",
+      "title": "Logomaster",
+      "description": "Logomaster es una herramienta de diseño de logos que ofrece una interfaz intuitiva y miles de plantillas editables. Permite crear logos profesionales sin conocimientos de diseño previos.",
+      "url": "https://logomaster.ai/",
+      "image": "/images/resources/logo-master.jpg",
+      "tags": [
+        "Logos",
+        "Design",
+        "Tool"
+      ]
     },
     {
-      id: 5,
-      title: "Beanheads",
-      description:
-        "Beanheads es una biblioteca de ilustraciones de personajes únicos y personalizables creada por Robert Broersma. Esta colección ofrece una amplia variedad de cabezas de personajes en estilo vectorial, perfectas para agregar personalidad y diversidad a cualquier proyecto. Los personajes incluyen diferentes estilos de cabello, accesorios, expresiones faciales y características étnicas, permitiendo crear representaciones inclusivas y atractivas. Beanheads es especialmente útil para avatares, perfiles de usuario, ilustraciones de equipos y cualquier proyecto que requiera representación humana de forma amigable y profesional.",
-      url: "https://beanheads.robertbroersma.com/",
-      image: "/illustrations/bigHeads.jpg",
-      tags: ["Illustrations", "Characters", "Avatars"],
+      "id": "namecheap-logo-maker",
+      "title": "Namecheap Logo Maker",
+      "description": "Namecheap Logo Maker es una herramienta gratuita que permite crear logos profesionales en minutos. Integrada con el ecosistema Namecheap, facilita la creación de identidad visual para nuevos proyectos.",
+      "url": "https://www.namecheap.com/logo-maker/",
+      "image": "/images/resources/namecheap-logo-maker.jpg",
+      "tags": [
+        "Logos",
+        "Free",
+        "Generator"
+      ]
     },
     {
-      id: 6,
-      title: "Doodlicons",
-      description:
-        "Doodlicons es una colección de iconos e ilustraciones dibujados a mano que combina funcionalidad con un estilo artístico único. Estos recursos visuales están diseñados para proyectos que buscan alejarse de la estética digital tradicional y agregar un toque más humano y creativo.",
-      url: "https://doodlicons.com/",
-      image: "/illustrations/atlasIcons.jfif",
-      tags: ["Illustrations", "Hand-drawn", "Icons"],
+      "id": "logomakr",
+      "title": "LogoMakr",
+      "description": "LogoMakr es un editor de logos online gratuito que ofrece una interfaz de arrastrar y soltar. Con miles de gráficos y fuentes, permite crear logos personalizados sin costos iniciales.",
+      "url": "https://logomakr.com/",
+      "image": "/images/resources/logo-makr.jpg",
+      "tags": [
+        "Logos",
+        "Free",
+        "Editor"
+      ]
     },
     {
-      id: 7,
-      title: "Humaaans",
-      description:
-        "Humaaans es una biblioteca de ilustraciones de personas diseñadas por Pablo Stanley, que ofrece una forma moderna y inclusiva de representar seres humanos en proyectos digitales. La colección se caracteriza por su estilo minimalista y contemporáneo, con personajes diversos en diferentes poses, actividades y estilos de vida.",
-      url: "https://www.humaaans.com/",
-      image: "/illustrations/Humaaans.jfif",
-      tags: ["Illustrations", "People", "Inclusive"],
+      "id": "designevo",
+      "title": "DesignEvo",
+      "description": "DesignEvo es un creador de logos online que ofrece más de 10,000 plantillas profesionales. Su interfaz sencilla permite personalizar logos en minutos y descargarlos en alta resolución.",
+      "url": "https://www.designevo.com/",
+      "image": "/images/resources/design-evo.jpg",
+      "tags": [
+        "Logos",
+        "Templates",
+        "Design"
+      ]
     },
     {
-      id: 8,
-      title: "Lukasz Adam Illustrations",
-      description:
-        "Lukasz Adam ofrece una colección de ilustraciones vectoriales profesionales con un estilo distintivo y moderno. Sus trabajos se caracterizan por el uso de colores vibrantes, composiciones dinámicas y un enfoque en la narrativa visual. La colección incluye ilustraciones para tecnología, negocios, lifestyle y conceptos abstractos, todas diseñadas con un alto nivel de detalle y calidad artística.",
-      url: "https://lukaszadam.com/",
-      image: "/illustrations/lukasz.jpg",
-      tags: ["Illustrations", "Professional", "Modern"],
+      "id": "renderforest",
+      "title": "Renderforest",
+      "description": "Renderforest es una plataforma todo-en-uno que incluye un generador de logos con animación. Permite crear identidades visuales completas con videos, mockups y materiales de branding.",
+      "url": "https://www.renderforest.com/",
+      "image": "/images/resources/render-forest.png",
+      "tags": [
+        "Logos",
+        "Animation",
+        "Branding"
+      ]
     },
     {
-      id: 9,
-      title: "Open Doodles",
-      description:
-        "Open Doodles es una biblioteca de ilustraciones gratuitas y de código abierto creada por Pablo Stanley, que ofrece un estilo de dibujo casual y amigable. La colección incluye personas, objetos, animales y escenas cotidianas dibujadas con un estilo de doodle (garabato) que transmite accesibilidad y calidez humana.",
-      url: "https://www.opendoodles.com/",
-      image: "/illustrations/OpenDoodle.webp",
-      tags: ["Illustrations", "Doodles", "Open Source"],
+      "id": "free-logo-design",
+      "title": "Free Logo Design",
+      "description": "Free Logo Design es una plataforma gratuita que permite crear logos profesionales sin costo inicial. Ofrece miles de plantillas y opciones de personalización para diferentes industrias.",
+      "url": "https://www.freelogodesign.org/",
+      "image": "/images/resources/freelogodesign.jpg",
+      "tags": [
+        "Logos",
+        "Free",
+        "Professional"
+      ]
+    },
+    {
+      "id": "smashing-logo",
+      "title": "Smashing Logo",
+      "description": "Smashing Logo es un generador de logos impulsado por IA que crea diseños personalizados en segundos. Ofrece múltiples variaciones y permite ajustes ilimitados hasta encontrar el diseño perfecto.",
+      "url": "https://smashinglogo.com/",
+      "image": "/images/resources/smashing-logo.avif",
+      "tags": [
+        "Logos",
+        "AI",
+        "Fast"
+      ]
+    }
+  ],
+  "illustrations": [
+    {
+      "id": "undraw",
+      "title": "unDraw",
+      "description": "unDraw es una colección de ilustraciones SVG de código abierto que se pueden personalizar al instante cambiando el color principal. Con más de 1,000 ilustraciones, es perfecta para landing pages y aplicaciones.",
+      "url": "https://undraw.co/",
+      "image": "/images/resources/undraw.webp",
+      "tags": [
+        "Illustrations",
+        "SVG",
+        "Open Source"
+      ]
+    },
+    {
+      "id": "storyset",
+      "title": "Storyset",
+      "description": "Storyset de Freepik ofrece ilustraciones animadas gratuitas y personalizables. Permite editar colores, eliminar elementos y animar las ilustraciones para darles vida en proyectos web.",
+      "url": "https://storyset.com/",
+      "image": "/images/resources/storyset.jpg",
+      "tags": [
+        "Illustrations",
+        "Animated",
+        "Freepik"
+      ]
+    },
+    {
+      "id": "manypixels",
+      "title": "ManyPixels",
+      "description": "ManyPixels ofrece una galería de ilustraciones gratuitas descargables en formato SVG. La colección se actualiza semanalmente y permite personalizar colores para adaptarse a cualquier proyecto.",
+      "url": "https://www.manypixels.co/gallery",
+      "image": "/images/resources/manypixels.jpg",
+      "tags": [
+        "Illustrations",
+        "Free",
+        "SVG"
+      ]
+    },
+    {
+      "id": "absurd-design",
+      "title": "Absurd Design",
+      "description": "Absurd Design ofrece ilustraciones surrealistas y únicas que destacan por su originalidad. Perfectas para proyectos que buscan un toque creativo y diferente del estilo corporativo tradicional.",
+      "url": "https://absurd.design/",
+      "image": "/images/resources/absurdesign.jpg",
+      "tags": [
+        "Illustrations",
+        "Creative",
+        "Unique"
+      ]
+    },
+    {
+      "id": "ouch",
+      "title": "Ouch!",
+      "description": "Ouch! de Icons8 es una plataforma que ofrece ilustraciones gratuitas y premium en múltiples estilos. Ideal para diseñadores que buscan consistencia visual en sus proyectos.",
+      "url": "https://icons8.com/illustrations",
+      "image": "/images/resources/ouch!.jpg",
+      "tags": [
+        "Illustrations",
+        "Premium",
+        "Variety"
+      ]
+    },
+    {
+      "id": "ira-design",
+      "title": "IRA Design",
+      "description": "IRA Design permite crear ilustraciones personalizadas combinando gradientes y colores personalizados. Ofrece componentes modulares que se pueden mezclar para crear escenas únicas.",
+      "url": "https://iradesign.io/",
+      "image": "/images/resources/ira-design.jpg",
+      "tags": [
+        "Illustrations",
+        "Customizable",
+        "Gradients"
+      ]
+    },
+    {
+      "id": "ls-graphics",
+      "title": "Ls.graphics",
+      "description": "Ls.graphics ofrece mockups y ilustraciones de alta calidad para presentaciones profesionales. Su colección incluye recursos tanto gratuitos como premium para diferentes necesidades de diseño.",
+      "url": "https://www.ls.graphics/",
+      "image": "/images/resources/lsgraphics.jpg",
+      "tags": [
+        "Illustrations",
+        "Mockups",
+        "Premium"
+      ]
+    },
+    {
+      "id": "sapiens",
+      "title": "Sapiens",
+      "description": "Sapiens de UI8 es una biblioteca de personajes ilustrados con poses y expresiones variadas. Permite crear escenas personalizadas combinando diferentes elementos y estilos.",
+      "url": "https://sapiens.ui8.net/",
+      "image": "/images/resources/sapiens.png",
+      "tags": [
+        "Illustrations",
+        "Characters",
+        "UI8"
+      ]
+    },
+    {
+      "id": "streamline-hq",
+      "title": "Streamline HQ",
+      "description": "Streamline HQ ofrece más de 100,000 ilustraciones en múltiples estilos. Su plataforma premium incluye herramientas de personalización avanzadas y exportación en múltiples formatos.",
+      "url": "https://www.streamlinehq.com/illustrations",
+      "image": "/images/resources/streamlinehq.png",
+      "tags": [
+        "Illustrations",
+        "Premium",
+        "Extensive"
+      ]
+    },
+    {
+      "id": "pixeltrue",
+      "title": "Pixeltrue",
+      "description": "Pixeltrue ofrece ilustraciones animadas en formato Lottie y GIF. Perfectas para añadir movimiento y vida a interfaces web y aplicaciones móviles con animaciones fluidas.",
+      "url": "https://www.pixeltrue.com/free-illustrations",
+      "image": "/images/resources/pixeltrue.jpg",
+      "tags": [
+        "Illustrations",
+        "Animated",
+        "Lottie"
+      ]
+    },
+    {
+      "id": "fresh-folk",
+      "title": "Fresh Folk",
+      "description": "Fresh Folk permite crear y personalizar ilustraciones de personas con diferentes estilos, poses y accesorios. Ideal para representar diversidad e inclusión en proyectos digitales.",
+      "url": "https://fresh-folk.com/",
+      "image": "/images/resources/freshfolk.jpg",
+      "tags": [
+        "Illustrations",
+        "People",
+        "Diversity"
+      ]
+    }
+  ],
+  "images": [
+    {
+      "id": "pixabay",
+      "title": "Pixabay",
+      "description": "Pixabay ofrece más de 2.5 millones de imágenes y videos libres de derechos. Su colección incluye fotografías, ilustraciones y videos de alta calidad para uso comercial y personal.",
+      "url": "https://pixabay.com/",
+      "image": "/images/resources/pixabay-images.png",
+      "tags": [
+        "Images",
+        "Stock",
+        "Free"
+      ]
+    },
+    {
+      "id": "freepik",
+      "title": "Freepik",
+      "description": "Freepik es una plataforma líder que ofrece millones de recursos gráficos incluyendo fotos, vectores, PSD e ilustraciones. Perfecta para diseñadores que buscan variedad y calidad.",
+      "url": "https://www.freepik.com/",
+      "image": "/images/resources/freepik-images.png",
+      "tags": [
+        "Images",
+        "Vectors",
+        "Premium"
+      ]
+    },
+    {
+      "id": "stocksnap",
+      "title": "StockSnap",
+      "description": "StockSnap ofrece cientos de imágenes de alta resolución añadidas semanalmente. Todas las fotos son libres de derechos de autor y perfectas para uso comercial.",
+      "url": "https://stocksnap.io/",
+      "image": "/images/resources/stocksnap.jpg",
+      "tags": [
+        "Images",
+        "Stock",
+        "Weekly"
+      ]
+    },
+    {
+      "id": "kaboompics",
+      "title": "Kaboompics",
+      "description": "Kaboompics ofrece imágenes de stock gratuitas con un enfoque en fotografía lifestyle y escenas cotidianas. Incluye una paleta de colores para cada imagen facilitando la coordinación de diseños.",
+      "url": "https://kaboompics.com/",
+      "image": "/images/resources/kaboompics.webp",
+      "tags": [
+        "Images",
+        "Lifestyle",
+        "Colors"
+      ]
+    },
+    {
+      "id": "reshot",
+      "title": "Reshot",
+      "description": "Reshot ofrece fotografías e iconos SVG gratuitos diseñados para verse más auténticos y menos stock. Perfecta para proyectos que buscan un toque más genuino.",
+      "url": "https://www.reshot.com/",
+      "image": "/images/resources/reshot.png",
+      "tags": [
+        "Images",
+        "Authentic",
+        "SVG"
+      ]
+    },
+    {
+      "id": "picjumbo",
+      "title": "Picjumbo",
+      "description": "Picjumbo ofrece imágenes de stock gratuitas de alta calidad para uso comercial. Su colección se actualiza regularmente con fotografías únicas y profesionales.",
+      "url": "https://picjumbo.com/",
+      "image": "/images/resources/picjumbo.webp",
+      "tags": [
+        "Images",
+        "Commercial",
+        "Quality"
+      ]
+    },
+    {
+      "id": "iso-republic",
+      "title": "ISO Republic",
+      "description": "ISO Republic proporciona imágenes y videos de stock gratuitos de alta resolución. Ideal para diseñadores y creadores de contenido que buscan recursos visuales premium sin costo.",
+      "url": "https://isorepublic.com/",
+      "image": "/images/resources/iso-republic.jpg",
+      "tags": [
+        "Images",
+        "Videos",
+        "Premium"
+      ]
+    },
+    {
+      "id": "gratisography",
+      "title": "Gratisography",
+      "description": "Gratisography ofrece fotografías de stock gratuitas y creativas con un toque único y artístico. Perfecta para proyectos que buscan destacar con imágenes poco convencionales.",
+      "url": "https://gratisography.com/",
+      "image": "/images/resources/gratisography.jpg",
+      "tags": [
+        "Images",
+        "Creative",
+        "Unique"
+      ]
+    },
+    {
+      "id": "life-of-pix",
+      "title": "Life of Pix",
+      "description": "Life of Pix ofrece fotografías de alta resolución gratuitas sin restricciones de copyright. Su colección incluye imágenes artísticas y profesionales para diversos usos.",
+      "url": "https://www.lifeofpix.com/",
+      "image": "/images/resources/lifeofpix.jpeg",
+      "tags": [
+        "Images",
+        "Artistic",
+        "Free"
+      ]
+    },
+    {
+      "id": "foodiesfeed",
+      "title": "Foodiesfeed",
+      "description": "Foodiesfeed es la mejor fuente de imágenes gastronómicas gratuitas. Perfecta para restaurantes, blogs de cocina y proyectos relacionados con alimentos.",
+      "url": "https://www.foodiesfeed.com/",
+      "image": "/images/resources/foodies-feed.png",
+      "tags": [
+        "Images",
+        "Food",
+        "Photography"
+      ]
+    },
+    {
+      "id": "splitshire",
+      "title": "Splitshire",
+      "description": "Splitshire ofrece fotografías de stock gratuitas de alta resolución tomadas por Daniel Nanescu. La colección incluye imágenes únicas y de calidad profesional.",
+      "url": "https://www.splitshire.com/",
+      "image": "/images/resources/split-shire.jpg",
+      "tags": [
+        "Images",
+        "Professional",
+        "Unique"
+      ]
+    },
+    {
+      "id": "negative-space",
+      "title": "Negative Space",
+      "description": "Negative Space ofrece 20 nuevas fotos de stock semanalmente, todas en alta resolución y libres para uso comercial. Organizada por categorías y colores para fácil navegación.",
+      "url": "https://negativespace.co/",
+      "image": "/images/resources/negative-space.jpg",
+      "tags": [
+        "Images",
+        "Weekly",
+        "Organized"
+      ]
+    }
+  ],
+  "videos": [
+    {
+      "id": "videvo",
+      "title": "Videvo",
+      "description": "Videvo ofrece miles de videos stock y motion graphics gratuitos. Su biblioteca incluye clips en 4K y HD perfectos para proyectos profesionales.",
+      "url": "https://www.videvo.net/",
+      "image": "/images/resources/videvo.jpg",
+      "tags": [
+        "Videos",
+        "Stock",
+        "4K"
+      ]
+    },
+    {
+      "id": "videezy",
+      "title": "Videezy",
+      "description": "Videezy es una comunidad de videógrafos que comparten clips de video gratuitos. Ofrece tanto contenido gratuito como premium en alta definición.",
+      "url": "https://www.videezy.com/",
+      "image": "/images/resources/videezy-logo.png",
+      "tags": [
+        "Videos",
+        "Community",
+        "HD"
+      ]
+    },
+    {
+      "id": "mixkit",
+      "title": "Mixkit",
+      "description": "Mixkit ofrece videos stock, música y plantillas de efectos gratuitos. Todos los recursos son de alta calidad y listos para uso comercial sin atribución.",
+      "url": "https://mixkit.co/",
+      "image": "/images/resources/mixkit-video.png",
+      "tags": [
+        "Videos",
+        "Music",
+        "Templates"
+      ]
+    },
+    {
+      "id": "motion-places",
+      "title": "Motion Places",
+      "description": "Motion Places ofrece videos de paisajes y lugares de todo el mundo en resolución 4K. Perfecto para fondos de video y contenido cinematográfico.",
+      "url": "https://www.motionplaces.com/",
+      "image": "/images/resources/motion-places.jpeg",
+      "tags": [
+        "Videos",
+        "4K",
+        "Landscapes"
+      ]
+    },
+    {
+      "id": "freepik",
+      "title": "Freepik Videos",
+      "description": "Freepik videos ofrece videos cinematográficos gratuitos en alta definición. Su colección curada incluye clips artísticos perfectos para proyectos creativos.",
+      "url": "https://www.freepik.com/videos",
+      "image": "/images/resources/freepik-videos.jpg",
+      "tags": [
+        "Videos",
+        "Cinematic",
+        "Artistic"
+      ]
+    },
+    {
+      "id": "clipstill",
+      "title": "Clipstill",
+      "description": "Clipstill ofrece videos de fondo gratuitos perfectos para sitios web y presentaciones. Su colección incluye loops perfectos y clips en alta calidad.",
+      "url": "https://www.clipstill.com/",
+      "image": "/images/resources/clip-still.jpg",
+      "tags": [
+        "Videos",
+        "Backgrounds",
+        "Loops"
+      ]
+    },
+    {
+      "id": "dareful",
+      "title": "Dareful",
+      "description": "Dareful ofrece videos aéreos gratuitos capturados con drones. Perfecto para proyectos que necesitan perspectivas únicas y cinematográficas.",
+      "url": "https://dareful.com/",
+      "image": "/images/resources/dareful.jpg",
+      "tags": [
+        "Videos",
+        "Aerial",
+        "Drone"
+      ]
+    },
+    {
+      "id": "ignite-motion",
+      "title": "Ignite Motion",
+      "description": "Ignite Motion ofrece fondos de video gratuitos y loops perfectos. Su colección incluye efectos visuales y transiciones para proyectos creativos.",
+      "url": "https://www.ignitemotion.com/",
+      "image": "/images/resources/ignitemotion.jpg",
+      "tags": [
+        "Videos",
+        "Loops",
+        "Effects"
+      ]
+    },
+    {
+      "id": "motion-array",
+      "title": "Motion Array",
+      "description": "Motion Array ofrece videos stock, plantillas y efectos para editores de video. Aunque es premium, ofrece recursos gratuitos semanalmente.",
+      "url": "https://motionarray.com/",
+      "image": "/images/resources/motionarray.jpg",
+      "tags": [
+        "Videos",
+        "Templates",
+        "Premium"
+      ]
+    },
+    {
+      "id": "splitshire-videos",
+      "title": "SplitShire Videos",
+      "description": "SplitShire Videos ofrece clips de video gratuitos en alta resolución. Extensión de la popular plataforma de fotos con contenido cinematográfico.",
+      "url": "https://www.splitshire.com/videos/",
+      "image": "/images/resources/split-shire.jpg",
+      "tags": [
+        "Videos",
+        "Cinematic",
+        "Free"
+      ]
     },
   ],
-  images: [
+  "fonts": [
     {
-      id: 1,
-      title: "Unsplash",
-      description:
-        "Unsplash es una plataforma que ofrece una extensa colección de imágenes de alta calidad gratuitas para uso personal y comercial. Con millones de fotos disponibles, Unsplash es una de las fuentes más populares para encontrar imágenes profesionales para proyectos creativos. La plataforma es fácil de usar y permite a los usuarios buscar imágenes por categorías, colores y temas. Todas las imágenes en Unsplash son de alta resolución y están libres de derechos de autor, lo que las hace ideales para su uso en sitios web, blogs, redes sociales y más. Además, Unsplash fomenta una comunidad de fotógrafos y creativos que comparten sus trabajos de forma gratuita, lo que garantiza una constante actualización de su biblioteca.",
-      url: "https://unsplash.com/",
-      image: "/images/unsplash.jpeg",
-      tags: ["Images", "Stock"],
+      "id": "google-fonts",
+      "title": "Google Fonts",
+      "description": "Google Fonts es la biblioteca de fuentes web más popular con más de 1,400 familias tipográficas gratuitas. Fácil de implementar y optimizada para rendimiento web.",
+      "url": "https://fonts.google.com/",
+      "image": "/images/resources/google-fonts.jpg",
+      "tags": [
+        "Fonts",
+        "Web",
+        "Free"
+      ]
     },
     {
-      id: 2,
-      title: "Pexels",
-      description:
-        "Pexels es una plataforma que ofrece una amplia colección de imágenes y videos gratuitos para uso personal y comercial. Con una interfaz intuitiva y una biblioteca en constante crecimiento, Pexels es ideal para diseñadores, creadores de contenido y profesionales que necesitan recursos visuales de alta calidad. La plataforma permite a los usuarios buscar y descargar imágenes y videos en diferentes resoluciones, lo que facilita su uso en diversos proyectos. Pexels también ofrece una API para desarrolladores, lo que permite integrar su biblioteca directamente en aplicaciones y sitios web. Además, Pexels es completamente gratuito y no requiere atribución, lo que lo convierte en una opción accesible para proyectos de cualquier escala.",
-      url: "https://www.pexels.com/",
-      image: "/images/pexels.png",
-      tags: ["Images", "Stock"],
+      "id": "font-squirrel",
+      "title": "Font Squirrel",
+      "description": "Font Squirrel ofrece fuentes comerciales gratuitas cuidadosamente seleccionadas. Incluye un generador de @font-face para conversión de formatos web.",
+      "url": "https://www.fontsquirrel.com/",
+      "image": "/images/resources/font-squirrel.jpg",
+      "tags": [
+        "Fonts",
+        "Commercial",
+        "Generator"
+      ]
     },
     {
-      id: 3,
-      title: "Pictify",
-      description:
-        "Pictify es una herramienta de edición de imágenes impulsada por inteligencia artificial que permite a los usuarios transformar y mejorar sus fotos de manera rápida y profesional. La plataforma ofrece una amplia gama de filtros automáticos, efectos y herramientas de retoque que facilitan la creación de imágenes atractivas sin necesidad de conocimientos avanzados en edición.",
-      url: "https://pictify.io/",
-      image: "/images/pictify.png",
-      tags: ["Images", "AI", "Editing"],
+      "id": "dafont",
+      "title": "DaFont",
+      "description": "DaFont es una de las mayores bibliotecas de fuentes gratuitas con miles de opciones organizadas por categorías. Perfecta para encontrar fuentes creativas y decorativas.",
+      "url": "https://www.dafont.com/",
+      "image": "/images/resources/dafont.jpg",
+      "tags": [
+        "Fonts",
+        "Creative",
+        "Large"
+      ]
     },
     {
-      id: 4,
-      title: "PQINA",
-      description:
-        "PQINA es una plataforma que ofrece herramientas innovadoras para la manipulación y presentación de imágenes en proyectos web. Especializada en componentes interactivos como editores de imagen, croppers y herramientas de upload, PQINA proporciona soluciones técnicas avanzadas para desarrolladores que necesitan funcionalidades de imagen robustas en sus aplicaciones.",
-      url: "https://pqina.nl/",
-      image: "/images/pqina.jpg",
-      tags: ["Images", "Tools", "Development"],
+      "id": "1001-fonts",
+      "title": "1001 Fonts",
+      "description": "1001 Fonts ofrece más de 10,000 fuentes gratuitas descargables. Su colección incluye tanto fuentes gratuitas como premium organizadas por categorías.",
+      "url": "https://www.1001fonts.com/",
+      "image": "/images/resources/1001-fonts.jpg",
+      "tags": [
+        "Fonts",
+        "Extensive",
+        "Categorized"
+      ]
     },
     {
-      id: 5,
-      title: "Rupert",
-      description:
-        "Rupert es una herramienta de edición de imágenes basada en inteligencia artificial que se especializa en la eliminación automática de fondos y la mejora de fotografías de productos. Es especialmente útil para comercio electrónico, permitiendo a los usuarios crear imágenes de productos profesionales con fondos limpios y uniformes.",
-      url: "https://www.getrupert.com/",
-      image: "/images/getrupert.jpg",
-      tags: ["Images", "AI", "E-commerce"],
+      "id": "font-library",
+      "title": "Font Library",
+      "description": "Font Library es una colección de fuentes de código abierto perfecta para diseñadores que buscan tipografías de alta calidad sin restricciones de licencia.",
+      "url": "https://fontlibrary.org/",
+      "image": "/images/resources/font-library.jpg",
+      "tags": [
+        "Fonts",
+        "Open Source",
+        "Quality"
+      ]
     },
     {
-      id: 6,
-      title: "PhotoRoom",
-      description:
-        "PhotoRoom es una aplicación de edición de fotos impulsada por inteligencia artificial que permite a los usuarios crear imágenes profesionales para redes sociales, comercio electrónico y marketing. Su característica más destacada es la eliminación automática e instantánea de fondos, permitiendo a los usuarios reemplazarlos con plantillas prediseñadas o fondos personalizados.",
-      url: "https://www.photoroom.com/es",
-      image: "/images/photoroom.png",
-      tags: ["Images", "AI", "Social Media"],
+      "id": "fontspace",
+      "title": "Fontspace",
+      "description": "Fontspace ofrece más de 90,000 fuentes gratuitas descargables. Su comunidad activa sube constantemente nuevas tipografías creativas.",
+      "url": "https://www.fontspace.com/",
+      "image": "/images/resources/fontspace.jpg",
+      "tags": [
+        "Fonts",
+        "Community",
+        "Creative"
+      ]
     },
     {
-      id: 7,
-      title: "PixelCut",
-      description:
-        "PixelCut es una suite completa de herramientas de edición de imágenes basada en inteligencia artificial que ofrece múltiples funcionalidades para la creación y optimización de contenido visual. La plataforma incluye herramientas para eliminar fondos, mejorar la calidad de imágenes, crear diseños para redes sociales y generar mockups profesionales.",
-      url: "https://www.pixelcut.ai/",
-      image: "/images/pixelcut.png",
-      tags: ["Images", "AI", "Design"],
+      "id": "abstract-fonts",
+      "title": "Abstract Fonts",
+      "description": "Abstract Fonts ofrece miles de fuentes gratuitas organizadas por estilo. Perfecta para diseñadores que buscan tipografías únicas y poco convencionales.",
+      "url": "https://www.abstractfonts.com/",
+      "image": "/images/resources/abstract-fonts.jpg",
+      "tags": [
+        "Fonts",
+        "Unique",
+        "Styled"
+      ]
     },
     {
-      id: 8,
-      title: "Optimize Images",
-      description:
-        "Optimize Images es una herramienta especializada en la compresión y optimización de imágenes para web, diseñada para mejorar el rendimiento de sitios web y aplicaciones. La plataforma permite reducir significativamente el tamaño de archivos de imagen sin comprometer la calidad visual, utilizando algoritmos avanzados de compresión que mantienen la nitidez y los detalles importantes.",
-      url: "https://www.optimizeimages.com/",
-      image: "/images/optimizeImages.jpg",
-      tags: ["Images", "Optimization", "Web Performance"],
+      "id": "ffonts",
+      "title": "FFonts",
+      "description": "FFonts es una biblioteca simple de fuentes gratuitas con una interfaz limpia. Ofrece descarga directa sin complicaciones de miles de tipografías.",
+      "url": "https://www.ffonts.net/",
+      "image": "/images/resources/ffonts.jpg",
+      "tags": [
+        "Fonts",
+        "Simple",
+        "Direct"
+      ]
     },
+    {
+      "id": "urban-fonts",
+      "title": "Urban Fonts",
+      "description": "Urban Fonts ofrece más de 8,000 fuentes gratuitas para descargar. Su colección incluye tipografías modernas y clásicas para todo tipo de proyectos.",
+      "url": "https://www.urbanfonts.com/",
+      "image": "/images/resources/urban-fonts.jpg",
+      "tags": [
+        "Fonts",
+        "Modern",
+        "Classic"
+      ]
+    },
+    {
+      "id": "font-river",
+      "title": "Font River",
+      "description": "Font River ofrece miles de fuentes gratuitas descargables organizadas alfabéticamente. Incluye tanto fuentes decorativas como profesionales.",
+      "url": "https://www.fontriver.com/",
+      "image": "/images/resources/font-river.jpg",
+      "tags": [
+        "Fonts",
+        "Organized",
+        "Variety"
+      ]
+    },
+    {
+      "id": "fontasy",
+      "title": "Fontasy",
+      "description": "Fontasy ofrece una selección curada de fuentes comerciales gratuitas. Perfecta para diseñadores que buscan tipografías de calidad profesional.",
+      "url": "https://fontasy.com/",
+      "image": "https://fontasy.com/",
+      "tags": [
+        "Fonts",
+        "Curated",
+        "Professional"
+      ]
+    },
+    {
+      "id": "befonts",
+      "title": "Befonts",
+      "description": "Befonts ofrece fuentes gratuitas de alta calidad seleccionadas cuidadosamente. Su colección incluye tipografías modernas perfectas para diseño contemporáneo.",
+      "url": "https://befonts.com/",
+      "image": "/images/resources/befonts.jpg",
+      "tags": [
+        "Fonts",
+        "Quality",
+        "Modern"
+      ]
+    },
+    {
+      "id": "font-fabric",
+      "title": "Font Fabric",
+      "description": "Font Fabric es un estudio tipográfico que ofrece fuentes gratuitas de alta calidad junto con opciones premium. Conocido por sus diseños elegantes y modernos.",
+      "url": "https://www.fontfabric.com/",
+      "image": "/images/resources/font-fabric.jpg",
+      "tags": [
+        "Fonts",
+        "Studio",
+        "Elegant"
+      ]
+    }
   ],
-  videos: [
+  "colors": [
     {
-      id: 1,
-      title: "Pexels Videos",
-      description:
-        "Pexels Videos es una extensión de la plataforma Pexels que ofrece una colección de videos gratuitos para uso personal y comercial. Con una amplia variedad de temas y estilos, Pexels Videos es ideal para creadores de contenido que necesitan videos de alta calidad para sus proyectos. La plataforma permite a los usuarios buscar y descargar videos en diferentes resoluciones, lo que facilita su uso en redes sociales, sitios web y presentaciones. Pexels Videos también ofrece una API para desarrolladores, lo que permite integrar su biblioteca directamente en aplicaciones y sitios web. Además, Pexels Videos es completamente gratuito y no requiere atribución, lo que lo convierte en una opción accesible para proyectos de cualquier escala.",
-      url: "https://www.pexels.com/videos/",
-      image: "/videos/pexels-videos.jpg",
-      tags: ["Videos", "Stock"],
+      "id": "adobe-color",
+      "title": "Adobe Color",
+      "description": "Adobe Color es una herramienta profesional para crear paletas de colores armoniosas. Integrada con Adobe Creative Cloud, permite explorar tendencias y crear esquemas personalizados.",
+      "url": "https://color.adobe.com/",
+      "image": "/images/resources/adobe-color.jpg",
+      "tags": [
+        "Colors",
+        "Professional",
+        "Adobe"
+      ]
     },
     {
-      id: 2,
-      title: "Coverr",
-      description:
-        "Coverr es una plataforma que ofrece una colección de videos de fondo gratuitos para uso en sitios web y proyectos creativos. Con una amplia variedad de temas y estilos, Coverr es ideal para diseñadores y desarrolladores que buscan agregar un toque visual atractivo a sus proyectos. La plataforma permite a los usuarios buscar y descargar videos en diferentes resoluciones, lo que facilita su uso en diversos contextos. Coverr también ofrece una API para desarrolladores, lo que permite integrar su biblioteca directamente en aplicaciones y sitios web. Además, Coverr es completamente gratuito y no requiere atribución, lo que lo convierte en una opción accesible para proyectos de cualquier escala.",
-      url: "https://coverr.co/",
-      image: "/videos/coverr.png",
-      tags: ["Videos", "Stock"],
+      "id": "paletton",
+      "title": "Paletton",
+      "description": "Paletton es un diseñador de esquemas de color que muestra combinaciones de colores en visualizaciones en vivo. Perfecto para encontrar paletas armoniosas basadas en teoría del color.",
+      "url": "https://paletton.com/",
+      "image": "/images/resources/paletton.jpg",
+      "tags": [
+        "Colors",
+        "Theory",
+        "Live Preview"
+      ]
     },
+    {
+      "id": "material-palette",
+      "title": "Material Palette",
+      "description": "Material Palette genera paletas de colores basadas en Material Design de Google. Permite crear combinaciones de colores consistentes con las guías de diseño de Material.",
+      "url": "https://www.materialpalette.com/",
+      "image": "/images/resources/material-palette.jpg",
+      "tags": [
+        "Colors",
+        "Material Design",
+        "Google"
+      ]
+    },
+    {
+      "id": "flat-ui-colors",
+      "title": "Flat UI Colors",
+      "description": "Flat UI Colors ofrece paletas de colores populares para diseño plano. Incluye colores de diferentes países y estilos de diseño modernos.",
+      "url": "https://flatuicolors.com/",
+      "image": "/images/resources/flat-ui-colors.jpg",
+      "tags": [
+        "Colors",
+        "Flat Design",
+        "Modern"
+      ]
+    },
+    {
+      "id": "colourlovers",
+      "title": "COLOURlovers",
+      "description": "COLOURlovers es una comunidad creativa donde los usuarios comparten paletas de colores y patrones. Ofrece millones de combinaciones creadas por la comunidad.",
+      "url": "https://www.colourlovers.com/",
+      "image": "/images/resources/colourlovers.jpg",
+      "tags": [
+        "Colors",
+        "Community",
+        "Creative"
+      ]
+    },
+    {
+      "id": "colormind",
+      "title": "Colormind",
+      "description": "Colormind es un generador de paletas de colores impulsado por IA que aprende de fotografías y arte. Perfecto para generar combinaciones únicas y armoniosas.",
+      "url": "https://colormind.io/",
+      "image": "/images/resources/colormind.jpg",
+      "tags": [
+        "Colors",
+        "AI",
+        "Generator"
+      ]
+    },
+    {
+      "id": "khroma",
+      "title": "Khroma",
+      "description": "Khroma usa IA para aprender tus preferencias de color y genera paletas personalizadas. Ofrece combinaciones ilimitadas basadas en tus gustos.",
+      "url": "https://www.khroma.co/",
+      "image": "/images/resources/khroma.jpg",
+      "tags": [
+        "Colors",
+        "AI",
+        "Personalized"
+      ]
+    },
+    {
+      "id": "colorable",
+      "title": "Colorable",
+      "description": "Colorable es un generador de combinaciones de colores que verifica el contraste de accesibilidad. Perfecto para asegurar que los diseños cumplan con estándares WCAG.",
+      "url": "https://colorable.jxnblk.com/",
+      "image": "/images/resources/colorable.jpg",
+      "tags": [
+        "Colors",
+        "Accessibility",
+        "Contrast"
+      ]
+    },
+    {
+      "id": "brandcolors",
+      "title": "BrandColors",
+      "description": "BrandColors ofrece los colores oficiales de las marcas más famosas del mundo. Perfecto para mantener consistencia al usar colores de marca en proyectos.",
+      "url": "https://brandcolors.net/",
+      "image": "/images/resources/brandcolors.jpg",
+      "tags": [
+        "Colors",
+        "Brands",
+        "Official"
+      ]
+    },
+    {
+      "id": "gradient-hunt",
+      "title": "Gradient Hunt",
+      "description": "Gradient Hunt es una plataforma que ofrece miles de gradientes hermosos creados por la comunidad. Perfecta para encontrar degradados modernos y vibrantes.",
+      "url": "https://gradienthunt.com/",
+      "image": "/images/resources/gradient-hunt.jpg",
+      "tags": [
+        "Colors",
+        "Gradients",
+        "Community"
+      ]
+    },
+    {
+      "id": "webgradients",
+      "title": "WebGradients",
+      "description": "WebGradients ofrece 180 gradientes lineales gratuitos listos para usar en CSS. Descargables en múltiples formatos incluyendo PNG, Sketch y Photoshop.",
+      "url": "https://webgradients.com/",
+      "image": "/images/resources/webgradients.jpg",
+      "tags": [
+        "Colors",
+        "Gradients",
+        "CSS"
+      ]
+    },
+    {
+      "id": "uigradients",
+      "title": "uiGradients",
+      "description": "uiGradients ofrece una colección hermosa de gradientes de color con vista previa en vivo. Incluye códigos CSS copiables para implementación rápida.",
+      "url": "https://uigradients.com/",
+      "image": "/images/resources/uigradients.jpg",
+      "tags": [
+        "Colors",
+        "Gradients",
+        "UI"
+      ]
+    },
+    {
+      "id": "picular",
+      "title": "Picular",
+      "description": "Picular es el motor de búsqueda de colores de Google. Busca cualquier término y obtén los colores más asociados con esa palabra.",
+      "url": "https://picular.co/",
+      "image": "/images/resources/picular.jpg",
+      "tags": [
+        "Colors",
+        "Search",
+        "Google"
+      ]
+    }
   ],
-  fonts: [
+  "background": [
     {
-      id: 1,
-      title: "Typescale",
-      description:
-        "Typescale es una herramienta en línea que permite a los usuarios crear y visualizar escalas de tipografía para sus proyectos de diseño. Con una interfaz intuitiva y opciones de personalización, Typescale es ideal para diseñadores que buscan establecer una jerarquía tipográfica coherente y atractiva. La plataforma permite a los usuarios ajustar tamaños de fuente, pesos y espaciado, lo que facilita la creación de escalas tipográficas que se adapten a las necesidades del proyecto. Typescale también ofrece opciones para exportar las escalas en formato CSS, lo que facilita su implementación en sitios web. Además, Typescale es completamente gratuito y no requiere registro, lo que lo convierte en una opción accesible para diseñadores de cualquier nivel.",
-      url: "https://typescale.com/",
-      image: "/fonts/typescale.jpg",
-      tags: ["Fonts", "Typography"],
+      "id": "hero-patterns",
+      "title": "Hero Patterns",
+      "description": "Hero Patterns ofrece patrones SVG repetibles para fondos web. Totalmente personalizables en color y opacidad, perfectos para secciones hero y fondos sutiles.",
+      "url": "https://heropatterns.com/",
+      "image": "/images/resources/hero-patterns.jpg",
+      "tags": [
+        "Backgrounds",
+        "Patterns",
+        "SVG"
+      ]
     },
+    {
+      "id": "svg-backgrounds",
+      "title": "SVG Backgrounds",
+      "description": "SVG Backgrounds ofrece fondos SVG personalizables y descargables. Incluye patrones geométricos, orgánicos y abstractos perfectos para diseño web moderno.",
+      "url": "https://www.svgbackgrounds.com/",
+      "image": "/images/resources/svg-backgrounds.jpg",
+      "tags": [
+        "Backgrounds",
+        "SVG",
+        "Customizable"
+      ]
+    },
+    {
+      "id": "cool-backgrounds",
+      "title": "Cool Backgrounds",
+      "description": "Cool Backgrounds genera fondos coloridos y modernos con diferentes estilos. Incluye gradientes, triángulos, topografía y más efectos visuales atractivos.",
+      "url": "https://coolbackgrounds.io/",
+      "image": "/images/resources/cool-backgrounds.jpg",
+      "tags": [
+        "Backgrounds",
+        "Modern",
+        "Generator"
+      ]
+    },
+    {
+      "id": "gradient-magic",
+      "title": "Gradient Magic",
+      "description": "Gradient Magic ofrece una galección de gradientes CSS únicos y modernos. Todos son personalizables y listos para copiar e implementar.",
+      "url": "https://www.gradientmagic.com/",
+      "image": "/images/resources/gradient-magic.jpg",
+      "tags": [
+        "Backgrounds",
+        "Gradients",
+        "CSS"
+      ]
+    },
+    {
+      "id": "pattern-monster",
+      "title": "Pattern Monster",
+      "description": "Pattern Monster es un generador de patrones SVG personalizables. Ofrece diversos estilos de patrones perfectos para fondos web creativos.",
+      "url": "https://pattern.monster/",
+      "image": "/images/resources/pattern-monster.jpg",
+      "tags": [
+        "Backgrounds",
+        "Patterns",
+        "Generator"
+      ]
+    },
+    {
+      "id": "bgjar",
+      "title": "BGJar",
+      "description": "BGJar ofrece fondos SVG abstractos y modernos descargables gratis. Perfecto para darle personalidad a sitios web con fondos únicos.",
+      "url": "https://bgjar.com/",
+      "image": "/images/resources/bgjar.jpg",
+      "tags": [
+        "Backgrounds",
+        "Abstract",
+        "Free"
+      ]
+    },
+    {
+      "id": "trianglify",
+      "title": "Trianglify",
+      "description": "Trianglify genera patrones de triángulos lowpoly personalizables. Perfecto para fondos geométricos modernos y coloridos.",
+      "url": "https://trianglify.io/",
+      "image": "/images/resources/trianglify.jpg",
+      "tags": [
+        "Backgrounds",
+        "Triangles",
+        "Geometric"
+      ]
+    },
+    {
+      "id": "gradient-backgrounds",
+      "title": "Gradient Backgrounds",
+      "description": "Gradient Backgrounds ofrece una colección curada de fondos con gradientes hermosos. Descargables en JPG y CSS para uso inmediato.",
+      "url": "https://gradientbackgrounds.com/",
+      "image": "https://gradientbackgrounds.com/",
+      "tags": [
+        "Backgrounds",
+        "Gradients",
+        "Curated"
+      ]
+    },
+    {
+      "id": "mesh-gradients",
+      "title": "Mesh Gradients",
+      "description": "Mesh Gradients ofrece gradientes de malla modernos y fluidos. Perfectos para fondos web contemporáneos con efectos suaves y orgánicos.",
+      "url": "https://products.ls.graphics/mesh-gradients/",
+      "image": "/images/resources/mesh-gradients.jpg",
+      "tags": [
+        "Backgrounds",
+        "Mesh",
+        "Modern"
+      ]
+    },
+    {
+      "id": "transparent-textures",
+      "title": "Transparent Textures",
+      "description": "Transparent Textures ofrece texturas PNG transparentes perfectas para fondos sutiles. Fáciles de superponer sobre colores sólidos.",
+      "url": "https://www.transparenttextures.com/",
+      "image": "/images/resources/transparent-textures.jpg",
+      "tags": [
+        "Backgrounds",
+        "Textures",
+        "Transparent"
+      ]
+    },
+    {
+      "id": "subtle-patterns",
+      "title": "Subtle Patterns",
+      "description": "Subtle Patterns ofrece patrones de fondo sutiles y elegantes. Perfectos para añadir textura sin sobrecargar el diseño.",
+      "url": "https://www.toptal.com/designers/subtlepatterns/",
+      "image": "/images/resources/subtle-patterns.jpg",
+      "tags": [
+        "Backgrounds",
+        "Subtle",
+        "Patterns"
+      ]
+    },
+    {
+      "id": "triangles-bg",
+      "title": "Triangles BG",
+      "description": "Triangles BG genera fondos de triángulos bajos polígonos personalizables. Ofrece exportación en múltiples formatos y tamaños.",
+      "url": "https://msurguy.github.io/triangles/",
+      "image": "/images/resources/triangles-bg.jpg",
+      "tags": [
+        "Backgrounds",
+        "Triangles",
+        "Poly"
+      ]
+    },
+    {
+      "id": "css-gradient",
+      "title": "CSS Gradient",
+      "description": "CSS Gradient es un generador de gradientes CSS con vista previa en tiempo real. Ofrece herramientas avanzadas para crear degradados complejos.",
+      "url": "https://cssgradient.io/",
+      "image": "/images/resources/css-gradient.jpg",
+      "tags": [
+        "Backgrounds",
+        "CSS",
+        "Generator"
+      ]
+    }
   ],
-  colors: [
+  "tools": [
     {
-      id: 1,
-      title: "Coolors",
-      description:
-        "Coolors es una herramienta en línea que permite a los usuarios generar y explorar paletas de colores de manera rápida y sencilla. Con una interfaz intuitiva y opciones de personalización, Coolors es ideal para diseñadores que buscan crear combinaciones de colores atractivas y coherentes. La plataforma permite a los usuarios ajustar colores, generar paletas aleatorias y explorar tendencias de color. Coolors también ofrece opciones para guardar y exportar paletas en diferentes formatos, lo que facilita su uso en proyectos de diseño. Además, Coolors es completamente gratuito y ofrece una aplicación móvil para generar paletas sobre la marcha.",
-      url: "https://coolors.co/",
-      image: "/colors/coolors.png",
-      tags: ["Colors", "Palettes"],
+      "id": "tinypng",
+      "title": "TinyPNG",
+      "description": "TinyPNG comprime imágenes PNG y JPEG inteligentemente. Reduce el tamaño de archivo hasta 70% manteniendo la calidad visual.",
+      "url": "https://tinypng.com/",
+      "image": "/images/resources/tinypng.jpg",
+      "tags": [
+        "Tools",
+        "Compression",
+        "Images"
+      ]
     },
     {
-      id: 2,
-      title: "Color Hunt",
-      description:
-        "Color Hunt es una plataforma popular que ofrece una colección curada de paletas de colores gratuitas, perfectas para diseñadores y desarrolladores. Cada día se añaden nuevas combinaciones creadas por la comunidad, permitiendo descubrir tendencias y encontrar la paleta ideal para cualquier proyecto. Su interfaz sencilla permite explorar, copiar y guardar combinaciones con facilidad.\n\nAdemás, Color Hunt organiza sus paletas por categorías como pastel, neón, vintage y más, facilitando la búsqueda según el estilo deseado. Es una herramienta esencial para quienes buscan inspiración rápida y armonías de color atractivas sin complicaciones.",
-      url: "https://colorhunt.co/",
-      image: "/colors/color-hunt.webp",
-      tags: ["Colors", "Palettes"],
+      "id": "remove-bg",
+      "title": "Remove.bg",
+      "description": "Remove.bg elimina fondos de imágenes automáticamente usando IA. Procesa fotos en segundos con resultados profesionales.",
+      "url": "https://www.remove.bg/",
+      "image": "/images/resources/remove-bg.jpg",
+      "tags": [
+        "Tools",
+        "AI",
+        "Background Removal"
+      ]
     },
     {
-      id: 3,
-      title: "UI Colors",
-      description:
-        "UI Colors es una herramienta diseñada para generar paletas de colores optimizadas para interfaces de usuario. Con una paleta inicial, la plataforma sugiere variaciones en distintos tonos y contrastes, asegurando una combinación visualmente atractiva y accesible para el diseño web y móvil. La facilidad de uso y las recomendaciones automáticas la hacen una opción práctica para diseñadores.\n\nAdemás, UI Colors permite copiar códigos de color en diferentes formatos y probar combinaciones en tiempo real. Esto ayuda a garantizar que los colores elegidos sean adecuados tanto para la estética como para la usabilidad en interfaces digitales.",
-      url: "https://uicolors.app/generate/98047a",
-      image: "/colors/ui-colors.jpg",
-      tags: ["Colors", "UI"],
+      "id": "photopea",
+      "title": "Photopea",
+      "description": "Photopea es un editor de imágenes online gratuito similar a Photoshop. Soporta PSD, XCF, Sketch y otros formatos profesionales.",
+      "url": "https://www.photopea.com/",
+      "image": "/images/resources/photopea.jpg",
+      "tags": [
+        "Tools",
+        "Editor",
+        "Online"
+      ]
     },
     {
-      id: 4,
-      title: "Tints Dev",
-      description:
-        "Tints Dev es una plataforma ideal para quienes buscan generar variaciones de un color base, creando diferentes tonos y matices de forma automática. Es especialmente útil para diseñadores y desarrolladores que necesitan una escala de colores para aplicar en interfaces, branding y diseño gráfico.\n\nAdemás de la generación de tonos, Tints Dev ofrece herramientas para exportar paletas en distintos formatos y asegurar una coherencia cromática en los proyectos. Su interfaz minimalista y rápida permite experimentar con combinaciones sin distracciones.",
-      url: "https://www.tints.dev/",
-      image: "/colors/tints-dev.jpg",
-      tags: ["Colors", "Palettes"],
+      "id": "svgomg",
+      "title": "SVGOMG",
+      "description": "SVGOMG es una herramienta web para optimizar archivos SVG. Reduce el tamaño mientras mantiene la calidad visual con controles precisos.",
+      "url": "https://jakearchibald.github.io/svgomg/",
+      "image": "/images/resources/svgomg.jpg",
+      "tags": [
+        "Tools",
+        "SVG",
+        "Optimization"
+      ]
     },
     {
-      id: 5,
-      title: "RealTime Colors",
-      description:
-        "RealTime Colors es una herramienta innovadora que permite visualizar combinaciones de colores en tiempo real. Los diseñadores pueden ajustar tonos y contrastes instantáneamente y ver cómo afectan la legibilidad y la estética de una interfaz sin necesidad de recargar la página o hacer pruebas manuales.\n\nLa plataforma también ofrece compatibilidad con fuentes personalizadas y permite generar enlaces compartibles con combinaciones de colores guardadas. Esto facilita la colaboración entre diseñadores y equipos de desarrollo, asegurando que las paletas sean efectivas y atractivas.",
-      url: "https://www.realtimecolors.com/?colors=050315-fbfbfe-2f27ce-dedcff-433bff&fonts=Inter-Inter",
-      image: "/colors/realtimecolors.png",
-      tags: ["Colors", "UI"],
+      "id": "canva",
+      "title": "Canva",
+      "description": "Canva es una plataforma de diseño gráfico online con miles de plantillas. Perfecta para crear contenido visual sin conocimientos de diseño.",
+      "url": "https://www.canva.com/",
+      "image": "/images/resources/canva.jpg",
+      "tags": [
+        "Tools",
+        "Design",
+        "Templates"
+      ]
     },
+    {
+      "id": "figma",
+      "title": "Figma",
+      "description": "Figma es una herramienta de diseño colaborativa basada en navegador. Perfecta para equipos que trabajan en diseño de interfaces.",
+      "url": "https://www.figma.com/",
+      "image": "/images/resources/figma.jpg",
+      "tags": [
+        "Tools",
+        "Design",
+        "Collaborative"
+      ]
+    },
+    {
+      "id": "mockup-world",
+      "title": "Mockup World",
+      "description": "Mockup World ofrece miles de mockups gratuitos para presentar diseños. Incluye dispositivos, packaging, ropa y más.",
+      "url": "https://www.mockupworld.co/",
+      "image": "/images/resources/mockup-world.jpg",
+      "tags": [
+        "Tools",
+        "Mockups",
+        "Free"
+      ]
+    },
+    {
+      "id": "smart-mockups",
+      "title": "Smart Mockups",
+      "description": "Smart Mockups permite crear mockups de productos en segundos. Ofrece miles de plantillas para dispositivos, print y packaging.",
+      "url": "https://smartmockups.com/",
+      "image": "/images/resources/smart-mockups.jpg",
+      "tags": [
+        "Tools",
+        "Mockups",
+        "Quick"
+      ]
+    },
+    {
+      "id": "unscreen",
+      "title": "Unscreen",
+      "description": "Unscreen elimina fondos de videos automáticamente. Procesamiento rápido sin chroma key ni edición manual.",
+      "url": "https://www.unscreen.com/",
+      "image": "/images/resources/unscreen.jpg",
+      "tags": [
+        "Tools",
+        "Video",
+        "Background Removal"
+      ]
+    },
+    {
+      "id": "lottie-files",
+      "title": "Lottie Files",
+      "description": "Lottie Files es una plataforma para animaciones Lottie. Incluye editor, biblioteca y herramientas para implementar animaciones web.",
+      "url": "https://lottiefiles.com/",
+      "image": "/images/resources/lottie-files.jpg",
+      "tags": [
+        "Tools",
+        "Animation",
+        "Lottie"
+      ]
+    },
+    {
+      "id": "neumorphism",
+      "title": "Neumorphism",
+      "description": "Neumorphism es un generador de estilos CSS neumórficos. Crea elementos con el popular efecto de diseño soft UI.",
+      "url": "https://neumorphism.io/",
+      "image": "/images/resources/neumorphism.jpg",
+      "tags": [
+        "Tools",
+        "CSS",
+        "Neumorphism"
+      ]
+    },
+    {
+      "id": "get-waves",
+      "title": "Get Waves",
+      "description": "Get Waves genera divisores de secciones ondulados para web. Personalizable en color, altura y tipo de onda.",
+      "url": "https://getwaves.io/",
+      "image": "/images/resources/get-waves.jpg",
+      "tags": [
+        "Tools",
+        "SVG",
+        "Waves"
+      ]
+    },
+    {
+      "id": "clippy",
+      "title": "Clippy",
+      "description": "Clippy es un generador de clip-path CSS. Crea formas personalizadas para recortar elementos HTML de manera visual.",
+      "url": "https://bennettfeely.com/clippy/",
+      "image": "/images/resources/clippy.jpg",
+      "tags": [
+        "Tools",
+        "CSS",
+        "Clip Path"
+      ]
+    }
   ],
-  background: [
+  "components": [
     {
-      id: 1,
-      title: "bg.ibelick",
-      description:
-        "bg.ibelick es una plataforma especializada en ofrecer fondos de alta calidad diseñados específicamente para interfaces de usuario (UI). Su catálogo incluye una gran variedad de fondos minimalistas, gradientes suaves y texturas modernas, ideales para mejorar la apariencia de aplicaciones y sitios web. Es una herramienta excelente para diseñadores que buscan fondos sutiles y elegantes sin distraer del contenido principal.\n\nAdemás de su cuidada selección de fondos, bg.ibelick destaca por su enfoque en la accesibilidad y la facilidad de uso. Su interfaz permite explorar y descargar fondos sin complicaciones, asegurando que los diseñadores puedan encontrar la opción perfecta rápidamente. Ya sea para un dashboard, una landing page o una aplicación móvil, esta plataforma ofrece recursos visuales de calidad profesional.",
-      url: "https://bg.ibelick.com/",
-      image: "/backgrounds/bgibelick.webp",
-      tags: ["Backgrounds", "UI"],
+      "id": "shadcn-ui",
+      "title": "Shadcn UI",
+      "description": "Shadcn UI es una colección de componentes React reutilizables construidos con Radix UI y Tailwind CSS. Componentes accesibles y personalizables.",
+      "url": "https://ui.shadcn.com/",
+      "image": "/images/resources/shadcn-ui.jpg",
+      "tags": [
+        "Components",
+        "React",
+        "Tailwind"
+      ]
     },
     {
-      id: 2,
-      title: "Pexels",
-      description:
-        "Pexels es una de las bibliotecas de imágenes de stock más populares y completas, ofreciendo miles de fotos y videos de alta resolución de forma gratuita. Su plataforma permite a diseñadores, creadores de contenido y desarrolladores encontrar imágenes llamativas para sus proyectos sin preocuparse por derechos de autor, ya que todo el contenido es de uso libre. Con una interfaz intuitiva y una potente función de búsqueda, Pexels facilita el acceso a recursos visuales para cualquier necesidad.\n\nAdemás de imágenes de stock, Pexels también ofrece una selección de fondos ideales para diseño web y presentaciones. Su colección se actualiza constantemente con nuevas contribuciones de fotógrafos de todo el mundo, garantizando una oferta diversa y de alta calidad. Gracias a su compatibilidad con herramientas de edición y diseño, es un recurso imprescindible para quienes buscan imágenes impactantes sin costo alguno.",
-      url: "https://www.pexels.com/",
-      image: "/backgrounds/pexels.png",
-      tags: ["Backgrounds", "Stock"],
+      "id": "headless-ui",
+      "title": "Headless UI",
+      "description": "Headless UI ofrece componentes sin estilos totalmente accesibles. Diseñados por Tailwind Labs para integrarse perfectamente con Tailwind CSS.",
+      "url": "https://headlessui.com/",
+      "image": "/images/resources/headless-ui.jpg",
+      "tags": [
+        "Components",
+        "React",
+        "Accessible"
+      ]
     },
+    {
+      "id": "daisyui",
+      "title": "DaisyUI",
+      "description": "DaisyUI es una biblioteca de componentes para Tailwind CSS. Ofrece clases semánticas y temas personalizables para desarrollo rápido.",
+      "url": "https://daisyui.com/",
+      "image": "/images/resources/daisyui.jpg",
+      "tags": [
+        "Components",
+        "Tailwind",
+        "Themes"
+      ]
+    },
+    {
+      "id": "radix-ui",
+      "title": "Radix UI",
+      "description": "Radix UI proporciona primitivas de componentes accesibles sin estilos. Base perfecta para crear sistemas de diseño personalizados.",
+      "url": "https://www.radix-ui.com/",
+      "image": "/images/resources/radix-ui.jpg",
+      "tags": [
+        "Components",
+        "Primitives",
+        "Accessible"
+      ]
+    },
+    {
+      "id": "react-suite",
+      "title": "React Suite",
+      "description": "React Suite es una biblioteca de componentes React para aplicaciones empresariales. Incluye componentes complejos como tablas de datos y calendarios.",
+      "url": "https://rsuitejs.com/",
+      "image": "/images/resources/react-suite.jpg",
+      "tags": [
+        "Components",
+        "React",
+        "Enterprise"
+      ]
+    },
+    {
+      "id": "chakra-ui",
+      "title": "Chakra UI",
+      "description": "Chakra UI es una biblioteca de componentes React simple y modular. Ofrece componentes accesibles con soporte para temas y modos oscuros.",
+      "url": "https://chakra-ui.com/",
+      "image": "/images/resources/chakra-ui.jpg",
+      "tags": [
+        "Components",
+        "React",
+        "Modular"
+      ]
+    },
+    {
+      "id": "ant-design",
+      "title": "Ant Design",
+      "description": "Ant Design es un sistema de diseño empresarial con componentes React de alta calidad. Usado por Alibaba y miles de empresas.",
+      "url": "https://ant.design/",
+      "image": "/images/resources/ant-design.jpg",
+      "tags": [
+        "Components",
+        "React",
+        "Enterprise"
+      ]
+    },
+    {
+      "id": "blueprint",
+      "title": "Blueprint",
+      "description": "Blueprint es una biblioteca de componentes React para aplicaciones web complejas. Optimizada para interfaces de datos densos y aplicaciones desktop.",
+      "url": "https://blueprintjs.com/",
+      "image": "/images/resources/blueprint.jpg",
+      "tags": [
+        "Components",
+        "React",
+        "Complex"
+      ]
+    },
+    {
+      "id": "semantic-ui-react",
+      "title": "Semantic UI React",
+      "description": "Semantic UI React es la integración oficial de Semantic UI con React. Componentes declarativos y API intuitiva.",
+      "url": "https://react.semantic-ui.com/",
+      "image": "/images/resources/semantic-ui-react.jpg",
+      "tags": [
+        "Components",
+        "React",
+        "Semantic"
+      ]
+    },
+    {
+      "id": "primer-react",
+      "title": "Primer React",
+      "description": "Primer React son los componentes React de GitHub. Sistema de diseño profesional usado en productos de GitHub.",
+      "url": "https://primer.style/react/",
+      "image": "/images/resources/primer-react.jpg",
+      "tags": [
+        "Components",
+        "React",
+        "GitHub"
+      ]
+    },
+    {
+      "id": "evergreen",
+      "title": "Evergreen",
+      "description": "Evergreen es una biblioteca de componentes React de Segment. Diseñada para aplicaciones empresariales con componentes flexibles.",
+      "url": "https://evergreen.segment.com/",
+      "image": "/images/resources/evergreen.jpg",
+      "tags": [
+        "Components",
+        "React",
+        "Segment"
+      ]
+    },
+    {
+      "id": "grommet",
+      "title": "Grommet",
+      "description": "Grommet es una biblioteca de componentes React centrada en accesibilidad. Incluye componentes para aplicaciones responsivas y accesibles.",
+      "url": "https://v2.grommet.io/",
+      "image": "/images/resources/grommet.jpg",
+      "tags": [
+        "Components",
+        "React",
+        "Accessible"
+      ]
+    },
+    {
+      "id": "rebass",
+      "title": "Rebass",
+      "description": "Rebass es una biblioteca primitiva de componentes React. Componentes mínimos y altamente componibles construidos con styled-system.",
+      "url": "https://rebassjs.org/",
+      "image": "/images/resources/rebass.jpg",
+      "tags": [
+        "Components",
+        "React",
+        "Primitives"
+      ]
+    }
   ],
-  tools: [
+  "inspirations": [
     {
-      id: 1,
-      title: "Shots",
-      description:
-        "Shots es una herramienta innovadora para generar mockups de productos digitales con una estética moderna y profesional. Permite a diseñadores y desarrolladores mostrar sus aplicaciones, sitios web o interfaces en dispositivos realistas con fondos personalizables. Su plataforma intuitiva hace que crear presentaciones visuales atractivas sea rápido y fácil, sin necesidad de software complejo.\n\nAdemás, Shots ofrece una amplia gama de opciones de personalización, incluyendo perspectivas, sombras y efectos de iluminación que ayudan a realzar los detalles del diseño. Ya sea para un portafolio, una presentación a clientes o la promoción de un nuevo producto digital, esta herramienta es ideal para dar un acabado profesional a cualquier mockup.",
-      url: "https://shots.so/",
-      image: "/tools/shotsso.jpg",
-      tags: ["Tools", "Mockups"],
+      "id": "awwwards",
+      "title": "Awwwards",
+      "description": "Awwwards reconoce y promociona el talento de desarrolladores y diseñadores web. Galería de sitios web galardonados con diseños excepcionales.",
+      "url": "https://www.awwwards.com/",
+      "image": "/images/resources/awwwards.jpg",
+      "tags": [
+        "Inspiration",
+        "Awards",
+        "Gallery"
+      ]
     },
     {
-      id: 2,
-      title: "Squoosh",
-      description:
-        "Squoosh es una poderosa herramienta de optimización de imágenes desarrollada por Google, diseñada para reducir el tamaño de archivos sin perder calidad. Su interfaz interactiva permite comparar en tiempo real la imagen original y la comprimida, ajustando parámetros como la calidad, formato y nivel de compresión. Es una solución eficiente para quienes necesitan optimizar imágenes para la web sin afectar su nitidez ni detalles.\n\nGracias a su compatibilidad con diferentes formatos, incluidos WebP, PNG y JPEG, Squoosh se convierte en un aliado esencial para desarrolladores y diseñadores web. Al reducir el peso de las imágenes, mejora el rendimiento de los sitios y aplicaciones, acelerando los tiempos de carga y optimizando la experiencia del usuario.",
-      url: "https://squoosh.app/",
-      image: "/tools/squoosh.jpg",
-      tags: ["Tools", "Image Optimization"],
+      "id": "behance",
+      "title": "Behance",
+      "description": "Behance es la plataforma de Adobe para mostrar y descubrir trabajo creativo. Millones de proyectos de diseñadores de todo el mundo.",
+      "url": "https://www.behance.net/",
+      "image": "/images/resources/behance.jpg",
+      "tags": [
+        "Inspiration",
+        "Portfolio",
+        "Adobe"
+      ]
     },
     {
-      id: 3,
-      title: "Haikei",
-      description:
-        "Haikei es una herramienta creativa que permite generar fondos y patrones personalizados de manera rápida y sencilla. Ofrece una variedad de estilos como ondas, gradientes y formas geométricas, ideales para darle un toque distintivo a cualquier diseño. Con su intuitiva interfaz, los usuarios pueden ajustar colores, texturas y tamaños para obtener resultados únicos sin necesidad de software avanzado.\n\nEsta herramienta es perfecta para diseñadores que buscan fondos originales para sitios web, presentaciones o material gráfico. Gracias a sus opciones de exportación en formatos escalables, Haikei facilita la integración de sus creaciones en diferentes proyectos sin perder calidad.",
-      url: "https://haikei.app/",
-      image: "/tools/haikei.png",
-      tags: ["Tools", "Backgrounds"],
+      "id": "css-design-awards",
+      "title": "CSS Design Awards",
+      "description": "CSS Design Awards es una plataforma que premia diseño web, UI, UX e innovación. Galería curada de sitios web excepcionales.",
+      "url": "https://www.cssdesignawards.com/",
+      "image": "/images/resources/css-design-awards.jpg",
+      "tags": [
+        "Inspiration",
+        "CSS",
+        "Awards"
+      ]
     },
     {
-      id: 4,
-      title: "UpScaler",
-      description:
-        "UpScaler es una herramienta avanzada de mejora de imágenes que utiliza inteligencia artificial para aumentar la resolución sin perder calidad. Ideal para restaurar fotos antiguas, mejorar detalles en gráficos pixelados o preparar imágenes para impresión de alta definición, UpScaler permite obtener resultados sorprendentes en pocos clics.\n\nSu algoritmo optimiza los detalles y reduce el ruido, lo que la convierte en una solución perfecta para diseñadores y fotógrafos que necesitan mejorar la calidad visual de sus imágenes. Con una interfaz sencilla y procesamiento rápido, UpScaler es una opción potente para quienes buscan calidad sin complicaciones.",
-      url: "https://www.pixelcut.ai/t/upscaler",
-      image: "/tools/upscaler.jpg",
-      tags: ["Tools", "Image Enhancement"],
+      "id": "siteinspire",
+      "title": "SiteInspire",
+      "description": "SiteInspire es una galería de los mejores diseños web. Curada manualmente con filtros por estilo, tipo y sujeto.",
+      "url": "https://www.siteinspire.com/",
+      "image": "/images/resources/siteinspire.jpg",
+      "tags": [
+        "Inspiration",
+        "Gallery",
+        "Curated"
+      ]
     },
     {
-      id: 5,
-      title: "Aceternity UI",
-      description:
-        "Aceternity UI es una colección de herramientas de diseño enfocadas en mejorar la experiencia visual de interfaces web. Su herramienta de generación de sombras para cajas (box-shadows) permite a los diseñadores experimentar con distintos niveles de profundidad y realismo, añadiendo un toque moderno a cualquier proyecto.\n\nCon una interfaz simple y controles intuitivos, Aceternity UI facilita la personalización de efectos visuales para botones, tarjetas y elementos de interfaz. Es un recurso ideal para quienes buscan perfeccionar el diseño de sus aplicaciones sin complicaciones, asegurando una estética limpia y atractiva.",
-      url: "https://ui.aceternity.com/tools/box-shadows",
-      image: "/tools/aceternityui.png",
-      tags: ["Tools", "UI"],
+      "id": "land-book",
+      "title": "Land-book",
+      "description": "Land-book recopila los mejores diseños de landing pages. Galería organizada por categorías e industrias.",
+      "url": "https://land-book.com/",
+      "image": "/images/resources/land-book.jpg",
+      "tags": [
+        "Inspiration",
+        "Landing Pages",
+        "Gallery"
+      ]
     },
     {
-      id: 6,
-      title: "BlenderKit Materials",
-      description:
-        "BlenderKit es una plataforma integrada directamente en Blender que ofrece una extensa biblioteca de modelos 3D, materiales, texturas y cepillos de alta calidad. Con miles de activos listos para usar, los artistas 3D pueden ahorrar tiempo significativo en sus proyectos, accediendo a recursos profesionales con un solo clic. La integración nativa con Blender permite una experiencia fluida, permitiendo buscar y aplicar recursos sin salir del software.\n\nAunque BlenderKit ofrece una selección gratuita considerable, también cuenta con planes premium que desbloquean activos más exclusivos y opciones avanzadas. Es una herramienta esencial para principiantes que necesitan acelerar su aprendizaje y profesionales que buscan optimizar su flujo de trabajo en diseño 3D, animación y visualización arquitectónica.",
-      url: "https://www.blenderkit.com/asset-gallery?query=category_subtree:material%20order:-created",
-      image: "/tools/blenderkit.jpg",
-      tags: ["Tools", "3D", "Blender"],
+      "id": "one-page-love",
+      "title": "One Page Love",
+      "description": "One Page Love es una galería de sitios web de una sola página. Inspiración para landing pages y sitios minimalistas.",
+      "url": "https://onepagelove.com/",
+      "image": "/images/resources/one-page-love.jpg",
+      "tags": [
+        "Inspiration",
+        "One Page",
+        "Minimal"
+      ]
     },
+    {
+      "id": "muzli",
+      "title": "Muzli",
+      "description": "Muzli es la fuente de inspiración de diseñadores. Extensión de navegador que muestra contenido curado de diseño diariamente.",
+      "url": "https://muz.li/",
+      "image": "/images/resources/muzli.jpg",
+      "tags": [
+        "Inspiration",
+        "Daily",
+        "Curated"
+      ]
+    },
+    {
+      "id": "collect-ui",
+      "title": "Collect UI",
+      "description": "Collect UI es una galería de inspiración de diseño UI. Actualizada diariamente con componentes y patrones de interfaz.",
+      "url": "https://collectui.com/",
+      "image": "/images/resources/collect-ui.jpg",
+      "tags": [
+        "Inspiration",
+        "UI",
+        "Daily"
+      ]
+    },
+    {
+      "id": "ui-garage",
+      "title": "UI Garage",
+      "description": "UI Garage es una galería de inspiración de diseño UI. Organizada por patrones y componentes específicos.",
+      "url": "https://uigarage.net/",
+      "image": "/images/resources/ui-garage.jpg",
+      "tags": [
+        "Inspiration",
+        "UI",
+        "Patterns"
+      ]
+    },
+    {
+      "id": "mobbin",
+      "title": "Mobbin",
+      "description": "Mobbin es una biblioteca de screenshots de aplicaciones móviles. Perfecta para investigar patrones de diseño móvil.",
+      "url": "https://mobbin.com/",
+      "image": "/images/resources/mobbin.jpg",
+      "tags": [
+        "Inspiration",
+        "Mobile",
+        "Screenshots"
+      ]
+    },
+    {
+      "id": "page-flows",
+      "title": "Page Flows",
+      "description": "Page Flows documenta flujos de usuario de productos populares. Videos de interacciones reales en aplicaciones conocidas.",
+      "url": "https://pageflows.com/",
+      "image": "/images/resources/page-flows.jpg",
+      "tags": [
+        "Inspiration",
+        "UX",
+        "Flows"
+      ]
+    },
+    {
+      "id": "refero",
+      "title": "Refero",
+      "description": "Refero es una colección de diseños de interfaces. Organizada por componentes y patrones de diseño específicos.",
+      "url": "https://refero.design/",
+      "image": "/images/resources/refero.jpg",
+      "tags": [
+        "Inspiration",
+        "UI",
+        "Components"
+      ]
+    },
+    {
+      "id": "screenlane",
+      "title": "Screenlane",
+      "description": "Screenlane es una galería de diseños de aplicaciones móviles y web. Inspiración organizada por plataforma y categoría.",
+      "url": "https://screenlane.com/",
+      "image": "/images/resources/screenlane.jpg",
+      "tags": [
+        "Inspiration",
+        "Mobile",
+        "Web"
+      ]
+    }
   ],
-  components: [
+  "librerias": [
     {
-      id: 1,
-      title: "UIVerse",
-      description:
-        "UIVerse es una plataforma que ofrece una gran variedad de componentes de interfaz de usuario diseñados para facilitar la creación de experiencias interactivas y visualmente atractivas. Su colección incluye botones, tarjetas, formularios y otros elementos esenciales para el desarrollo web moderno.\n\nLos componentes están diseñados con un enfoque en la accesibilidad y personalización, permitiendo a los desarrolladores adaptarlos a sus necesidades específicas. Además, UIVerse proporciona ejemplos interactivos y código listo para usar, lo que agiliza la implementación en proyectos reales.",
-      url: "https://uiverse.io/",
-      image: "/components/uiverse.png",
-      tags: ["Components", "UI"],
+      "id": "animate-css",
+      "title": "Animate.css",
+      "description": "Animate.css es una biblioteca de animaciones CSS listas para usar. Incluye más de 80 animaciones diferentes fáciles de implementar.",
+      "url": "https://animate.style/",
+      "image": "/images/resources/animate-css.jpg",
+      "tags": [
+        "Libraries",
+        "CSS",
+        "Animation"
+      ]
     },
     {
-      id: 2,
-      title: "Material-UI",
-      description:
-        "Material-UI es una popular biblioteca de componentes de React basada en el sistema de diseño Material Design de Google. Ofrece una amplia variedad de elementos prediseñados que ayudan a los desarrolladores a crear interfaces modernas y responsivas con facilidad.\n\nLos componentes de Material-UI están optimizados para la accesibilidad y la experiencia de usuario, además de ser altamente personalizables mediante temas y estilos. Su integración con el ecosistema de React y su amplia documentación lo convierten en una opción ideal para proyectos de cualquier escala.",
-      url: "https://material-ui.com/",
-      image: "/components/materialui.webp",
-      tags: ["Components", "UI"],
+      "id": "aos",
+      "title": "AOS",
+      "description": "AOS (Animate On Scroll) anima elementos al hacer scroll. Fácil de configurar con múltiples opciones de personalización.",
+      "url": "https://michalsnik.github.io/aos/",
+      "image": "/images/resources/aos.jpg",
+      "tags": [
+        "Libraries",
+        "Scroll",
+        "Animation"
+      ]
     },
     {
-      id: 3,
-      title: "Flowbite Blocks",
-      description:
-        "Flowbite Blocks es una colección de componentes predefinidos construidos con Tailwind CSS, diseñados para facilitar la creación de interfaces web atractivas y funcionales. Incluye una amplia gama de elementos como botones, tablas, tarjetas y formularios.\n\nGracias a su integración con Tailwind CSS, los componentes de Flowbite Blocks son completamente personalizables y permiten una fácil adaptación al estilo de cada proyecto. Además, su diseño modular y reutilizable hace que el desarrollo web sea más rápido y eficiente.",
-      url: "https://flowbite.com/blocks/",
-      image: "/components/flowbite-blocks.png",
-      tags: ["Components", "UI"],
+      "id": "gsap",
+      "title": "GSAP",
+      "description": "GSAP es la biblioteca de animación JavaScript profesional. Usada por Google, Adobe y millones de sitios para animaciones complejas.",
+      "url": "https://greensock.com/gsap/",
+      "image": "/images/resources/gsap.jpg",
+      "tags": [
+        "Libraries",
+        "JavaScript",
+        "Animation"
+      ]
     },
     {
-      id: 4,
-      title: "Mamba UI",
-      description:
-        "Mamba UI es una colección de componentes de interfaz de usuario de código abierto diseñados con Tailwind CSS. Su objetivo es proporcionar elementos listos para usar que ayuden a los desarrolladores a construir interfaces web atractivas y funcionales sin necesidad de diseñar desde cero.\n\nLa biblioteca incluye una variedad de componentes como botones, formularios, tablas y tarjetas, todos optimizados para la accesibilidad y la usabilidad. Mamba UI es ideal para quienes buscan rapidez y flexibilidad en el desarrollo de sus proyectos web.",
-      url: "https://mambaui.com/",
-      image: "/components/mambaui.png",
-      tags: ["Components", "UI"],
+      "id": "particles-js",
+      "title": "Particles.js",
+      "description": "Particles.js es una biblioteca para crear partículas interactivas. Perfecta para fondos animados y efectos visuales atractivos.",
+      "url": "https://particles.js.org/",
+      "image": "/images/resources/particles-js.jpg",
+      "tags": [
+        "Libraries",
+        "Particles",
+        "Interactive"
+      ]
     },
     {
-      id: 5,
-      title: "Floating UI",
-      description:
-        "Floating UI es una biblioteca especializada en la creación de elementos flotantes como tooltips, popovers, dropdowns y menús contextuales. Su enfoque principal es mejorar la colocación y el posicionamiento de estos elementos para garantizar una experiencia de usuario óptima.\n\nOfrece una API flexible y ligera que se puede integrar con diversas bibliotecas y frameworks. Gracias a su enfoque modular, los desarrolladores pueden personalizar su comportamiento y apariencia sin afectar el rendimiento de la aplicación.",
-      url: "https://floating-ui.com/",
-      image: "/components/floatingui.png",
-      tags: ["Components", "UI"],
+      "id": "three-js",
+      "title": "Three.js",
+      "description": "Three.js es una biblioteca JavaScript para crear gráficos 3D en el navegador. La más popular para WebGL y experiencias 3D.",
+      "url": "https://threejs.org/",
+      "image": "/images/resources/three-js.jpg",
+      "tags": [
+        "Libraries",
+        "3D",
+        "WebGL"
+      ]
     },
+    {
+      "id": "chart-js",
+      "title": "Chart.js",
+      "description": "Chart.js es una biblioteca simple para crear gráficos responsivos. Ofrece 8 tipos de gráficos con animaciones fluidas.",
+      "url": "https://www.chartjs.org/",
+      "image": "/images/resources/chart-js.jpg",
+      "tags": [
+        "Libraries",
+        "Charts",
+        "Data Visualization"
+      ]
+    },
+    {
+      "id": "d3-js",
+      "title": "D3.js",
+      "description": "D3.js es la biblioteca más poderosa para visualización de datos. Permite crear visualizaciones personalizadas y complejas.",
+      "url": "https://d3js.org/",
+      "image": "/images/resources/d3-js.jpg",
+      "tags": [
+        "Libraries",
+        "Data",
+        "Visualization"
+      ]
+    }
   ],
-  inspirations: [
+  "ia": [
     {
-      id: 1,
-      title: "Patterns",
-      description:
-        "Colección de patrones y buenas prácticas para el desarrollo frontend.",
-      url: "https://www.patterns.dev/",
-      image: "/inspirations/patterns.webp",
-      tags: ["Inspiration", "UI"],
+      "id": "midjourney",
+      "title": "Midjourney",
+      "description": "Midjourney es una herramienta de generación de imágenes con IA de alta calidad. Conocida por crear arte digital impresionante.",
+      "url": "https://www.midjourney.com/",
+      "image": "/images/resources/midjourney.jpg",
+      "tags": [
+        "AI",
+        "Image Generation",
+        "Premium"
+      ]
     },
     {
-      id: 2,
-      title: "Dribbble",
-      description: "Plataforma para descubrir y compartir diseños creativos.",
-      url: "https://dribbble.com/",
-      image: "/inspirations/dribbble.webp",
-      tags: ["Inspiration", "Design"],
-    },
-  ],
-  librerias: [
-    {
-      id: 1,
-      title: "React Icons",
-      description:
-        "Librería de iconos basada en React con soporte para múltiples packs populares.",
-      url: "https://react-icons.github.io/react-icons/",
-      image: "/librerias/react-icons.png",
-      tags: ["Libraries", "Icons"],
+      "id": "dall-e",
+      "title": "DALL-E",
+      "description": "DALL-E de OpenAI genera imágenes desde descripciones de texto. Capaz de crear arte original y editar imágenes existentes.",
+      "url": "https://openai.com/dall-e-3",
+      "image": "/images/resources/dall-e.jpg",
+      "tags": [
+        "AI",
+        "Image Generation",
+        "OpenAI"
+      ]
     },
     {
-      id: 2,
-      title: "Atropos JS",
-      description:
-        "Efecto de paralaje interactivo fluido y altamente personalizable.",
-      url: "https://atroposjs.com/",
-      image: "/librerias/atroposjs.png",
-      tags: ["Libraries", "UI"],
+      "id": "stable-diffusion",
+      "title": "Stable Diffusion",
+      "description": "Stable Diffusion es un modelo de IA de código abierto para generación de imágenes. Alternativa gratuita ejecutable localmente.",
+      "url": "https://stability.ai/",
+      "image": "/images/resources/stable-diffusion.jpg",
+      "tags": [
+        "AI",
+        "Open Source",
+        "Images"
+      ]
     },
     {
-      id: 3,
-      title: "Swiper",
-      description:
-        "Uno de los mejores sliders y carruseles para la web moderna.",
-      url: "https://swiperjs.com/",
-      image: "/librerias/swiperjs.jpg",
-      tags: ["Libraries", "UI"],
+      "id": "claude",
+      "title": "Claude",
+      "description": "Claude es un asistente de IA de Anthropic enfocado en conversaciones útiles y seguras. Alternativa avanzada a ChatGPT.",
+      "url": "https://claude.ai/",
+      "image": "/images/resources/claude.jpg",
+      "tags": [
+        "AI",
+        "Chat",
+        "Assistant"
+      ]
     },
     {
-      id: 4,
-      title: "Toastify JS",
-      description:
-        "Librería ligera para mostrar notificaciones flotantes elegantes.",
-      url: "https://apvarun.github.io/toastify-js/",
-      image: "/librerias/toastify.jpg",
-      tags: ["Libraries", "UI"],
+      "id": "perplexity",
+      "title": "Perplexity",
+      "description": "Perplexity es un motor de búsqueda impulsado por IA que proporciona respuestas con fuentes. Combina búsqueda tradicional con IA.",
+      "url": "https://www.perplexity.ai/",
+      "image": "/images/resources/perplexity.jpg",
+      "tags": [
+        "AI",
+        "Search",
+        "Research"
+      ]
     },
     {
-      id: 5,
-      title: "Tailwind CSS Animated",
-      description: "Colección de animaciones predefinidas para Tailwind CSS.",
-      url: "https://www.tailwindcss-animated.com/",
-      image: "/librerias/tailwindcssanimated.jpg",
-      tags: ["Libraries", "UI"],
-    },
-    {
-      id: 6,
-      title: "Tailwind CSS Animations",
-      description:
-        "Otro conjunto de animaciones listas para usar con Tailwind CSS.",
-      url: "https://tailwindcss-animations.vercel.app/",
-      image: "/librerias/tailwindcssanimations.jpg",
-      tags: ["Libraries", "UI"],
-    },
-    {
-      id: 7,
-      title: "Astro UI",
-      description:
-        "Colección de componentes accesibles y reutilizables para UI.",
-      url: "https://www.pingidentity.design/components",
-      image: "/librerias/astroui.jpg",
-      tags: ["Libraries", "UI"],
-    },
-    {
-      id: 8,
-      title: "Animista",
-      description:
-        "Animista es una herramienta online que permite crear y personalizar animaciones CSS con una interfaz visual intuitiva. Con más de 100 efectos predefinidos, permite ajustar parámetros como duración, tiempo, retraso y más para obtener el comportamiento exacto deseado. Los desarrolladores pueden previsualizar las animaciones en tiempo real y exportar directamente el código CSS listo para usar.\n\nA diferencia de otras bibliotecas, Animista se enfoca en proporcionar un generador de animaciones más que una colección estática, lo que ofrece mayor control y personalización. Es ideal para desarrolladores que buscan añadir movimiento y dinamismo a interfaces sin escribir código complejo de animación desde cero.",
-      url: "https://animista.net/",
-      image: "/librerias/animista.png",
-      tags: ["Libraries", "CSS", "Animation"],
-    },
-  ],
-  ia: [
-    {
-      id: 1,
-      title: "Microsoft Designer",
-      description: "Herramienta de diseño asistida por IA de Microsoft.",
-      url: "https://designer.microsoft.com/",
-      image: "/ia/microsoftdesigner.png",
-      tags: ["AI", "Design"],
-    },
-    {
-      id: 2,
-      title: "DeepAI",
-      description: "Plataforma de IA para generación de imágenes y más.",
-      url: "https://deepai.org/",
-      image: "/ia/deepai.png",
-      tags: ["AI", "Image Generation"],
-    },
-    {
-      id: 3,
-      title: "ChatGPT",
-      description:
-        "Modelo de IA para generación de texto y asistencia conversacional.",
-      url: "https://chatgpt.com/",
-      image: "/ia/chatgpt.png",
-      tags: ["AI", "Text Generation"],
-    },
-    {
-      id: 4,
-      title: "Modulify",
-      description:
-        "Modelo de IA para la generación de mockups y Sitemaps web con IA.",
-      url: "https://app.modulify.ai/",
-      image: "/ia/modulify.png",
-      tags: ["AI", "Web Generation"],
-    },
-    {
-      id: 5,
-      title: "GitMind",
-      description:
-        "GitMind es una herramienta de creación de mapas mentales impulsada por IA que permite visualizar ideas y conceptos de forma estructurada. Ofrece funciones de colaboración en tiempo real, plantillas prediseñadas y una interfaz intuitiva para facilitar la organización del pensamiento. La plataforma incorpora capacidades de IA para sugerir conexiones entre ideas y optimizar la estructura de los mapas mentales.\n\nCon soporte para diferentes formatos de exportación y compatibilidad multiplataforma, GitMind es ideal para planificación de proyectos, tormenta de ideas, toma de notas estructuradas y presentaciones visuales. Su combinación de simplicidad y potencia la convierte en una opción excelente para estudiantes, profesionales y equipos de trabajo.",
-      url: "https://gitmind.com/",
-      image: "/ia/gitmind.jpg",
-      tags: ["AI", "Productivity", "Mind Mapping"],
-    },
-  ],
+      "id": "gemini",
+      "title": "Gemini",
+      "description": "Gemini es el modelo de IA de Google que rivaliza con GPT-4. Multimodal con capacidades avanzadas de razonamiento.",
+      "url": "https://gemini.google.com/",
+      "image": "/images/resources/gemini.jpg",
+      "tags": [
+        "AI",
+        "Google",
+        "Multimodal"
+      ]
+    }
+  ]
 };
 
 export default resources;

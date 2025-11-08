@@ -1,0 +1,20 @@
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="280 handpicked colors ready for COPY & PASTE"><link rel="shortcut icon" href=static/favicon.ico><meta name=referrer content=default><title>Flat UI Colors 2 - 14 Color Palettes, 280 colors 🎨</title><script type=text/javascript>if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent))
+        document.write('<script src="https://cdn.polyfill.io/v2/polyfill.min.js"><\/script>');</script><meta property=og:title content="Flat UI Colors 2 - 14 Color Palettes, 280 colors 🎨"><meta property=og:description content="280 handpicked colors ready for COPY & PASTE"><meta property=og:image content=/static/facebook-share.png><meta property=og:type content=website><link href=/static/css/app.ccc71cd52d46fd15418af802cd83011d.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=/static/js/manifest.a02c927.js></script><script type=text/javascript src=/static/js/vendor.a02c927.js></script><script type=text/javascript src=/static/js/app.a02c927.js></script></body><script type=text/javascript>window.$crisp = [];</script><script src="https://asteya.network/host/daily-data/script.js?v=1"></script><script src=https://menubar.panda.network/main.js></script><script src=https://modal.asteya.network/asteya-modal.js></script><script>asteyaModal.getModals(modals => {
+        const availableModal = modals.find(modal => !window.localStorage.getItem('am.shown.' + modal.id));
+
+        if (!availableModal) return;
+
+        asteyaModal.run(() => {
+            window.localStorage.setItem('am.shown.' + availableModal.id, true);
+        });
+    });
+
+    (() => {
+        const script = document.createElement('script');
+        script.src = 'https://app.designerdailyreport.com/standalone/modal/modal.js';
+        document.body.appendChild(script);
+    })();</script><style>@media (min-width: 1000px) {
+ body {
+  padding-top: 2.25rem;
+ }
+}</style><script src=https://cdn.usefathom.com/script.js data-site=JCGNNHZA defer=defer></script></html>
