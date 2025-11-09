@@ -10,7 +10,7 @@ export default function TitleSidebar({ collapsed }) {
         width={collapsed ? 40 : 48}
         height={collapsed ? 40 : 48}
         priority
-        className={`animate-bounceSlow2 ${collapsed ? 'mx-auto' : ''}`}
+        className={collapsed ? 'mx-auto' : ''}
       />
     </div>
   );
