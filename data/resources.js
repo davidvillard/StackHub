@@ -690,7 +690,7 @@ const resources = {
       "title": "Google Fonts",
       "description": "Google Fonts es la biblioteca de fuentes web más popular con más de 1,400 familias tipográficas gratuitas. Fácil de implementar y optimizada para rendimiento web.",
       "url": "https://fonts.google.com/",
-      "image": "/images/resources/google-fonts.jpg",
+      "image": "/images/resources/google-fonts.webp",
       "tags": [
         "Fonts",
         "Web",
@@ -702,7 +702,7 @@ const resources = {
       "title": "Font Squirrel",
       "description": "Font Squirrel ofrece fuentes comerciales gratuitas cuidadosamente seleccionadas. Incluye un generador de @font-face para conversión de formatos web.",
       "url": "https://www.fontsquirrel.com/",
-      "image": "/images/resources/font-squirrel.jpg",
+      "image": "/images/resources/fontSquirrel.png",
       "tags": [
         "Fonts",
         "Commercial",
@@ -714,7 +714,7 @@ const resources = {
       "title": "DaFont",
       "description": "DaFont es una de las mayores bibliotecas de fuentes gratuitas con miles de opciones organizadas por categorías. Perfecta para encontrar fuentes creativas y decorativas.",
       "url": "https://www.dafont.com/",
-      "image": "/images/resources/dafont.jpg",
+      "image": "/images/resources/daFont.jpg",
       "tags": [
         "Fonts",
         "Creative",
@@ -726,7 +726,7 @@ const resources = {
       "title": "1001 Fonts",
       "description": "1001 Fonts ofrece más de 10,000 fuentes gratuitas descargables. Su colección incluye tanto fuentes gratuitas como premium organizadas por categorías.",
       "url": "https://www.1001fonts.com/",
-      "image": "/images/resources/1001-fonts.jpg",
+      "image": "/images/resources/1001Fonts.png",
       "tags": [
         "Fonts",
         "Extensive",
@@ -750,7 +750,7 @@ const resources = {
       "title": "Fontspace",
       "description": "Fontspace ofrece más de 90,000 fuentes gratuitas descargables. Su comunidad activa sube constantemente nuevas tipografías creativas.",
       "url": "https://www.fontspace.com/",
-      "image": "/images/resources/fontspace.jpg",
+      "image": "/images/resources/fontSpace.png",
       "tags": [
         "Fonts",
         "Community",
@@ -774,7 +774,7 @@ const resources = {
       "title": "FFonts",
       "description": "FFonts es una biblioteca simple de fuentes gratuitas con una interfaz limpia. Ofrece descarga directa sin complicaciones de miles de tipografías.",
       "url": "https://www.ffonts.net/",
-      "image": "/images/resources/ffonts.jpg",
+      "image": "/images/resources/FFonts.png",
       "tags": [
         "Fonts",
         "Simple",
@@ -786,7 +786,7 @@ const resources = {
       "title": "Urban Fonts",
       "description": "Urban Fonts ofrece más de 8,000 fuentes gratuitas para descargar. Su colección incluye tipografías modernas y clásicas para todo tipo de proyectos.",
       "url": "https://www.urbanfonts.com/",
-      "image": "/images/resources/urban-fonts.jpg",
+      "image": "/images/resources/urbanFonts.jpg",
       "tags": [
         "Fonts",
         "Modern",
@@ -794,23 +794,11 @@ const resources = {
       ]
     },
     {
-      "id": "font-river",
-      "title": "Font River",
-      "description": "Font River ofrece miles de fuentes gratuitas descargables organizadas alfabéticamente. Incluye tanto fuentes decorativas como profesionales.",
-      "url": "https://www.fontriver.com/",
-      "image": "/images/resources/font-river.jpg",
-      "tags": [
-        "Fonts",
-        "Organized",
-        "Variety"
-      ]
-    },
-    {
       "id": "fontasy",
       "title": "Fontasy",
       "description": "Fontasy ofrece una selección curada de fuentes comerciales gratuitas. Perfecta para diseñadores que buscan tipografías de calidad profesional.",
       "url": "https://fontasy.com/",
-      "image": "https://fontasy.com/",
+      "image": "/images/resources/fontasy_image.png",
       "tags": [
         "Fonts",
         "Curated",
@@ -834,7 +822,7 @@ const resources = {
       "title": "Font Fabric",
       "description": "Font Fabric es un estudio tipográfico que ofrece fuentes gratuitas de alta calidad junto con opciones premium. Conocido por sus diseños elegantes y modernos.",
       "url": "https://www.fontfabric.com/",
-      "image": "/images/resources/font-fabric.jpg",
+      "image": "/images/resources/fontFabric.webp",
       "tags": [
         "Fonts",
         "Studio",

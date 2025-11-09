@@ -5,7 +5,7 @@ import { Minus, Plus } from "lucide-react";
 const faqs = [
   { 
     question: "¿Cómo funciona esta plataforma?", 
-    answer: "Explora nuestra colección de recursos gratuitos organizados por categorías. Puedes navegar por el menú lateral o usar la búsqueda para encontrar rápidamente lo que necesitas." 
+    answer: "Explora nuestra colección de recursos gratuitos organizados por categorías. Puedes navegar por el menú lateral para encontrar rápidamente lo que necesitas." 
   },
   { 
     question: "¿Puedo sugerir un recurso?", 
@@ -34,7 +34,7 @@ const FAQ = () => {
   const toggleFAQ = (index) => setOpenIndex(openIndex === index ? null : index);
 
   return (
-    <div className="min-h-screen px-6 py-12 ml-0 md:ml-32 md:py-16">
+    <div className="h-fit px-6 py-12 ml-0 md:ml-32 md:py-16">
       <div className="max-w-3xl mx-auto">
         {/* Header minimalista */}
         <div className="mb-16">
@@ -57,7 +57,7 @@ const FAQ = () => {
             >
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full text-left py-6 border-b border-zinc-800 hover:border-zinc-700 transition-colors group"
+                className="cursor-pointer w-full text-left py-6 border-b border-zinc-800 hover:border-zinc-700 transition-colors group"
               >
                 <div className="flex items-start justify-between gap-4">
                   <span className={`text-lg font-medium transition-colors ${

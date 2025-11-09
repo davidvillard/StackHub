@@ -12,7 +12,7 @@ export default function Home() {
         keywords="recursos para diseñadores, recursos diseño web gratis, iconos gratis, ilustraciones gratis, fuentes tipográficas, herramientas UI UX, recursos desarrollo web, componentes React, plantillas diseño"
       />
 
-      <div className="flex flex-col items-center justify-center w-full h-full px-6 py-10 sm:py-16 lg:py-20">
+      <div className="flex flex-col items-center justify-center w-full h-fit px-6 py-10 sm:py-16 lg:py-20">
         <Image
           src="/StackHub_3D.PNG"
           alt="StackHub - Plataforma de recursos gratuitos para diseñadores web"
