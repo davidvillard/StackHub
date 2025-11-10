@@ -20,7 +20,6 @@ export default function Home() {
           width={363}
           height={361}
           priority
-          unoptimized
         />
 
         <div className="flex flex-col items-center text-center gap-4 sm:gap-6 mt-8">
