@@ -17,7 +17,7 @@ export default function Document() {
         <link rel="manifest" href="/site.webmanifest" />
         
         {/* Verificaciones */}
-        <meta name="google-site-verification" content="yPYcwOlcQrH1_eHTOuXu3N_rbO0ikshJYhpBmKftTHA" />
+        <meta name="google-site-verification" content="gFf5Yx-WKMqeVB9tL1ZoBHpDn84roE32XKY4qD2je2A" />
         
         {/* Preconnect para mejorar rendimiento */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
