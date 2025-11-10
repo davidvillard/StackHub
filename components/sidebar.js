@@ -27,11 +27,14 @@ const Sidebar = () => {
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
-      setIsMobile(width < 640);
-      setIsTablet(width >= 640 && width < 1024);
+      const newIsMobile = width < 640;
+      const newIsTablet = width >= 640 && width < 1024;
+      
+      setIsMobile(newIsMobile);
+      setIsTablet(newIsTablet);
       
       // Cierra automáticamente en móvil cuando cambia el tamaño
-      if (width < 640) {
+      if (newIsMobile) {
         setIsOpen(false);
       } else if (width >= 1024) {
         // En desktop mantén el estado guardado
@@ -73,7 +76,8 @@ const Sidebar = () => {
     )
   );
 
-  // Determina si se debe mostrar el texto basado en el estado
+  // CORRECCIÓN: En móvil, mostrar texto cuando isOpen es true
+  // En desktop/tablet, mostrar texto cuando NO está colapsado
   const shouldShowText = isMobile ? isOpen : !isCollapsed;
 
   return (
@@ -94,7 +98,7 @@ const Sidebar = () => {
       <aside 
         className={`
           fixed h-[100dvh] z-40
-          ${isCollapsed ? 'w-16 sm:w-20' : 'w-64'} 
+          ${isMobile ? 'w-64' : (isCollapsed ? 'w-16 sm:w-20' : 'w-64')}
           ${isOpen ? 'translate-x-0' : '-translate-x-full sm:translate-x-0'}
           bg-zinc-900/95 text-white flex flex-col
           transition-all duration-300 ease-in-out
@@ -104,25 +108,27 @@ const Sidebar = () => {
           overflow-visible
         `}
       >
-        {/* Collapse/Expand button */}
-        <div className="relative">
-          <button 
-            onClick={toggleSidebar}
-            className="hidden sm:flex absolute right-0 top-6 bg-zinc-800 rounded-full p-1 border-2 border-zinc-700 hover:bg-zinc-700 transition-all z-50 shadow-md hover:shadow-lg active:scale-95"
-            aria-label={isCollapsed ? "Expandir menú" : "Colapsar menú"}
-            style={{ transform: "translateX(50%)" }}
-          >
-            {isCollapsed ? (
-              <ChevronRight size={18} className="text-zinc-300" />
-            ) : (
-              <ChevronLeft size={18} className="text-zinc-300" />
-            )}
-          </button>
-        </div>
+        {/* Collapse/Expand button - SOLO EN DESKTOP/TABLET */}
+        {!isMobile && (
+          <div className="relative">
+            <button 
+              onClick={toggleSidebar}
+              className="absolute right-0 top-6 bg-zinc-800 rounded-full p-1 border-2 border-zinc-700 hover:bg-zinc-700 transition-all z-50 shadow-md hover:shadow-lg active:scale-95"
+              aria-label={isCollapsed ? "Expandir menú" : "Colapsar menú"}
+              style={{ transform: "translateX(50%)" }}
+            >
+              {isCollapsed ? (
+                <ChevronRight size={18} className="text-zinc-300" />
+              ) : (
+                <ChevronLeft size={18} className="text-zinc-300" />
+              )}
+            </button>
+          </div>
+        )}
 
         {/* Header con título/logo */}
         <div className="px-3 py-4">
-          <TitleSidebar collapsed={isCollapsed && !isMobile} />
+          <TitleSidebar collapsed={!shouldShowText} />
         </div>
 
         {/* Menú de navegación */}
@@ -130,12 +136,12 @@ const Sidebar = () => {
           {/* Enlaces fijos superiores */}
           <div className="px-2 mb-3">
             <ul>
-              <li className={`${isCollapsed ? 'mx-auto' : 'w-[90%] mx-auto'}`}>
+              <li className={`${!shouldShowText ? 'mx-auto' : 'w-[90%] mx-auto'}`}>
                 <Link 
                   href="/" 
                   onClick={handleLinkClick}
                   className={`
-                    flex items-center ${isCollapsed ? 'justify-center' : 'justify-start'} gap-3 
+                    flex items-center ${!shouldShowText ? 'justify-center' : 'justify-start'} gap-3 
                     p-3 rounded-lg hover:bg-yellow-500/20 transition-all group 
                     active:bg-yellow-500/30
                   `}
@@ -161,22 +167,22 @@ const Sidebar = () => {
           <div className="flex-grow overflow-y-auto px-2 scrollbar-thin scrollbar-thumb-zinc-700 scrollbar-track-transparent">
             <ul className={`space-y-1 ${!shouldShowText && 'flex flex-col items-center'}`}>
               {categories.map((cat) => (
-                <li key={cat.id} className={`${isCollapsed ? 'w-full' : 'w-[95%] mx-auto'}`}>
+                <li key={cat.id} className={`${!shouldShowText ? 'w-full' : 'w-[95%] mx-auto'}`}>
                   <Link 
                     href={`/${cat.id}`} 
                     onClick={handleLinkClick}
                     className={`
-                      flex items-center ${isCollapsed ? 'justify-center' : 'justify-start'} gap-3 
+                      flex items-center ${!shouldShowText ? 'justify-center' : 'justify-start'} gap-3 
                       p-3 rounded-lg hover:bg-zinc-800 transition-all group 
                       active:bg-zinc-700
                     `}
-                    title={isCollapsed ? cat.name : ""}
+                    title={!shouldShowText ? cat.name : ""}
                   >
                     <div className="p-1.5 rounded-lg bg-zinc-800 group-hover:bg-zinc-700 transition-colors">
                       <cat.icon size={20} className="text-white" />
                     </div>
                     {shouldShowText && (
-                      <span className="text-sm font-medium clash truncate ">{cat.name}</span>
+                      <span className="text-sm font-medium clash truncate">{cat.name}</span>
                     )}
                   </Link>
                 </li>
@@ -190,16 +196,16 @@ const Sidebar = () => {
 
             <div className="px-2 pb-safe-area">
               <ul className={`space-y-1 ${!shouldShowText && 'flex flex-col items-center'}`}>
-                <li className={`${isCollapsed ? 'w-full' : 'w-[95%] mx-auto'}`}>
+                <li className={`${!shouldShowText ? 'w-full' : 'w-[95%] mx-auto'}`}>
                   <Link 
                     href="/faq" 
                     onClick={handleLinkClick}
                     className={`
-                      flex items-center ${isCollapsed ? 'justify-center' : 'justify-start'} gap-3 
+                      flex items-center ${!shouldShowText ? 'justify-center' : 'justify-start'} gap-3 
                       p-3 rounded-lg hover:bg-sky-500/20 transition-all group 
                       active:bg-sky-500/30
                     `}
-                    title={isCollapsed ? "Ayuda" : ""}
+                    title={!shouldShowText ? "Ayuda" : ""}
                   >
                     <div className="p-1.5 rounded-lg bg-sky-500/10 group-hover:bg-sky-500/30 transition-colors">
                       <MessageCircleQuestion size={20} className="text-sky-400" />
@@ -209,16 +215,16 @@ const Sidebar = () => {
                     )}
                   </Link>
                 </li>
-                <li className={`${isCollapsed ? 'w-full' : 'w-[95%] mx-auto'}`}>
+                <li className={`${!shouldShowText ? 'w-full' : 'w-[95%] mx-auto'}`}>
                   <Link 
                     href="https://github.com/davidvillard" 
                     onClick={handleLinkClick}
                     className={`
-                      flex items-center ${isCollapsed ? 'justify-center' : 'justify-start'} gap-3 
+                      flex items-center ${!shouldShowText ? 'justify-center' : 'justify-start'} gap-3 
                       p-3 rounded-lg hover:bg-amber-300/20 transition-all group 
                       active:bg-amber-300/30
                     `}
-                    title={isCollapsed ? "Contribuir" : ""}
+                    title={!shouldShowText ? "Contribuir" : ""}
                   >
                     <div className="p-1.5 rounded-lg bg-amber-300/10 group-hover:bg-amber-300/30 transition-colors">
                       <Sparkles size={20} className="text-amber-300" />
