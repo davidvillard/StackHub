@@ -1,5 +1,6 @@
 import Layout from "@/components/layout";
 import SEO from "@/components/ui/Seo";
+import { Analytics } from '@vercel/analytics/react';
 import "@/styles/globals.css";
 import { Geist, Geist_Mono } from "next/font/google";
 
@@ -15,12 +16,14 @@ const geistMono = Geist_Mono({
 
 function MyApp({ Component, pageProps }) {
   return (
-    <main className={`${geistSans.variable} ${geistMono.variable}`}>
-      <Layout> 
-        <SEO title="StackHub" description="Colección de recursos gratuitos organizado por categorias. Unete a StackHub!"/>
-        <Component {...pageProps} />
-      </Layout>
-    </main>
+    <>
+      <main className={`${geistSans.variable} ${geistMono.variable}`}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </main>
+      <Analytics />
+    </>
   );
 }
 

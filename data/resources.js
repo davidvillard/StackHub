@@ -836,7 +836,7 @@ const resources = {
       "title": "Adobe Color",
       "description": "Adobe Color es una herramienta profesional para crear paletas de colores armoniosas. Integrada con Adobe Creative Cloud, permite explorar tendencias y crear esquemas personalizados.",
       "url": "https://color.adobe.com/",
-      "image": "/images/resources/adobe-color.jpg",
+      "image": "/images/resources/adobeColor.webp",
       "tags": [
         "Colors",
         "Professional",
@@ -848,7 +848,7 @@ const resources = {
       "title": "Paletton",
       "description": "Paletton es un diseñador de esquemas de color que muestra combinaciones de colores en visualizaciones en vivo. Perfecto para encontrar paletas armoniosas basadas en teoría del color.",
       "url": "https://paletton.com/",
-      "image": "/images/resources/paletton.jpg",
+      "image": "/images/resources/paletton-image.png",
       "tags": [
         "Colors",
         "Theory",
@@ -872,7 +872,7 @@ const resources = {
       "title": "Flat UI Colors",
       "description": "Flat UI Colors ofrece paletas de colores populares para diseño plano. Incluye colores de diferentes países y estilos de diseño modernos.",
       "url": "https://flatuicolors.com/",
-      "image": "/images/resources/flat-ui-colors.jpg",
+      "image": "/images/resources/flatUiColors.jpg",
       "tags": [
         "Colors",
         "Flat Design",
@@ -880,35 +880,11 @@ const resources = {
       ]
     },
     {
-      "id": "colourlovers",
-      "title": "COLOURlovers",
-      "description": "COLOURlovers es una comunidad creativa donde los usuarios comparten paletas de colores y patrones. Ofrece millones de combinaciones creadas por la comunidad.",
-      "url": "https://www.colourlovers.com/",
-      "image": "/images/resources/colourlovers.jpg",
-      "tags": [
-        "Colors",
-        "Community",
-        "Creative"
-      ]
-    },
-    {
-      "id": "colormind",
-      "title": "Colormind",
-      "description": "Colormind es un generador de paletas de colores impulsado por IA que aprende de fotografías y arte. Perfecto para generar combinaciones únicas y armoniosas.",
-      "url": "https://colormind.io/",
-      "image": "/images/resources/colormind.jpg",
-      "tags": [
-        "Colors",
-        "AI",
-        "Generator"
-      ]
-    },
-    {
       "id": "khroma",
       "title": "Khroma",
       "description": "Khroma usa IA para aprender tus preferencias de color y genera paletas personalizadas. Ofrece combinaciones ilimitadas basadas en tus gustos.",
       "url": "https://www.khroma.co/",
-      "image": "/images/resources/khroma.jpg",
+      "image": "/images/resources/khroma.webp",
       "tags": [
         "Colors",
         "AI",
@@ -920,7 +896,7 @@ const resources = {
       "title": "Colorable",
       "description": "Colorable es un generador de combinaciones de colores que verifica el contraste de accesibilidad. Perfecto para asegurar que los diseños cumplan con estándares WCAG.",
       "url": "https://colorable.jxnblk.com/",
-      "image": "/images/resources/colorable.jpg",
+      "image": "/images/resources/colorable-image.jpg",
       "tags": [
         "Colors",
         "Accessibility",
@@ -932,7 +908,7 @@ const resources = {
       "title": "BrandColors",
       "description": "BrandColors ofrece los colores oficiales de las marcas más famosas del mundo. Perfecto para mantener consistencia al usar colores de marca en proyectos.",
       "url": "https://brandcolors.net/",
-      "image": "/images/resources/brandcolors.jpg",
+      "image": "/images/resources/brandColors-image.jpg",
       "tags": [
         "Colors",
         "Brands",
@@ -944,7 +920,7 @@ const resources = {
       "title": "Gradient Hunt",
       "description": "Gradient Hunt es una plataforma que ofrece miles de gradientes hermosos creados por la comunidad. Perfecta para encontrar degradados modernos y vibrantes.",
       "url": "https://gradienthunt.com/",
-      "image": "/images/resources/gradient-hunt.jpg",
+      "image": "/images/resources/gradientHunt.png",
       "tags": [
         "Colors",
         "Gradients",
@@ -956,7 +932,7 @@ const resources = {
       "title": "WebGradients",
       "description": "WebGradients ofrece 180 gradientes lineales gratuitos listos para usar en CSS. Descargables en múltiples formatos incluyendo PNG, Sketch y Photoshop.",
       "url": "https://webgradients.com/",
-      "image": "/images/resources/webgradients.jpg",
+      "image": "/images/resources/webGradients-image.jpg",
       "tags": [
         "Colors",
         "Gradients",
@@ -968,7 +944,7 @@ const resources = {
       "title": "uiGradients",
       "description": "uiGradients ofrece una colección hermosa de gradientes de color con vista previa en vivo. Incluye códigos CSS copiables para implementación rápida.",
       "url": "https://uigradients.com/",
-      "image": "/images/resources/uigradients.jpg",
+      "image": "/images/resources/ui-gradients.png",
       "tags": [
         "Colors",
         "Gradients",
@@ -980,7 +956,7 @@ const resources = {
       "title": "Picular",
       "description": "Picular es el motor de búsqueda de colores de Google. Busca cualquier término y obtén los colores más asociados con esa palabra.",
       "url": "https://picular.co/",
-      "image": "/images/resources/picular.jpg",
+      "image": "/images/resources/picular-image.jpg",
       "tags": [
         "Colors",
         "Search",
@@ -994,7 +970,7 @@ const resources = {
       "title": "Hero Patterns",
       "description": "Hero Patterns ofrece patrones SVG repetibles para fondos web. Totalmente personalizables en color y opacidad, perfectos para secciones hero y fondos sutiles.",
       "url": "https://heropatterns.com/",
-      "image": "/images/resources/hero-patterns.jpg",
+      "image": "/images/resources/HeroPatterns.png",
       "tags": [
         "Backgrounds",
         "Patterns",
@@ -1006,7 +982,7 @@ const resources = {
       "title": "SVG Backgrounds",
       "description": "SVG Backgrounds ofrece fondos SVG personalizables y descargables. Incluye patrones geométricos, orgánicos y abstractos perfectos para diseño web moderno.",
       "url": "https://www.svgbackgrounds.com/",
-      "image": "/images/resources/svg-backgrounds.jpg",
+      "image": "/images/resources/svgBackgrounds.jpg",
       "tags": [
         "Backgrounds",
         "SVG",
@@ -1018,7 +994,7 @@ const resources = {
       "title": "Cool Backgrounds",
       "description": "Cool Backgrounds genera fondos coloridos y modernos con diferentes estilos. Incluye gradientes, triángulos, topografía y más efectos visuales atractivos.",
       "url": "https://coolbackgrounds.io/",
-      "image": "/images/resources/cool-backgrounds.jpg",
+      "image": "/images/resources/coolBackgrounds.avif",
       "tags": [
         "Backgrounds",
         "Modern",
@@ -1030,7 +1006,7 @@ const resources = {
       "title": "Gradient Magic",
       "description": "Gradient Magic ofrece una galección de gradientes CSS únicos y modernos. Todos son personalizables y listos para copiar e implementar.",
       "url": "https://www.gradientmagic.com/",
-      "image": "/images/resources/gradient-magic.jpg",
+      "image": "/images/resources/gradient-magic.png",
       "tags": [
         "Backgrounds",
         "Gradients",
@@ -1054,7 +1030,7 @@ const resources = {
       "title": "BGJar",
       "description": "BGJar ofrece fondos SVG abstractos y modernos descargables gratis. Perfecto para darle personalidad a sitios web con fondos únicos.",
       "url": "https://bgjar.com/",
-      "image": "/images/resources/bgjar.jpg",
+      "image": "/images/resources/bgjar-image.jpg",
       "tags": [
         "Backgrounds",
         "Abstract",
@@ -1066,7 +1042,7 @@ const resources = {
       "title": "Trianglify",
       "description": "Trianglify genera patrones de triángulos lowpoly personalizables. Perfecto para fondos geométricos modernos y coloridos.",
       "url": "https://trianglify.io/",
-      "image": "/images/resources/trianglify.jpg",
+      "image": "/images/resources/trianglify-image.jpg",
       "tags": [
         "Backgrounds",
         "Triangles",
@@ -1074,23 +1050,11 @@ const resources = {
       ]
     },
     {
-      "id": "gradient-backgrounds",
-      "title": "Gradient Backgrounds",
-      "description": "Gradient Backgrounds ofrece una colección curada de fondos con gradientes hermosos. Descargables en JPG y CSS para uso inmediato.",
-      "url": "https://gradientbackgrounds.com/",
-      "image": "https://gradientbackgrounds.com/",
-      "tags": [
-        "Backgrounds",
-        "Gradients",
-        "Curated"
-      ]
-    },
-    {
       "id": "mesh-gradients",
       "title": "Mesh Gradients",
       "description": "Mesh Gradients ofrece gradientes de malla modernos y fluidos. Perfectos para fondos web contemporáneos con efectos suaves y orgánicos.",
       "url": "https://products.ls.graphics/mesh-gradients/",
-      "image": "/images/resources/mesh-gradients.jpg",
+      "image": "/images/resources/mesh-gradients.png",
       "tags": [
         "Backgrounds",
         "Mesh",
@@ -1098,47 +1062,11 @@ const resources = {
       ]
     },
     {
-      "id": "transparent-textures",
-      "title": "Transparent Textures",
-      "description": "Transparent Textures ofrece texturas PNG transparentes perfectas para fondos sutiles. Fáciles de superponer sobre colores sólidos.",
-      "url": "https://www.transparenttextures.com/",
-      "image": "/images/resources/transparent-textures.jpg",
-      "tags": [
-        "Backgrounds",
-        "Textures",
-        "Transparent"
-      ]
-    },
-    {
-      "id": "subtle-patterns",
-      "title": "Subtle Patterns",
-      "description": "Subtle Patterns ofrece patrones de fondo sutiles y elegantes. Perfectos para añadir textura sin sobrecargar el diseño.",
-      "url": "https://www.toptal.com/designers/subtlepatterns/",
-      "image": "/images/resources/subtle-patterns.jpg",
-      "tags": [
-        "Backgrounds",
-        "Subtle",
-        "Patterns"
-      ]
-    },
-    {
-      "id": "triangles-bg",
-      "title": "Triangles BG",
-      "description": "Triangles BG genera fondos de triángulos bajos polígonos personalizables. Ofrece exportación en múltiples formatos y tamaños.",
-      "url": "https://msurguy.github.io/triangles/",
-      "image": "/images/resources/triangles-bg.jpg",
-      "tags": [
-        "Backgrounds",
-        "Triangles",
-        "Poly"
-      ]
-    },
-    {
       "id": "css-gradient",
       "title": "CSS Gradient",
       "description": "CSS Gradient es un generador de gradientes CSS con vista previa en tiempo real. Ofrece herramientas avanzadas para crear degradados complejos.",
       "url": "https://cssgradient.io/",
-      "image": "/images/resources/css-gradient.jpg",
+      "image": "/images/resources/cssGradient.jpg",
       "tags": [
         "Backgrounds",
         "CSS",

@@ -12,6 +12,7 @@
     "backup-resources": "node scripts/js-to-csv.js"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.5.0",
     "clsx": "^2.1.1",
     "csv-parse": "^6.1.0",
     "framer-motion": "^12.12.2",

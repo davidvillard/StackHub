@@ -2,7 +2,7 @@
 module.exports = {
   siteUrl: process.env.SITE_URL || 'https://stackhub-app.vercel.app',
   generateRobotsTxt: true,
-  generateIndexSitemap: false,
+  generateIndexSitemap: true,
   changefreq: 'weekly',
   priority: 0.7,
   sitemapSize: 5000,

@@ -24,7 +24,7 @@ export default function CategoryPage() {
   if (!categoryResources) {
     return (
       <div className="p-8 ml-0 md:ml-32 mt-8 md:mt-0 min-h-screen">
-        <SEO 
+        <SEO
           title="Categoría no encontrada"
           description="La categoría solicitada no existe en StackHub"
         />
@@ -79,7 +79,7 @@ export default function CategoryPage() {
 
   return (
     <>
-      <SEO 
+      <SEO
         title={`${nombreCategoria} - Recursos Gratuitos para Diseñadores Web`}
         description={seoDescription}
         keywords={`${seoKeywords}, recursos para diseñadores, ${nombreCategoria.toLowerCase()} gratis`}
@@ -98,8 +98,34 @@ export default function CategoryPage() {
           </p>
         </header>
 
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ItemList",
+              "name": `${nombreCategoria} - Recursos de diseño web`,
+              "description": seoDescription,
+              "numberOfItems": totalResources,
+              "itemListElement": categoryResources.slice(0, 10).map((resource, index) => ({
+                "@type": "ListItem",
+                "position": index + 1,
+                "item": {
+                  "@type": "SoftwareApplication",
+                  "name": resource.title,
+                  "description": resource.description,
+                  "url": resource.url,
+                  "image": resource.image,
+                  "applicationCategory": "DesignApplication",
+                  "operatingSystem": "Web"
+                }
+              }))
+            })
+          }}
+        />
+
         {/* Grid de recursos con datos estructurados */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3 gap-16 pb-14">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-5 gap-16 pb-14">
           {categoryResources.map((resource, index) => (
             <article
               key={resource.id}
@@ -130,7 +156,7 @@ export default function CategoryPage() {
                 {/* Contenido con Schema.org */}
                 <div className="space-y-3">
                   <div className="flex items-start justify-between gap-2">
-                    <h2 
+                    <h2
                       className="text-lg font-semibold text-white group-hover:text-zinc-300 transition-colors"
                       itemProp="name"
                     >
@@ -139,7 +165,7 @@ export default function CategoryPage() {
                     <ArrowUpRight className="w-5 h-5 text-zinc-600 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all flex-shrink-0" />
                   </div>
 
-                  <p 
+                  <p
                     className="text-sm text-zinc-500 leading-relaxed line-clamp-2"
                     itemProp="description"
                   >
@@ -149,7 +175,7 @@ export default function CategoryPage() {
                   {/* Tags con keywords */}
                   <div className="flex flex-wrap gap-2 pt-1" itemProp="keywords">
                     {resource.tags.slice(0, 3).map((tag) => (
-                      <span 
+                      <span
                         key={tag}
                         className="text-xs text-zinc-600 font-medium"
                       >
@@ -167,6 +193,29 @@ export default function CategoryPage() {
             </article>
           ))}
         </div>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Inicio",
+                  "item": "https://stackhub-app.vercel.app"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": nombreCategoria,
+                  "item": `https://stackhub-app.vercel.app/${category}`
+                }
+              ]
+            })
+          }}
+        />
       </div>
     </>
   );

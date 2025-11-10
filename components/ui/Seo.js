@@ -10,38 +10,40 @@ function SEO({
 }) {
   const router = useRouter();
 
-  // URL base (cambiar a vercel cuando lo despliegues)
+  // URL base
   const baseUrl = "https://stackhub-app.vercel.app";
   const canonicalUrl = `${baseUrl}${router.asPath === "/" ? "" : router.asPath}`;
   
-  // Título optimizado con palabra clave principal
-  const defaultTitle = "StackHub - Recursos Gratuitos para Diseñadores y Desarrolladores Web";
+  // Título optimizado (máximo 60 caracteres)
+  const defaultTitle = "StackHub - Recursos Gratuitos para Diseñadores Web";
   const fullTitle = title ? `${title} | StackHub` : defaultTitle;
   
-  // Descripción optimizada con palabras clave LSI
-  const metaDescription = description || "Descubre +500 recursos gratuitos para diseñadores y desarrolladores web: iconos, ilustraciones, fuentes, herramientas UI/UX, componentes y más. Todo organizado y actualizado.";
+  // Descripción optimizada (máximo 155 caracteres)
+  const metaDescription = description || "Descubre +150 recursos gratuitos para diseño web: iconos, ilustraciones, fuentes, herramientas UI/UX y componentes. Actualizado semanalmente.";
   
   // Keywords optimizadas
-  const metaKeywords = keywords || "recursos para diseñadores, recursos diseño web, herramientas diseño gratis, iconos gratis, ilustraciones gratis, fuentes gratis, recursos desarrollo web, UI UX recursos, componentes web, plantillas diseño";
+  const metaKeywords = keywords || "recursos diseño web, iconos gratis, ilustraciones gratis, fuentes web, herramientas UI UX, componentes React, recursos desarrollo web, diseño gratuito";
 
   // Imagen OG optimizada
   const ogImage = `${baseUrl}${image}`;
   
   return (
     <Head>
-      {/* Title Tags */}
+      {/* Primary Meta Tags */}
       <title>{fullTitle}</title>
       <meta name="title" content={fullTitle} />
-      
-      {/* Meta Tags básicos */}
       <meta name="description" content={metaDescription} />
       <meta name="keywords" content={metaKeywords} />
-      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-      <meta name="author" content="David Villard" />
-      <meta name="language" content="Spanish" />
-      <meta name="revisit-after" content="7 days" />
       
-      {/* Canonical */}
+      {/* SEO Tags */}
+      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+      <meta name="googlebot" content="index, follow" />
+      <meta name="author" content="David Villard" />
+      <meta name="language" content="es" />
+      <meta name="revisit-after" content="7 days" />
+      <meta httpEquiv="Content-Language" content="es" />
+      
+      {/* Canonical URL */}
       <link rel="canonical" href={canonicalUrl} />
       
       {/* Open Graph / Facebook */}
@@ -50,6 +52,7 @@ function SEO({
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={metaDescription} />
       <meta property="og:image" content={ogImage} />
+      <meta property="og:image:alt" content={fullTitle} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:site_name" content="StackHub" />
@@ -61,9 +64,11 @@ function SEO({
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={metaDescription} />
       <meta name="twitter:image" content={ogImage} />
+      <meta name="twitter:image:alt" content={fullTitle} />
       <meta name="twitter:creator" content="@davidvillard" />
+      <meta name="twitter:site" content="@stackhub" />
       
-      {/* JSON-LD Schema */}
+      {/* JSON-LD Schema - Website */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -71,21 +76,55 @@ function SEO({
             "@context": "https://schema.org",
             "@type": "WebSite",
             "name": "StackHub",
+            "alternateName": "Stack Hub",
             "description": metaDescription,
             "url": baseUrl,
+            "inLanguage": "es-ES",
             "potentialAction": {
               "@type": "SearchAction",
-              "target": `${baseUrl}/search?q={search_term_string}`,
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": `${baseUrl}/search?q={search_term_string}`
+              },
               "query-input": "required name=search_term_string"
             },
             "publisher": {
               "@type": "Organization",
               "name": "StackHub",
+              "url": baseUrl,
               "logo": {
                 "@type": "ImageObject",
-                "url": `${baseUrl}/StackHub_3D.png`
-              }
+                "url": `${baseUrl}/StackHub_3D.PNG`,
+                "width": 363,
+                "height": 361
+              },
+              "sameAs": [
+                "https://github.com/davidvillard/StackHub"
+              ]
             }
+          })
+        }}
+      />
+      
+      {/* JSON-LD Schema - Organization */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "StackHub",
+            "url": baseUrl,
+            "logo": `${baseUrl}/StackHub_3D.PNG`,
+            "description": "Plataforma de recursos gratuitos para diseñadores y desarrolladores web",
+            "founder": {
+              "@type": "Person",
+              "name": "David Villard",
+              "url": "https://github.com/davidvillard"
+            },
+            "sameAs": [
+              "https://github.com/davidvillard/StackHub"
+            ]
           })
         }}
       />

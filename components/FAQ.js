@@ -3,29 +3,29 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Minus, Plus } from "lucide-react";
 
 const faqs = [
-  { 
-    question: "¿Cómo funciona esta plataforma?", 
-    answer: "Explora nuestra colección de recursos gratuitos organizados por categorías. Puedes navegar por el menú lateral para encontrar rápidamente lo que necesitas." 
+  {
+    question: "¿Cómo funciona esta plataforma?",
+    answer: "Explora nuestra colección de recursos gratuitos organizados por categorías. Puedes navegar por el menú lateral para encontrar rápidamente lo que necesitas."
   },
-  { 
-    question: "¿Puedo sugerir un recurso?", 
-    answer: "¡Sí! Puedes ir a la sección de 'Contribuir' y en Github aportar tu granito de arena. También puedes abrir un issue o enviar un pull request directamente en nuestro repositorio." 
+  {
+    question: "¿Puedo sugerir un recurso?",
+    answer: "¡Sí! Puedes ir a la sección de 'Contribuir' y en Github aportar tu granito de arena. También puedes abrir un issue o enviar un pull request directamente en nuestro repositorio."
   },
-  { 
-    question: "¿Es gratis usar esta plataforma?", 
-    answer: "Sí, todos los recursos son gratuitos, salvo que la página tenga otra licencia. Siempre verificamos que los recursos sean de código abierto o tengan licencias que permitan su uso gratuito." 
+  {
+    question: "¿Es gratis usar esta plataforma?",
+    answer: "Sí, todos los recursos son gratuitos, salvo que la página tenga otra licencia. Siempre verificamos que los recursos sean de código abierto o tengan licencias que permitan su uso gratuito."
   },
-  { 
-    question: "¿Cómo contacto con el soporte?", 
-    answer: "Puedes enviarnos un mensaje a través de nuestro correo davidvillard6@gmail.com o abrir un issue en nuestro repositorio de GitHub." 
+  {
+    question: "¿Cómo contacto con el soporte?",
+    answer: "Puedes enviarnos un mensaje a través de nuestro correo davidvillard6@gmail.com o abrir un issue en nuestro repositorio de GitHub."
   },
-  { 
-    question: "¿Con qué frecuencia se actualizan los recursos?", 
-    answer: "Revisamos y actualizamos nuestra colección de recursos regularmente. Los nuevos recursos se añaden semanalmente, y también verificamos que los existentes sigan funcionando correctamente." 
+  {
+    question: "¿Con qué frecuencia se actualizan los recursos?",
+    answer: "Revisamos y actualizamos nuestra colección de recursos regularmente. Los nuevos recursos se añaden semanalmente, y también verificamos que los existentes sigan funcionando correctamente."
   },
-  { 
-    question: "¿Puedo usar estos recursos para proyectos comerciales?", 
-    answer: "La mayoría de los recursos pueden utilizarse para proyectos comerciales, pero te recomendamos verificar la licencia específica de cada recurso. En la descripción de cada uno indicamos el tipo de licencia cuando está disponible." 
+  {
+    question: "¿Puedo usar estos recursos para proyectos comerciales?",
+    answer: "La mayoría de los recursos pueden utilizarse para proyectos comerciales, pero te recomendamos verificar la licencia específica de cada recurso. En la descripción de cada uno indicamos el tipo de licencia cuando está disponible."
   },
 ];
 
@@ -60,15 +60,13 @@ const FAQ = () => {
                 className="cursor-pointer w-full text-left py-6 border-b border-zinc-800 hover:border-zinc-700 transition-colors group"
               >
                 <div className="flex items-start justify-between gap-4">
-                  <span className={`text-lg font-medium transition-colors ${
-                    openIndex === index ? 'text-white' : 'text-zinc-400 group-hover:text-white'
-                  }`}>
+                  <span className={`text-lg font-medium transition-colors ${openIndex === index ? 'text-white' : 'text-zinc-400 group-hover:text-white'
+                    }`}>
                     {faq.question}
                   </span>
-                  
-                  <div className={`flex-shrink-0 transition-colors ${
-                    openIndex === index ? 'text-white' : 'text-zinc-600 group-hover:text-zinc-400'
-                  }`}>
+
+                  <div className={`flex-shrink-0 transition-colors ${openIndex === index ? 'text-white' : 'text-zinc-600 group-hover:text-zinc-400'
+                    }`}>
                     {openIndex === index ? (
                       <Minus size={20} strokeWidth={2} />
                     ) : (
@@ -76,7 +74,7 @@ const FAQ = () => {
                     )}
                   </div>
                 </div>
-                
+
                 <AnimatePresence>
                   {openIndex === index && (
                     <motion.div
@@ -102,7 +100,7 @@ const FAQ = () => {
           <p className="text-zinc-500 mb-4">
             ¿Tienes más preguntas?
           </p>
-          <a 
+          <a
             href="mailto:davidvillard6@gmail.com"
             className="inline-block text-white font-medium hover:text-zinc-400 transition-colors"
           >
@@ -110,6 +108,23 @@ const FAQ = () => {
           </a>
         </div>
       </div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(faq => ({
+              "@type": "Question",
+              "name": faq.question,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer
+              }
+            }))
+          })
+        }}
+      />
     </div>
   );
 };
