@@ -8,8 +8,8 @@
     "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
-    "update-resources": "node scripts/csv-to-resources.js",
-    "backup-resources": "node scripts/js-to-csv.js"
+    "backup-resources": "node scripts/js-to-csv.js",
+    "update-resources": "node scripts/csv-to-resources.js"
   },
   "dependencies": {
     "@vercel/analytics": "^1.5.0",

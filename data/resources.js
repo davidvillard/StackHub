@@ -1080,7 +1080,7 @@ const resources = {
       "title": "TinyPNG",
       "description": "TinyPNG comprime imágenes PNG y JPEG inteligentemente. Reduce el tamaño de archivo hasta 70% manteniendo la calidad visual.",
       "url": "https://tinypng.com/",
-      "image": "/images/resources/tinypng.jpg",
+      "image": "/images/resources/tiny-png.png",
       "tags": [
         "Tools",
         "Compression",
@@ -1092,7 +1092,7 @@ const resources = {
       "title": "Remove.bg",
       "description": "Remove.bg elimina fondos de imágenes automáticamente usando IA. Procesa fotos en segundos con resultados profesionales.",
       "url": "https://www.remove.bg/",
-      "image": "/images/resources/remove-bg.jpg",
+      "image": "/images/resources/remove-bg.png",
       "tags": [
         "Tools",
         "AI",
@@ -1104,7 +1104,7 @@ const resources = {
       "title": "Photopea",
       "description": "Photopea es un editor de imágenes online gratuito similar a Photoshop. Soporta PSD, XCF, Sketch y otros formatos profesionales.",
       "url": "https://www.photopea.com/",
-      "image": "/images/resources/photopea.jpg",
+      "image": "/images/resources/photopea.webp",
       "tags": [
         "Tools",
         "Editor",
@@ -1116,7 +1116,7 @@ const resources = {
       "title": "SVGOMG",
       "description": "SVGOMG es una herramienta web para optimizar archivos SVG. Reduce el tamaño mientras mantiene la calidad visual con controles precisos.",
       "url": "https://jakearchibald.github.io/svgomg/",
-      "image": "/images/resources/svgomg.jpg",
+      "image": "/images/resources/svgomg.png",
       "tags": [
         "Tools",
         "SVG",
@@ -1128,7 +1128,7 @@ const resources = {
       "title": "Canva",
       "description": "Canva es una plataforma de diseño gráfico online con miles de plantillas. Perfecta para crear contenido visual sin conocimientos de diseño.",
       "url": "https://www.canva.com/",
-      "image": "/images/resources/canva.jpg",
+      "image": "/images/resources/canva.png",
       "tags": [
         "Tools",
         "Design",
@@ -1140,7 +1140,7 @@ const resources = {
       "title": "Figma",
       "description": "Figma es una herramienta de diseño colaborativa basada en navegador. Perfecta para equipos que trabajan en diseño de interfaces.",
       "url": "https://www.figma.com/",
-      "image": "/images/resources/figma.jpg",
+      "image": "/images/resources/figma.png",
       "tags": [
         "Tools",
         "Design",
@@ -1152,7 +1152,7 @@ const resources = {
       "title": "Mockup World",
       "description": "Mockup World ofrece miles de mockups gratuitos para presentar diseños. Incluye dispositivos, packaging, ropa y más.",
       "url": "https://www.mockupworld.co/",
-      "image": "/images/resources/mockup-world.jpg",
+      "image": "/images/resources/mockupworld.webp",
       "tags": [
         "Tools",
         "Mockups",
@@ -1160,23 +1160,11 @@ const resources = {
       ]
     },
     {
-      "id": "smart-mockups",
-      "title": "Smart Mockups",
-      "description": "Smart Mockups permite crear mockups de productos en segundos. Ofrece miles de plantillas para dispositivos, print y packaging.",
-      "url": "https://smartmockups.com/",
-      "image": "/images/resources/smart-mockups.jpg",
-      "tags": [
-        "Tools",
-        "Mockups",
-        "Quick"
-      ]
-    },
-    {
       "id": "unscreen",
       "title": "Unscreen",
       "description": "Unscreen elimina fondos de videos automáticamente. Procesamiento rápido sin chroma key ni edición manual.",
       "url": "https://www.unscreen.com/",
-      "image": "/images/resources/unscreen.jpg",
+      "image": "/images/resources/unscreen.webp",
       "tags": [
         "Tools",
         "Video",
@@ -1188,7 +1176,7 @@ const resources = {
       "title": "Lottie Files",
       "description": "Lottie Files es una plataforma para animaciones Lottie. Incluye editor, biblioteca y herramientas para implementar animaciones web.",
       "url": "https://lottiefiles.com/",
-      "image": "/images/resources/lottie-files.jpg",
+      "image": "/images/resources/lottiefiles.jpg",
       "tags": [
         "Tools",
         "Animation",
@@ -1200,7 +1188,7 @@ const resources = {
       "title": "Neumorphism",
       "description": "Neumorphism es un generador de estilos CSS neumórficos. Crea elementos con el popular efecto de diseño soft UI.",
       "url": "https://neumorphism.io/",
-      "image": "/images/resources/neumorphism.jpg",
+      "image": "/images/resources/neumorphism.png",
       "tags": [
         "Tools",
         "CSS",
@@ -1212,25 +1200,13 @@ const resources = {
       "title": "Get Waves",
       "description": "Get Waves genera divisores de secciones ondulados para web. Personalizable en color, altura y tipo de onda.",
       "url": "https://getwaves.io/",
-      "image": "/images/resources/get-waves.jpg",
+      "image": "/images/resources/getwaves.jpg",
       "tags": [
         "Tools",
         "SVG",
         "Waves"
       ]
     },
-    {
-      "id": "clippy",
-      "title": "Clippy",
-      "description": "Clippy es un generador de clip-path CSS. Crea formas personalizadas para recortar elementos HTML de manera visual.",
-      "url": "https://bennettfeely.com/clippy/",
-      "image": "/images/resources/clippy.jpg",
-      "tags": [
-        "Tools",
-        "CSS",
-        "Clip Path"
-      ]
-    }
   ],
   "components": [
     {
@@ -1238,7 +1214,7 @@ const resources = {
       "title": "Shadcn UI",
       "description": "Shadcn UI es una colección de componentes React reutilizables construidos con Radix UI y Tailwind CSS. Componentes accesibles y personalizables.",
       "url": "https://ui.shadcn.com/",
-      "image": "/images/resources/shadcn-ui.jpg",
+      "image": "/images/resources/shadcnui.webp",
       "tags": [
         "Components",
         "React",
@@ -1250,7 +1226,7 @@ const resources = {
       "title": "Headless UI",
       "description": "Headless UI ofrece componentes sin estilos totalmente accesibles. Diseñados por Tailwind Labs para integrarse perfectamente con Tailwind CSS.",
       "url": "https://headlessui.com/",
-      "image": "/images/resources/headless-ui.jpg",
+      "image": "/images/resources/headlessui.jpg",
       "tags": [
         "Components",
         "React",
@@ -1262,7 +1238,7 @@ const resources = {
       "title": "DaisyUI",
       "description": "DaisyUI es una biblioteca de componentes para Tailwind CSS. Ofrece clases semánticas y temas personalizables para desarrollo rápido.",
       "url": "https://daisyui.com/",
-      "image": "/images/resources/daisyui.jpg",
+      "image": "/images/resources/daisyui.png",
       "tags": [
         "Components",
         "Tailwind",
@@ -1274,7 +1250,7 @@ const resources = {
       "title": "Radix UI",
       "description": "Radix UI proporciona primitivas de componentes accesibles sin estilos. Base perfecta para crear sistemas de diseño personalizados.",
       "url": "https://www.radix-ui.com/",
-      "image": "/images/resources/radix-ui.jpg",
+      "image": "/images/resources/radixui.avif",
       "tags": [
         "Components",
         "Primitives",
@@ -1286,7 +1262,7 @@ const resources = {
       "title": "React Suite",
       "description": "React Suite es una biblioteca de componentes React para aplicaciones empresariales. Incluye componentes complejos como tablas de datos y calendarios.",
       "url": "https://rsuitejs.com/",
-      "image": "/images/resources/react-suite.jpg",
+      "image": "/images/resources/reactsuite.jfif",
       "tags": [
         "Components",
         "React",
@@ -1298,7 +1274,7 @@ const resources = {
       "title": "Chakra UI",
       "description": "Chakra UI es una biblioteca de componentes React simple y modular. Ofrece componentes accesibles con soporte para temas y modos oscuros.",
       "url": "https://chakra-ui.com/",
-      "image": "/images/resources/chakra-ui.jpg",
+      "image": "/images/resources/chakraui.png",
       "tags": [
         "Components",
         "React",
@@ -1310,7 +1286,7 @@ const resources = {
       "title": "Ant Design",
       "description": "Ant Design es un sistema de diseño empresarial con componentes React de alta calidad. Usado por Alibaba y miles de empresas.",
       "url": "https://ant.design/",
-      "image": "/images/resources/ant-design.jpg",
+      "image": "/images/resources/antdesign.jpg",
       "tags": [
         "Components",
         "React",
@@ -1322,7 +1298,7 @@ const resources = {
       "title": "Blueprint",
       "description": "Blueprint es una biblioteca de componentes React para aplicaciones web complejas. Optimizada para interfaces de datos densos y aplicaciones desktop.",
       "url": "https://blueprintjs.com/",
-      "image": "/images/resources/blueprint.jpg",
+      "image": "/images/resources/blueprintjs.png",
       "tags": [
         "Components",
         "React",
@@ -1334,7 +1310,7 @@ const resources = {
       "title": "Semantic UI React",
       "description": "Semantic UI React es la integración oficial de Semantic UI con React. Componentes declarativos y API intuitiva.",
       "url": "https://react.semantic-ui.com/",
-      "image": "/images/resources/semantic-ui-react.jpg",
+      "image": "/images/resources/semanticui.avif",
       "tags": [
         "Components",
         "React",
@@ -1346,7 +1322,7 @@ const resources = {
       "title": "Primer React",
       "description": "Primer React son los componentes React de GitHub. Sistema de diseño profesional usado en productos de GitHub.",
       "url": "https://primer.style/react/",
-      "image": "/images/resources/primer-react.jpg",
+      "image": "/images/resources/primerdesign.png",
       "tags": [
         "Components",
         "React",
@@ -1358,7 +1334,7 @@ const resources = {
       "title": "Evergreen",
       "description": "Evergreen es una biblioteca de componentes React de Segment. Diseñada para aplicaciones empresariales con componentes flexibles.",
       "url": "https://evergreen.segment.com/",
-      "image": "/images/resources/evergreen.jpg",
+      "image": "/images/resources/evergreen.png",
       "tags": [
         "Components",
         "React",
@@ -1370,25 +1346,13 @@ const resources = {
       "title": "Grommet",
       "description": "Grommet es una biblioteca de componentes React centrada en accesibilidad. Incluye componentes para aplicaciones responsivas y accesibles.",
       "url": "https://v2.grommet.io/",
-      "image": "/images/resources/grommet.jpg",
+      "image": "/images/resources/grommet-image.png",
       "tags": [
         "Components",
         "React",
         "Accessible"
       ]
     },
-    {
-      "id": "rebass",
-      "title": "Rebass",
-      "description": "Rebass es una biblioteca primitiva de componentes React. Componentes mínimos y altamente componibles construidos con styled-system.",
-      "url": "https://rebassjs.org/",
-      "image": "/images/resources/rebass.jpg",
-      "tags": [
-        "Components",
-        "React",
-        "Primitives"
-      ]
-    }
   ],
   "inspirations": [
     {
@@ -1396,7 +1360,7 @@ const resources = {
       "title": "Awwwards",
       "description": "Awwwards reconoce y promociona el talento de desarrolladores y diseñadores web. Galería de sitios web galardonados con diseños excepcionales.",
       "url": "https://www.awwwards.com/",
-      "image": "/images/resources/awwwards.jpg",
+      "image": "/images/resources/awwwards.webp",
       "tags": [
         "Inspiration",
         "Awards",
@@ -1408,7 +1372,7 @@ const resources = {
       "title": "Behance",
       "description": "Behance es la plataforma de Adobe para mostrar y descubrir trabajo creativo. Millones de proyectos de diseñadores de todo el mundo.",
       "url": "https://www.behance.net/",
-      "image": "/images/resources/behance.jpg",
+      "image": "/images/resources/behance.jfif",
       "tags": [
         "Inspiration",
         "Portfolio",
@@ -1420,7 +1384,7 @@ const resources = {
       "title": "CSS Design Awards",
       "description": "CSS Design Awards es una plataforma que premia diseño web, UI, UX e innovación. Galería curada de sitios web excepcionales.",
       "url": "https://www.cssdesignawards.com/",
-      "image": "/images/resources/css-design-awards.jpg",
+      "image": "/images/resources/cssdesignawards.jpg",
       "tags": [
         "Inspiration",
         "CSS",
@@ -1432,7 +1396,7 @@ const resources = {
       "title": "SiteInspire",
       "description": "SiteInspire es una galería de los mejores diseños web. Curada manualmente con filtros por estilo, tipo y sujeto.",
       "url": "https://www.siteinspire.com/",
-      "image": "/images/resources/siteinspire.jpg",
+      "image": "/images/resources/siteinspire.png",
       "tags": [
         "Inspiration",
         "Gallery",
@@ -1444,7 +1408,7 @@ const resources = {
       "title": "Land-book",
       "description": "Land-book recopila los mejores diseños de landing pages. Galería organizada por categorías e industrias.",
       "url": "https://land-book.com/",
-      "image": "/images/resources/land-book.jpg",
+      "image": "/images/resources/landbook.webp",
       "tags": [
         "Inspiration",
         "Landing Pages",
@@ -1456,7 +1420,7 @@ const resources = {
       "title": "One Page Love",
       "description": "One Page Love es una galería de sitios web de una sola página. Inspiración para landing pages y sitios minimalistas.",
       "url": "https://onepagelove.com/",
-      "image": "/images/resources/one-page-love.jpg",
+      "image": "/images/resources/onepagelove.jpg",
       "tags": [
         "Inspiration",
         "One Page",
@@ -1468,7 +1432,7 @@ const resources = {
       "title": "Muzli",
       "description": "Muzli es la fuente de inspiración de diseñadores. Extensión de navegador que muestra contenido curado de diseño diariamente.",
       "url": "https://muz.li/",
-      "image": "/images/resources/muzli.jpg",
+      "image": "/images/resources/muzli.png",
       "tags": [
         "Inspiration",
         "Daily",
@@ -1480,7 +1444,7 @@ const resources = {
       "title": "Collect UI",
       "description": "Collect UI es una galería de inspiración de diseño UI. Actualizada diariamente con componentes y patrones de interfaz.",
       "url": "https://collectui.com/",
-      "image": "/images/resources/collect-ui.jpg",
+      "image": "/images/resources/collectui.jpg",
       "tags": [
         "Inspiration",
         "UI",
@@ -1488,23 +1452,11 @@ const resources = {
       ]
     },
     {
-      "id": "ui-garage",
-      "title": "UI Garage",
-      "description": "UI Garage es una galería de inspiración de diseño UI. Organizada por patrones y componentes específicos.",
-      "url": "https://uigarage.net/",
-      "image": "/images/resources/ui-garage.jpg",
-      "tags": [
-        "Inspiration",
-        "UI",
-        "Patterns"
-      ]
-    },
-    {
       "id": "mobbin",
       "title": "Mobbin",
       "description": "Mobbin es una biblioteca de screenshots de aplicaciones móviles. Perfecta para investigar patrones de diseño móvil.",
       "url": "https://mobbin.com/",
-      "image": "/images/resources/mobbin.jpg",
+      "image": "/images/resources/mobbin.png",
       "tags": [
         "Inspiration",
         "Mobile",
@@ -1516,7 +1468,7 @@ const resources = {
       "title": "Page Flows",
       "description": "Page Flows documenta flujos de usuario de productos populares. Videos de interacciones reales en aplicaciones conocidas.",
       "url": "https://pageflows.com/",
-      "image": "/images/resources/page-flows.jpg",
+      "image": "/images/resources/screenlane.jpg",
       "tags": [
         "Inspiration",
         "UX",
@@ -1528,25 +1480,13 @@ const resources = {
       "title": "Refero",
       "description": "Refero es una colección de diseños de interfaces. Organizada por componentes y patrones de diseño específicos.",
       "url": "https://refero.design/",
-      "image": "/images/resources/refero.jpg",
+      "image": "/images/resources/refero-image.jpg",
       "tags": [
         "Inspiration",
         "UI",
         "Components"
       ]
     },
-    {
-      "id": "screenlane",
-      "title": "Screenlane",
-      "description": "Screenlane es una galería de diseños de aplicaciones móviles y web. Inspiración organizada por plataforma y categoría.",
-      "url": "https://screenlane.com/",
-      "image": "/images/resources/screenlane.jpg",
-      "tags": [
-        "Inspiration",
-        "Mobile",
-        "Web"
-      ]
-    }
   ],
   "librerias": [
     {
