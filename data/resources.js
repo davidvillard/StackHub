@@ -1494,7 +1494,7 @@ const resources = {
       "title": "Animate.css",
       "description": "Animate.css es una biblioteca de animaciones CSS listas para usar. Incluye más de 80 animaciones diferentes fáciles de implementar.",
       "url": "https://animate.style/",
-      "image": "/images/resources/animate-css.jpg",
+      "image": "/images/resources/animatecss.jpg",
       "tags": [
         "Libraries",
         "CSS",
@@ -1518,7 +1518,7 @@ const resources = {
       "title": "GSAP",
       "description": "GSAP es la biblioteca de animación JavaScript profesional. Usada por Google, Adobe y millones de sitios para animaciones complejas.",
       "url": "https://greensock.com/gsap/",
-      "image": "/images/resources/gsap.jpg",
+      "image": "/images/resources/gsap.png",
       "tags": [
         "Libraries",
         "JavaScript",
@@ -1530,7 +1530,7 @@ const resources = {
       "title": "Particles.js",
       "description": "Particles.js es una biblioteca para crear partículas interactivas. Perfecta para fondos animados y efectos visuales atractivos.",
       "url": "https://particles.js.org/",
-      "image": "/images/resources/particles-js.jpg",
+      "image": "/images/resources/particlesjs.png",
       "tags": [
         "Libraries",
         "Particles",
@@ -1542,7 +1542,7 @@ const resources = {
       "title": "Three.js",
       "description": "Three.js es una biblioteca JavaScript para crear gráficos 3D en el navegador. La más popular para WebGL y experiencias 3D.",
       "url": "https://threejs.org/",
-      "image": "/images/resources/three-js.jpg",
+      "image": "/images/resources/threejs.jpg",
       "tags": [
         "Libraries",
         "3D",
@@ -1554,7 +1554,7 @@ const resources = {
       "title": "Chart.js",
       "description": "Chart.js es una biblioteca simple para crear gráficos responsivos. Ofrece 8 tipos de gráficos con animaciones fluidas.",
       "url": "https://www.chartjs.org/",
-      "image": "/images/resources/chart-js.jpg",
+      "image": "/images/resources/chartjs.png",
       "tags": [
         "Libraries",
         "Charts",
@@ -1566,7 +1566,7 @@ const resources = {
       "title": "D3.js",
       "description": "D3.js es la biblioteca más poderosa para visualización de datos. Permite crear visualizaciones personalizadas y complejas.",
       "url": "https://d3js.org/",
-      "image": "/images/resources/d3-js.jpg",
+      "image": "/images/resources/d3js.png",
       "tags": [
         "Libraries",
         "Data",
@@ -1580,7 +1580,7 @@ const resources = {
       "title": "Midjourney",
       "description": "Midjourney es una herramienta de generación de imágenes con IA de alta calidad. Conocida por crear arte digital impresionante.",
       "url": "https://www.midjourney.com/",
-      "image": "/images/resources/midjourney.jpg",
+      "image": "/images/resources/midjourney.avif",
       "tags": [
         "AI",
         "Image Generation",
@@ -1588,11 +1588,11 @@ const resources = {
       ]
     },
     {
-      "id": "dall-e",
-      "title": "DALL-E",
-      "description": "DALL-E de OpenAI genera imágenes desde descripciones de texto. Capaz de crear arte original y editar imágenes existentes.",
-      "url": "https://openai.com/dall-e-3",
-      "image": "/images/resources/dall-e.jpg",
+      "id": "chatgpt",
+      "title": "ChatGPT",
+      "description": "ChatGPT de OpenAI genera imágenes desde descripciones de texto. Capaz de crear arte original y editar imágenes existentes.",
+      "url": "https://chatgpt.com/",
+      "image": "/images/resources/chatgpt.jpeg",
       "tags": [
         "AI",
         "Image Generation",
@@ -1616,7 +1616,7 @@ const resources = {
       "title": "Claude",
       "description": "Claude es un asistente de IA de Anthropic enfocado en conversaciones útiles y seguras. Alternativa avanzada a ChatGPT.",
       "url": "https://claude.ai/",
-      "image": "/images/resources/claude.jpg",
+      "image": "/images/resources/claude.webp",
       "tags": [
         "AI",
         "Chat",
@@ -1640,7 +1640,7 @@ const resources = {
       "title": "Gemini",
       "description": "Gemini es el modelo de IA de Google que rivaliza con GPT-4. Multimodal con capacidades avanzadas de razonamiento.",
       "url": "https://gemini.google.com/",
-      "image": "/images/resources/gemini.jpg",
+      "image": "/images/resources/gemini.png",
       "tags": [
         "AI",
         "Google",
