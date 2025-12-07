@@ -1,4 +1,4 @@
-import Sidebar from "../components/sidebar";
+import Sidebar from "./sidebar";
 import { useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 
@@ -14,14 +14,16 @@ const Layout = ({ children }) => {
   }, [router.asPath]);
 
   return (
-    <div className="flex flex-row sm:flex-row h-[100dvh]">
+    <div className="flex h-screen overflow-hidden">
       <Sidebar />
-      <div 
+      <main 
         ref={contentRef}
-        className="flex-1 flex flex-col overflow-auto bg-neutral-800 text-white p-4"
+        className="flex-1 overflow-y-auto bg-neutral-800 text-white"
       >
-        {children}
-      </div>
+        <div className="min-h-full">
+          {children}
+        </div>
+      </main>
     </div>
   );
 };
