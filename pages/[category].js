@@ -84,7 +84,7 @@ export default function CategoryPage() {
         description={seoDescription}
         keywords={`${seoKeywords}, recursos para diseñadores, ${nombreCategoria.toLowerCase()} gratis`}
       />
-      <div className="px-6 py-12 ml-0 md:ml-32 md:py-16 min-h-screen max-w-8xl">
+      <div className="px-6 py-16 md:px-12 md:py-16 min-h-screen max-w-8xl mx-auto">
         {/* Header con contenido rico para SEO */}
         <header className="mb-16">
           <p className="text-zinc-500 text-sm mb-3 tracking-wide">
@@ -125,7 +125,7 @@ export default function CategoryPage() {
         />
 
         {/* Grid de recursos con datos estructurados */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-5 gap-16 pb-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-5 gap-16 pb-0">
           {categoryResources.map((resource, index) => (
             <article
               key={resource.id}
