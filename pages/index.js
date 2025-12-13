@@ -7,8 +7,8 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Inicio - Recursos Gratuitos para Diseñadores y Desarrolladores Web"
-        description="Descubre más de 150 recursos gratuitos para diseñadores y desarrolladores: iconos SVG, ilustraciones, fuentes tipográficas, colores, herramientas UI/UX, componentes React y más. Todo organizado por categorías."
+        title="StackHub - Recursos gratuitos para diseño web"
+        description="Descubre más de 150 recursos gratuitos para diseñadores y desarrolladores: iconos, ilustraciones, fuentes, herramientas UI/UX y componentes. Todo organizado por categorías."
         keywords="recursos para diseñadores, recursos diseño web gratis, iconos gratis, ilustraciones gratis, fuentes tipográficas, herramientas UI UX, recursos desarrollo web, componentes React, plantillas diseño"
       />
 

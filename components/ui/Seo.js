@@ -11,12 +11,12 @@ function SEO({
   const router = useRouter();
 
   // URL base
-  const baseUrl = "https://stackhub-app.vercel.app";
+  const baseUrl = "https://stackhub-app.vercel.app"; // use custom domain later
   const canonicalUrl = `${baseUrl}${router.asPath === "/" ? "" : router.asPath}`;
-  
-  // Título optimizado (máximo 60 caracteres)
-  const defaultTitle = "StackHub - Recursos Gratuitos para Diseñadores Web";
-  const fullTitle = title ? `${title} | StackHub` : defaultTitle;
+
+  // Titles
+  const defaultTitle = "StackHub - Recursos gratuitos para diseño web";
+  const fullTitle = title || defaultTitle;
   
   // Descripción optimizada (máximo 155 caracteres)
   const metaDescription = description || "Descubre +150 recursos gratuitos para diseño web: iconos, ilustraciones, fuentes, herramientas UI/UX y componentes. Actualizado semanalmente.";
