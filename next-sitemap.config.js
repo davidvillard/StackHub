@@ -1,58 +1,29 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
   siteUrl: 'https://stackhub-app.vercel.app',
+  outDir: './public',
   generateRobotsTxt: true,
   generateIndexSitemap: false,
   sitemapSize: 7000,
   changefreq: 'weekly',
   priority: 0.7,
   exclude: ['/api/*'],
-  
-  // Agregar rutas manualmente
   additionalPaths: async (config) => {
-    const result = []
-
-    // Página principal
-    result.push({
-      loc: '/',
-      changefreq: 'daily',
-      priority: 1.0,
-      lastmod: new Date().toISOString(),
-    })
-
-    // FAQ
-    result.push({
-      loc: '/faq',
-      changefreq: 'monthly',
-      priority: 0.5,
-      lastmod: new Date().toISOString(),
-    })
-
-    // Categorías
-    const categories = [
-      'icons', 'illustrations', 'fonts', 'colors', 
-      'tools', 'images', 'videos', 'background',
-      'components', 'inspirations', 'logos', 'librerias', 'ia'
-    ]
-
-    categories.forEach((category) => {
-      result.push({
-        loc: `/${category}`,
-        changefreq: 'weekly',
-        priority: 0.9,
-        lastmod: new Date().toISOString(),
-      })
-    })
-
-    return result
+    return [
+      await config.transform(config, '/'),
+      await config.transform(config, '/faq'),
+      // añade aquí tus categorías si son rutas estáticas conocidas:
+      await config.transform(config, '/icons'),
+      await config.transform(config, '/illustrations'),
+      await config.transform(config, '/fonts'),
+      await config.transform(config, '/colors'),
+      await config.transform(config, '/tools'),
+      await config.transform(config, '/images'),
+      await config.transform(config, '/videos'),
+      await config.transform(config, '/background'),
+    ];
   },
-
   robotsTxtOptions: {
-    policies: [
-      {
-        userAgent: '*',
-        allow: '/',
-      },
-    ],
+    policies: [{ userAgent: '*', allow: '/' }],
   },
-}
+};
