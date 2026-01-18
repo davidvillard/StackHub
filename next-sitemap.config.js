@@ -12,7 +12,6 @@ module.exports = {
     return [
       await config.transform(config, '/'),
       await config.transform(config, '/faq'),
-      // añade aquí tus categorías si son rutas estáticas conocidas:
       await config.transform(config, '/icons'),
       await config.transform(config, '/illustrations'),
       await config.transform(config, '/fonts'),
