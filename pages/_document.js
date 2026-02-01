@@ -1,4 +1,5 @@
 import { Html, Head, Main, NextScript } from "next/document";
+import Script from "next/script";
 
 export default function Document() {
   return (
@@ -24,15 +25,15 @@ export default function Document() {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         
         {/* Google AdSense */}
-        <script
+        <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5262569292350142"
           crossOrigin="anonymous"
         />
 
         {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-JVJYLBBCEH"></script>
-        <script
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-JVJYLBBCEH"></Script>
+        <Script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
