@@ -22,6 +22,12 @@ const nextConfig = {
           { key: 'Content-Type', value: 'text/plain; charset=utf-8' },
         ],
       },
+      {
+        source: '/images/resources/:path*',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+        ],
+      },
     ];
   },
 };

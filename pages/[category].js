@@ -1,5 +1,4 @@
 // pages/[category].js
-import { useRouter } from "next/router";
 import resources from "@/data/resources";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
@@ -7,39 +6,10 @@ import Image from "next/image";
 import categorias from "@/data/categories";
 import SEO from "@/components/ui/Seo";
 
-export default function CategoryPage() {
-  const router = useRouter();
-  const { category } = router.query;
+const PRIORITY_IMAGE_COUNT = 3;
+const RESOURCE_IMAGE_SIZES = "(max-width: 768px) 100vw, (max-width: 1280px) 50vw, (max-width: 1536px) 33vw, 20vw";
 
-  if (!category) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="text-zinc-400">Cargando...</div>
-      </div>
-    );
-  }
-
-  const categoryResources = resources[category];
-
-  if (!categoryResources) {
-    return (
-      <div className="p-8 ml-0 md:ml-32 mt-8 md:mt-0 min-h-screen">
-        <SEO
-          title="Categoría no encontrada"
-          description="La categoría solicitada no existe en StackHub"
-        />
-        <div className="max-w-2xl mx-auto text-center py-20">
-          <h1 className="text-3xl font-bold mb-3 text-white">Categoría no encontrada</h1>
-          <p className="text-zinc-500">
-            No se encontraron recursos para &quot;{category}&quot;
-          </p>
-        </div>
-      </div>
-    );
-  }
-
-  const categoriaActual = categorias.find((cat) => cat.id === category);
-  const nombreCategoria = categoriaActual ? categoriaActual.name : "Categoría no encontrada";
+export default function CategoryPage({ category, categoryResources, nombreCategoria }) {
   const totalResources = categoryResources.length;
 
   const categoryDescriptions = {
@@ -147,7 +117,9 @@ export default function CategoryPage() {
                     width={500}
                     height={375}
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                    loading={index < 10 ? "eager" : "lazy"}
+                    priority={index < PRIORITY_IMAGE_COUNT}
+                    sizes={RESOURCE_IMAGE_SIZES}
+                    quality={65}
                     itemProp="image"
                   />
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
@@ -219,4 +191,32 @@ export default function CategoryPage() {
       </div>
     </>
   );
+}
+export async function getStaticPaths() {
+  return {
+    paths: categorias.map((cat) => ({
+      params: { category: cat.id },
+    })),
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const category = params?.category;
+  const categoryResources = resources[category];
+
+  if (!categoryResources) {
+    return { notFound: true };
+  }
+
+  const categoriaActual = categorias.find((cat) => cat.id === category);
+  const nombreCategoria = categoriaActual ? categoriaActual.name : "Categoría";
+
+  return {
+    props: {
+      category,
+      categoryResources,
+      nombreCategoria,
+    },
+  };
 }
